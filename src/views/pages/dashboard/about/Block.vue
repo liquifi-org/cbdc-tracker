@@ -1,0 +1,105 @@
+<template>
+  <div>
+    <div v-if="isMobileScreen" class="m-b-16">
+      <app-title>CBDC project</app-title>
+      Current status of Central Bank Digital Currencies (CBDC) worldwide
+    </div>
+
+    <app-card class="ui-about">
+      <template v-if="!isMobileScreen" #header>
+        <app-title>CBDC project</app-title>
+        Current status of Central Bank Digital Currencies (CBDC) worldwide
+      </template>
+
+        <b-row>
+        <b-col cols="12" xxl="6">
+          <div class="m-b-12">
+            <strong>Description</strong>
+          </div>
+
+          <strong>Research</strong> Countries that published multiple research reports about CBDC and start experimenting<br>
+          <strong>Development</strong> Countries in the midst of launching a digital currency as a small-scale pilot or moving towards a large-scale launch<br>
+          <strong>Pilot</strong> Countries piloting CBDC for domestic interbank or international use-cases in a real environment with a limited number of parties<br>
+          <strong>Launched</strong> Countries officially launched a digital currency and issued tokens for transactions<br>
+          <strong>Cancelled</strong> Countries cancelled or decommissioned a CBDC
+        </b-col>
+
+        <b-col cols="12" xxl="6">
+          <div class="m-b-12" :class="{'m-t-16': isMobileScreen}">
+            <strong>Publications</strong>
+          </div>
+
+          <div class="m-b-16">
+            <div class="m-b-8">
+              <app-external-link href="https://www.bcg.com/en-nl/publications/2020/get-ready-for-the-future-of-money"
+                                 text="Get Ready for the Future of Money"></app-external-link>
+            </div>
+
+            <div>
+              <app-external-link href="https://www.coindesk.com/central-bank-digital-currencies-need-decentralization"
+                                 text="Central Bank Digital Currencies Need Decentralization"></app-external-link>
+            </div>
+          </div>
+
+          <b-row>
+            <b-col class="m-b-16" cols="12" xxl="3">
+              <div class="m-b-12">
+                <strong>Source</strong>
+              </div>
+
+              <app-social-network-link :socialNetwork="SOCIAL_NETWORKS_NAMES.GITHUB"
+                                       href="https://github.com/liquifi-org/cbdc-tracker"
+                                       text="Github"></app-social-network-link>
+            </b-col>
+
+            <b-col class="m-b-16" cols="12" xxl="9">
+              <div class="m-b-12">
+                <strong>Key contributors</strong>
+              </div>
+
+              <div>
+                <app-social-network-link class="m-r-24"
+                                         :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                         href="https://www.linkedin.com/in/mikhalev/"
+                                         text="Igor Mikhalev"></app-social-network-link>
+
+                <app-social-network-link class="m-r-24"
+                                         :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                         href="https://www.linkedin.com/in/kaj-burchardi-b1030242/"
+                                         text="Kaj Burchardi"></app-social-network-link>
+
+                <app-social-network-link :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                         href="https://www.linkedin.com/in/bihaosong/"
+                                         text="Bihao Song"></app-social-network-link>
+              </div>
+            </b-col>
+          </b-row>
+
+          MIT License, free for reproduction and distribution
+        </b-col>
+      </b-row>
+    </app-card>
+  </div>
+</template>
+
+<script>
+import { SOCIAL_NETWORKS_NAMES } from '@/constants/socialNetworks'
+import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+
+export default {
+  mixins: [screenSizeMixin],
+  data () {
+    return {
+      SOCIAL_NETWORKS_NAMES
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  .ui-about {
+    strong {
+      font-weight: 800;
+    }
+  }
+</style>

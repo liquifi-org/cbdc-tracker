@@ -1,0 +1,624 @@
+---
+openapi: 3.0.3
+info:
+  title: Generated API
+  version: "1.0"
+tags:
+- name: Currency
+  description: Currency REST API
+- name: News
+  description: News REST API
+- name: History of changes
+  description: CBDC history of changes REST API
+- name: Countries
+  description: Countries API
+paths:
+  /countries:
+    get:
+      tags:
+      - Countries
+      description: Returns all countries that are working on CBDC
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListString'
+  /currencies:
+    get:
+      tags:
+      - Currency
+      description: Returns a list of all CBDC on then specified date
+      parameters:
+      - name: date
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListCurrencyDTO'
+  /currencies/columns:
+    get:
+      tags:
+      - Currency
+      description: Returns a list of CBDC columns
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DataColumn'
+  /currencies/tags:
+    get:
+      tags:
+      - Currency
+      description: Returns CBDC tags
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListTagDTO'
+  /currencies/tags/{tag}:
+    get:
+      tags:
+      - Currency
+      description: Returns a CBDC
+      parameters:
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Currency'
+  /history-of-changes:
+    get:
+      tags:
+      - History of changes
+      description: Returns a page of changes according to the search request
+      parameters:
+      - name: dateTo
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 10
+          type: integer
+      - name: tags
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseHistoryOfChangesMonth'
+  /history-of-changes/updates:
+    get:
+      tags:
+      - History of changes
+      description: Returns a page of changes according to the search request
+      parameters:
+      - name: dateFrom
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListCurrencyUpdateDTO'
+  /news:
+    get:
+      tags:
+      - News
+      description: Returns a page of news according to a search request
+      parameters:
+      - name: page
+        in: query
+        schema:
+          format: int32
+          default: 0
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          default: 10
+          type: integer
+      - name: tags
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageResponseNewsDTO'
+  /news/{uid}:
+    get:
+      tags:
+      - News
+      description: Returns news by its URL
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/UUID'
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/News'
+components:
+  schemas:
+    DataColumn:
+      type: object
+      properties:
+        filterable:
+          description: Defines if a column can be filtered by
+          type: boolean
+        hideable:
+          description: Defines if a column can be hidden
+          type: boolean
+        isDefault:
+          description: Defines if a column is displayed by default
+          type: boolean
+        name:
+          description: Column system name
+          type: string
+          example: digitalCurrency
+        sortable:
+          description: Defines if a column can be sorted by
+          type: boolean
+        title:
+          description: Column display title
+          type: string
+          example: Digital currency
+        visible:
+          description: Defines if a column is currently visible
+          type: boolean
+        default:
+          type: boolean
+    Currency:
+      description: CBDC
+      type: object
+      properties:
+        announcementLink:
+          type: string
+        announcementYear:
+          format: int64
+          description: Year when CBDC was announced
+          type: integer
+          example: 1577826000000
+        anonymity:
+          type: string
+        centralBank:
+          description: Central Bank of CBDC
+          type: string
+          example: Bank of Canada
+        centralization:
+          type: string
+        country:
+          description: Currency Country/Region
+          type: string
+          example: Canada
+        created:
+          format: int64
+          description: Currency record creation date
+          type: integer
+          example: 1607427411412
+        description:
+          type: string
+        digitalCurrency:
+          description: Digital currency name
+          type: string
+          example: Jasper
+        distribution:
+          type: string
+        dlt:
+          type: string
+        emissionAmount:
+          type: string
+        goals:
+          type: string
+        governanceStructure:
+          description: Digital currency governanceStructure
+          type: string
+          example: Central bank to take a leading role in establishing and ensuring
+            good governance
+        uid:
+          allOf:
+          - $ref: '#/components/schemas/UUID'
+          - description: Currency UID
+            example: 57d6a521-dd19-4a90-bab1-72fc12456cea
+        internationalAccess:
+          type: string
+        interoperability:
+          description: Digital currency interoperability
+          type: string
+          example: "No"
+        limits:
+          type: string
+        offlinePayments:
+          type: string
+        programmability:
+          description: Digital currency programmability
+          type: string
+          example: "true"
+        remuneration:
+          type: string
+        siteLink:
+          type: string
+        socialNetworkLinks:
+          type: string
+        status:
+          description: Digital currency current status
+          type: string
+          example: Pilot
+        structure:
+          description: Digital currency structure
+          type: string
+          example: Token
+        tag:
+          description: Currency tag
+          type: string
+          example: canada-jasper
+        technology:
+          description: Digital currency technology
+          type: string
+          example: Corda
+        type:
+          description: Digital currency type
+          type: string
+          example: Wholesale
+        updateRate:
+          allOf:
+          - $ref: '#/components/schemas/ListLong'
+          - description: Number of currency updates for the last 12 months
+    ListCurrencyDTO:
+      type: array
+      items:
+        $ref: '#/components/schemas/Currency'
+    UUID:
+      format: uuid
+      pattern: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
+      type: string
+    ListLong:
+      type: array
+      items:
+        format: int64
+        type: integer
+    TagDTO:
+      type: object
+      properties:
+        country:
+          description: Currency country of origin
+          type: string
+          example: Canada
+        currency:
+          description: Currency name
+          type: string
+          example: Jasper
+        name:
+          description: Tag name
+          type: string
+          example: canada-jasper
+    ListTagDTO:
+      type: array
+      items:
+        $ref: '#/components/schemas/TagDTO'
+    PageResponse:
+      description: Page response
+      type: object
+      properties:
+        content:
+          allOf:
+          - $ref: '#/components/schemas/ListHistoryOfChangesMonth'
+          - description: Page content
+        first:
+          description: Is the first page
+          type: boolean
+          example: true
+        last:
+          description: Is the last page
+          type: boolean
+          example: true
+        number:
+          format: int32
+          description: Current page number
+          type: integer
+          example: 0
+        numberOfElements:
+          format: int32
+          description: Number of elements on a current page
+          type: integer
+          example: 10
+        size:
+          format: int32
+          description: Current page size
+          type: integer
+          example: 10
+        sort:
+          description: Search request sort parameter
+          type: string
+          example: "name,desc"
+        totalElements:
+          format: int64
+          description: Total number of elements found by a request
+          type: integer
+          example: 42
+        totalPages:
+          format: int32
+          description: Total number of pages found by a request
+          type: integer
+          example: 5
+    News:
+      description: CBDC News
+      type: object
+      properties:
+        abstract:
+          description: News abstract
+          type: string
+          example: "Timothy Lane, deputy governor of the Bank of Canada and head of\
+            \ research at the bank’s fintech and crypto department, claimed that Canada’\
+            s central bank digital currency, or CBDC, might see the light of the day\
+            \ \"sooner than expected\"."
+        created:
+          format: int64
+          description: News publication date
+          type: integer
+          example: 1606942800000
+        currencyTags:
+          allOf:
+          - $ref: '#/components/schemas/ListTagDTO1'
+          - description: List of CBDC tags related to the news
+        uid:
+          allOf:
+          - $ref: '#/components/schemas/UUID'
+          - description: News UID
+            example: 01e537d8-ab6d-46af-af18-5c993379c408
+        image:
+          description: News image url
+          type: string
+          example: https://images.cointelegraph.com/images/240_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjAtMTIvMDNjMDI2MWEtYzA2ZS00NjE2LThjMWQtOWFlMjhmZDNiMWRjLmpwZw==.jpg
+        sourceName:
+          description: News source
+          type: string
+          example: cointelegraph
+        sourceUrl:
+          description: News original URL
+          type: string
+          example: https://cointelegraph.com/news/canada-could-launch-cbdc-sooner-than-expected-central-bank-exec-says
+        title:
+          description: News title
+          type: string
+          example: "Canada could launch CBDC sooner than expected, central bank exec\
+            \ says"
+    ListNewsDTO:
+      type: array
+      items:
+        $ref: '#/components/schemas/News'
+    TagDTO1:
+      type: object
+      properties:
+        country:
+          description: CBDC country of origin
+          type: string
+          example: Canada
+        currency:
+          description: CBDC name
+          type: string
+          example: Jasper
+        name:
+          description: Tag identifier
+          type: string
+          example: canada-jasper
+    ListTagDTO1:
+      type: array
+      items:
+        $ref: '#/components/schemas/TagDTO1'
+    PageResponseNewsDTO:
+      description: Page response
+      type: object
+      properties:
+        content:
+          allOf:
+          - $ref: '#/components/schemas/ListNewsDTO'
+          - description: Page content
+        first:
+          description: Is the first page
+          type: boolean
+          example: true
+        last:
+          description: Is the last page
+          type: boolean
+          example: true
+        number:
+          format: int32
+          description: Current page number
+          type: integer
+          example: 0
+        numberOfElements:
+          format: int32
+          description: Number of elements on a current page
+          type: integer
+          example: 10
+        size:
+          format: int32
+          description: Current page size
+          type: integer
+          example: 10
+        sort:
+          description: Search request sort parameter
+          type: string
+          example: "name,desc"
+        totalElements:
+          format: int64
+          description: Total number of elements found by a request
+          type: integer
+          example: 42
+        totalPages:
+          format: int32
+          description: Total number of pages found by a request
+          type: integer
+          example: 5
+    HistoryOfChangesMonth:
+      type: object
+      properties:
+        description:
+          description: Timeline description
+          type: string
+        month:
+          format: int32
+          description: History month
+          type: integer
+          example: 12
+        tags:
+          $ref: '#/components/schemas/ListHistoryOfChangesTag'
+        year:
+          format: int32
+          description: History year
+          type: integer
+          example: 2020
+    ListHistoryOfChangesMonth:
+      type: array
+      items:
+        $ref: '#/components/schemas/HistoryOfChangesMonth'
+    HistoryOfChangesTag:
+      type: object
+      properties:
+        changes:
+          $ref: '#/components/schemas/ListHistoryOfChanges'
+        description:
+          type: string
+        tag:
+          $ref: '#/components/schemas/TagDTO'
+    ListHistoryOfChangesTag:
+      type: array
+      items:
+        $ref: '#/components/schemas/HistoryOfChangesTag'
+    HistoryOfChanges:
+      description: CBDC history of changes
+      type: object
+      properties:
+        valueNew:
+          description: New value
+          type: string
+          example: Pilot
+        valueOld:
+          description: Old value
+          type: string
+          example: Development
+        property:
+          description: Changed property name
+          type: string
+          example: status
+    ListHistoryOfChanges:
+      type: array
+      items:
+        $ref: '#/components/schemas/HistoryOfChanges'
+    PageResponseHistoryOfChangesMonth:
+      description: Page response
+      type: object
+      properties:
+        content:
+          allOf:
+          - $ref: '#/components/schemas/ListHistoryOfChangesMonth'
+          - description: Page content
+        first:
+          description: Is the first page
+          type: boolean
+          example: true
+        last:
+          description: Is the last page
+          type: boolean
+          example: true
+        number:
+          format: int32
+          description: Current page number
+          type: integer
+          example: 0
+        numberOfElements:
+          format: int32
+          description: Number of elements on a current page
+          type: integer
+          example: 10
+        size:
+          format: int32
+          description: Current page size
+          type: integer
+          example: 10
+        sort:
+          description: Search request sort parameter
+          type: string
+          example: "name,desc"
+        totalElements:
+          format: int64
+          description: Total number of elements found by a request
+          type: integer
+          example: 42
+        totalPages:
+          format: int32
+          description: Total number of pages found by a request
+          type: integer
+          example: 5
+    CurrencyUpdateDTO:
+      type: object
+      properties:
+        country:
+          type: string
+        date:
+          format: int64
+          type: integer
+        description:
+          type: string
+        name:
+          type: string
+        properties:
+          $ref: '#/components/schemas/ListHistoryOfChanges'
+        tag:
+          type: string
+    ListCurrencyUpdateDTO:
+      type: array
+      items:
+        $ref: '#/components/schemas/CurrencyUpdateDTO'
+    ListString:
+      type: array
+      items:
+        type: string

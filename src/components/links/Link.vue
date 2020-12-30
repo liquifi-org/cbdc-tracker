@@ -1,0 +1,43 @@
+<template>
+  <span>
+    <a v-if="isExternalLink" class="ui-link" :href="href" :title="localText">
+      <slot>
+        {{localText}}
+      </slot>
+    </a>
+
+    <router-link v-else class="ui-link" :to="href" :title="localText">
+      <slot>
+        {{localText}}
+      </slot>
+    </router-link>
+  </span>
+</template>
+
+<script>
+export default {
+  props: {
+    href: String,
+    text: String
+  },
+  computed: {
+    localText () {
+      return this.text || this.href
+    },
+    isExternalLink () {
+      return (this.href.startsWith('http://') || this.href.startsWith('https://'))
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  .ui-link, .ui-link:hover {
+    color: $site-primary-color;
+    opacity: .8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+</style>

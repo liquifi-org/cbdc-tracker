@@ -1,0 +1,11 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px, // mobile
+        lg: 992px,
+        xl: 1200px, // tablet
+        xxl: 1440px // desktop
+);
+
+@import '~bootstrap';
+@import '~bootstrap-vue';
