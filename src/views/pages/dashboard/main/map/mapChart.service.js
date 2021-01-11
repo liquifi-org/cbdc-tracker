@@ -91,30 +91,33 @@ export class MapChartService {
 
   updateCountriesData (countriesDataMap) {
     this.countriesDataMap = countriesDataMap
+    this._updateCountriesDataTimer && clearTimeout(this._updateCountriesDataTimer)
 
-    if (!this.isCreated) {
-      console.warn('Try update map chart that didn\'t create')
-    }
-
-    if (!this.countriesDataMap.size) {
-      this.resetChart(countriesDataMap)
-      return
-    }
-
-    this.polygonSeries.data = Array.from(this.countriesDataMap, (v) => {
-      const item = v[1]
-
-      const country = this.countriesDataMap.get(item.id)
-      const color = this.getColorByStatus(country.status)
-      const borderColor = this.getBorderColorByStatus(country.status)
-
-      return {
-        id: country.id,
-        fill: am4core.color(color),
-        stroke: am4core.color(borderColor),
-        tooltipTemplate: this.getTooltipTemplate(country)
+    this._updateCountriesDataTimer = setTimeout(() => {
+      if (!this.isCreated) {
+        console.warn('Try update map chart that didn\'t create')
       }
-    })
+
+      if (!this.countriesDataMap.size) {
+        this.resetChart(countriesDataMap)
+        return
+      }
+
+      this.polygonSeries.data = Array.from(this.countriesDataMap, (v) => {
+        const item = v[1]
+
+        const country = this.countriesDataMap.get(item.id)
+        const color = this.getColorByStatus(country.status)
+        const borderColor = this.getBorderColorByStatus(country.status)
+
+        return {
+          id: country.id,
+          fill: am4core.color(color),
+          stroke: am4core.color(borderColor),
+          tooltipTemplate: this.getTooltipTemplate(country)
+        }
+      })
+    }, 500)
   }
 
   updateTooltipTemplates () {
@@ -140,6 +143,8 @@ export class MapChartService {
   }
 
   destroy () {
+    this._updateCountriesDataTimer && clearTimeout(this._updateCountriesDataTimer)
+
     if (this.isCreated) {
       this.mapChart.dispose()
     }

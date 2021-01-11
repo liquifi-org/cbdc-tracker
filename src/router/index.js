@@ -28,6 +28,10 @@ const routes = [{
       path: '/watchlist',
       name: 'Watchlist',
       component: () => import('@/views/pages/watchlist/Watchlist')
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 }]
