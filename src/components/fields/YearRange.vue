@@ -3,9 +3,20 @@
     <app-field-label :forAttribute="componentId" :text="label"></app-field-label>
 
     <b-input-group class="ui-year-range ui-field-wrapper">
-      <b-form-input :id="componentId" placeholder="From" ref="fromInput" type="number" :value="from" @input="onChange"></b-form-input>
+      <b-form-input :id="componentId"
+                    placeholder="From"
+                    ref="fromInput"
+                    :value="from"
+                    @input="onChange"
+                    v-mask="'####'"></b-form-input>
+
       <b-input-group-prepend is-text>-</b-input-group-prepend>
-      <b-form-input placeholder="To" ref="toInput" type="number" :value="to" @input="onChange"></b-form-input>
+
+      <b-form-input placeholder="To"
+                    ref="toInput"
+                    :value="to"
+                    @input="onChange"
+                    v-mask="'####'"></b-form-input>
     </b-input-group>
   </div>
 </template>

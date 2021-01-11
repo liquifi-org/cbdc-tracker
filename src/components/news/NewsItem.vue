@@ -2,7 +2,7 @@
   <div class="ui-news-item" :class="adaptiveType">
     <NewsItemHeader class="ui-news-item_header-under-image" :data="data"></NewsItemHeader>
 
-    <app-image class="ui-news-item_image" :src="imageSrc">
+    <app-image class="ui-news-item_image" :src="imageSrc" :alt="data.title">
       <template #fallback>
         <NewsImageFallback></NewsImageFallback>
       </template>

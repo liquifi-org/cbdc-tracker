@@ -8,6 +8,7 @@ import './mixins/globals'
 import './components/globals'
 import { SAVE_USER_SETTING_PLUGIN_MUTATION_TYPES } from '@/store/saveUserSettingsPlugin/constants'
 import VueMeta from 'vue-meta'
+import VueTheMask from 'vue-the-mask'
 
 // Install BootstrapVue
 Vue.use(BootstrapVue, {
@@ -26,6 +27,8 @@ Vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true
 })
+
+Vue.use(VueTheMask)
 
 Vue.config.productionTip = false
 
