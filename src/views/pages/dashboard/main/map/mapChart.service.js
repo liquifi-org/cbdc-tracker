@@ -31,7 +31,13 @@ export class MapChartService {
     // instead of Miller, you can use Mercator or many other projections available: https://www.amcharts.com/demos/map-using-d3-projections/
     mapChart.projection = new am4maps.projections.Miller()
     mapChart.seriesContainer.draggable = MAP_CHART_CONFIG.draggable
+
+    // Zoom
     mapChart.seriesContainer.resizable = MAP_CHART_CONFIG.resizable
+    mapChart.zoomControl = new am4maps.ZoomControl()
+    mapChart.zoomControl.align = 'right'
+    mapChart.zoomControl.valign = 'middle'
+    mapChart.chartContainer.wheelable = false // Disabling mouse wheel zoom
 
     const polygonSeries = mapChart.series.push(new am4maps.MapPolygonSeries())
     // Excluded countries in non-globe projection

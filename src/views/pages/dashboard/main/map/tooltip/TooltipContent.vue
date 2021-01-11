@@ -7,8 +7,8 @@
         <app-watch-flag :isSelected="hasAtWatchlist(currency)" :isDisabled="true"></app-watch-flag>
       </div>
 
-      <div class="ui-country-tooltip_currency-name" :title="currency.digitalCurrency || CURRENCY_MOCK_NAME">
-        {{currency.digitalCurrency || CURRENCY_MOCK_NAME}}
+      <div class="ui-country-tooltip_currency-name">
+        <app-link :href="getCurrencyRoute(currency)" :text="currency.digitalCurrency || CURRENCY_MOCK_NAME"></app-link>
       </div>
 
       <div class="ui-country-tooltip_currency-status-wrapper">

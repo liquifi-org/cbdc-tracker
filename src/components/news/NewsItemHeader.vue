@@ -6,7 +6,9 @@
       </div>
 
       <div class="ui-news-item_source">
-        <a :href="sourceUrl"><app-icon :name="ICON_NAMES.SOURCE_LINK" text="Source"></app-icon> {{sourceName}}</a>
+        <app-link :href="sourceUrl" :text="sourceName">
+          <app-icon :name="ICON_NAMES.SOURCE_LINK" text="Source"></app-icon> {{sourceName}}
+        </app-link>
       </div>
     </div>
 

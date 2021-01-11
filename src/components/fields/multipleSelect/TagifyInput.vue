@@ -41,7 +41,7 @@ export default {
       enforceWhitelist: true,
       whitelist,
       dropdown: {
-        enabled: 1 // Minimum characters input for showing a suggestions list. false will not render a suggestions list.
+        enabled: 0 // Minimum characters input for showing a suggestions list. false will not render a suggestions list.
       }
     })
 

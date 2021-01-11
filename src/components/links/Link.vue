@@ -1,6 +1,11 @@
 <template>
-  <span>
-    <a v-if="isExternalLink" class="ui-link" :href="href" :title="localText">
+  <div class="ui-link-wrapper">
+    <a v-if="isExternalLink"
+       class="ui-link"
+       :href="href"
+       :title="localText"
+       target="_blank"
+       rel="noopener noreferrer">
       <slot>
         {{localText}}
       </slot>
@@ -11,7 +16,7 @@
         {{localText}}
       </slot>
     </router-link>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -39,5 +44,9 @@ export default {
     &:hover {
       opacity: 1;
     }
+  }
+
+  .ui-link-wrapper {
+    display: inline-block;
   }
 </style>

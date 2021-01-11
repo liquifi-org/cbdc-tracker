@@ -1,7 +1,7 @@
 <template>
   <div>
-    <app-watch-flag :isSelected="hasAtWatchlist" :isDisabled="isDisabled" @isSelectedChanged="changeHasAtWatchlist"></app-watch-flag>
-    <app-link class="m-l-8" :href="url" :text="text"></app-link>
+    <app-watch-flag class="m-r-8" :isSelected="hasAtWatchlist" :isDisabled="isDisabled" @isSelectedChanged="changeHasAtWatchlist"></app-watch-flag>
+    <app-link :href="url" :text="text"></app-link>
   </div>
 </template>
 
