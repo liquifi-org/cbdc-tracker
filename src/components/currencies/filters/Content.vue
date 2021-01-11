@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <b-row>
-      <b-col :cols="localFieldCols" v-for="(filter) in localFilters" :key="filter.name">
-        <component class="m-b-16"
-                   v-bind:is="getFilterComponent(filter.type)"
-                   :data="filter"
-                   @changeValue="changeFilter({filter, value: $event})"></component>
-      </b-col>
-    </b-row>
-
-    <app-button :type="BUTTON_TYPES.PRIMARY" :isBlock="true" @click="onApplyClick">Apply</app-button>
-  </div>
+  <b-row>
+    <b-col :cols="localFieldCols" v-for="(filter) in localFilters" :key="filter.name">
+      <component class="m-b-16"
+                 v-bind:is="getFilterComponent(filter.type)"
+                 :data="filter"
+                 @changeValue="onChangeFilter({filter, value: $event})"></component>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -49,18 +45,17 @@ export default {
     this.localFilters = this.getFiltersClone()
   },
   methods: {
-    onApplyClick () {
-      this.$emit('change', { filters: this.localFilters })
-    },
-    getFilterComponent (type) {
-      return FilterComponentResolver.getComponentByType(type)
-    },
-    changeFilter ({ filter, value }) {
+    onChangeFilter ({ filter, value }) {
       this.localFilters.forEach((v) => {
         if (v.name === filter.name) {
           v.value = value
         }
       })
+
+      this.$emit('change', { filters: this.localFilters })
+    },
+    getFilterComponent (type) {
+      return FilterComponentResolver.getComponentByType(type)
     },
     clear () {
       this.localFilters = this.getFiltersClone()
