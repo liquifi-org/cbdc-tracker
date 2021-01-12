@@ -1,5 +1,6 @@
 import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import { getCurrencyFiltersConfig } from '@/utils/getCurrencyFiltersConfig'
+import Vue from 'vue'
 
 export const DASHBOARD_MUTATION_TYPES = {
   CHANGE_CURRENCIES_DATA: 'changeCurrenciesData',
@@ -49,14 +50,7 @@ export const mutations = {
   },
   [DASHBOARD_MUTATION_TYPES.CHANGE_FILTERS] (state, payload) {
     state.table.currentPage = 1
-
-    payload.filters.forEach((filter) => {
-      const stateFilter = state.filters.find((v) => {
-        return (v.name === filter.name)
-      })
-
-      stateFilter.value = filter.value
-    })
+    Vue.set(state, 'filters', payload.filters)
   },
   [DASHBOARD_MUTATION_TYPES.CLEAR_FILTERS] (state, payload) {
     state.table.currentPage = 1

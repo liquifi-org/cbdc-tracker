@@ -1,16 +1,12 @@
 <template>
-  <Status :statusName="statusName"></Status>
+  <app-status :statusName="statusName" :isSelected="true" :disabled="true"></app-status>
 </template>
 
 <script>
-import Status from '@/components/status/Status'
 import BaseCell from '@/components/table/cells/BaseCell'
 
 export default {
   extends: BaseCell,
-  components: {
-    Status
-  },
   computed: {
     statusName () {
       return this.displayData.statusName

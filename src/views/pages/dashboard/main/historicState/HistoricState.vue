@@ -48,6 +48,7 @@
                  :target="'timeline-marker-' + componentId"
                  triggers="manual"
                  :no-fade="true"
+                 :fallback-placement="['top']"
                  show>
         <div class="ui-historic-state_tooltip-text"
              @touchstart="onTouchstartDragStart"
