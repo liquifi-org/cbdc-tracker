@@ -36,8 +36,8 @@ export default {
   },
   methods: {
     getFieldValue () {
-      const fromFieldValue = this.$refs.fromInput.localValue || null
-      const toFieldValue = this.$refs.toInput.localValue || null
+      const fromFieldValue = parseInt(this.$refs.fromInput.localValue) || null
+      const toFieldValue = parseInt(this.$refs.toInput.localValue) || null
 
       if (fromFieldValue || toFieldValue) {
         return {

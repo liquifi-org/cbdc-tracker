@@ -2,7 +2,7 @@ import { STATUS_NAMES } from '@/constants/statuses'
 import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import { FILTER_TYPES } from '@/services/filter.service'
 
-const STATUS_FILTER_POSSIBLE_VALUES = Object.values(STATUS_NAMES).filter((status) => {
+export const STATUS_FILTER_POSSIBLE_VALUES = Object.values(STATUS_NAMES).filter((status) => {
   return (STATUS_NAMES.NONE !== status)
 })
 

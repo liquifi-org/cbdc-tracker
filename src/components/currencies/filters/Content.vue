@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       BUTTON_TYPES,
-      localFilters: []
+      localFilters: this.getFiltersClone()
     }
   },
   computed: {
@@ -39,10 +39,10 @@ export default {
           filter.settings.possibleValues = [...new Set(newValue)]
         }
       })
+    },
+    filters (value) {
+      this.localFilters = this.getFiltersClone()
     }
-  },
-  mounted () {
-    this.localFilters = this.getFiltersClone()
   },
   methods: {
     onChangeFilter ({ filter, value }) {
@@ -52,7 +52,14 @@ export default {
         }
       })
 
-      this.$emit('change', { filters: this.localFilters })
+      this.$emit('change', {
+        filters: this.filters.map((v) => {
+          return {
+            ...v,
+            value: (v.name === filter.name) ? value : v.value
+          }
+        })
+      })
     },
     getFilterComponent (type) {
       return FilterComponentResolver.getComponentByType(type)

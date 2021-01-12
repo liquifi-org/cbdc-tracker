@@ -1,24 +1,60 @@
 <template>
-  <span class="ui-status" :class="statusName">
+  <button class="ui-status"
+          :class="[statusName, localIsSelected && 'active']"
+          :disabled="disabled"
+          @click="onClick">
     <span class="ui-status_rect"></span>
     <span class="ui-status_text">{{ statusName }}</span>
-  </span>
+  </button>
 </template>
 
 <script>
 export default {
   name: 'Status',
   props: {
-    statusName: String
+    statusName: String,
+    isSelected: Boolean,
+    disabled: Boolean
+  },
+  data () {
+    return {
+      localIsSelected: this.isSelected
+    }
+  },
+  watch: {
+    isSelected (value) {
+      this.localIsSelected = value
+    }
+  },
+  methods: {
+    onClick () {
+      if (this.disabled) {
+        return
+      }
+
+      this.localIsSelected = !this.localIsSelected
+      this.$emit('isSelectedChanged', this.localIsSelected)
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .ui-status {
+  @extend .ui-button-without-styles;
+  @extend %ui-default-font;
   display: flex;
   align-items: center;
   justify-content: left;
+  opacity: .5;
+
+  [disabled] {
+    cursor: default;
+  }
+
+  &.active {
+    opacity: 1;
+  }
 }
 
 .ui-status_rect {
