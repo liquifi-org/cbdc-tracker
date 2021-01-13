@@ -1,5 +1,7 @@
 import { CurrenciesHttpService } from '@/services/http/currenciesHttp.service'
 import { WATCHLIST_PAGE_MUTATION_TYPES } from './mutations'
+import { MODULE_NAMES } from '@/store'
+import { WATCHLIST_MUTATION_TYPES } from '@/store/modules/watchlist.module'
 
 export const WATCHLIST_PAGE_ACTION_TYPES = {
   FETCH_CURRENCIES_DATA: 'fetchCurrenciesData',
@@ -18,6 +20,10 @@ export const actions = {
       commit(WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_CURRENCIES_DATA, {
         currenciesData: await currenciesHttpService.getCurrencies()
       })
+
+      commit(`${MODULE_NAMES.WATCHLIST}/${WATCHLIST_MUTATION_TYPES.SET_ACTUAL_CURRENCIES}`, {
+        currencies: await currenciesHttpService.getCurrencies()
+      }, { root: true })
     } finally {
       commit(WATCHLIST_PAGE_MUTATION_TYPES.FINISH_LOAD_CURRENCIES, {})
     }

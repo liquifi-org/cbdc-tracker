@@ -2,6 +2,8 @@ import { CurrenciesHttpService } from '@/services/http/currenciesHttp.service'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
 import { NewsHttpService } from '@/services/http/newsHttp.service'
 import { HistoryOfChangesHttpService } from '@/services/http/historyOfChangesHttp.service'
+import { MODULE_NAMES } from '@/store'
+import { WATCHLIST_MUTATION_TYPES } from '@/store/modules/watchlist.module'
 
 export const DASHBOARD_ACTION_TYPES = {
   FETCH_CURRENCIES_DATA: 'fetchCurrenciesData',
@@ -28,6 +30,10 @@ export const actions = {
       commit(DASHBOARD_MUTATION_TYPES.CHANGE_CURRENCIES_DATA, {
         currenciesData: await currenciesHttpService.getCurrencies()
       })
+
+      commit(`${MODULE_NAMES.WATCHLIST}/${WATCHLIST_MUTATION_TYPES.SET_ACTUAL_CURRENCIES}`, {
+        currencies: await currenciesHttpService.getCurrencies()
+      }, { root: true })
     } finally {
       commit(DASHBOARD_MUTATION_TYPES.FINISH_LOAD_CURRENCIES, {})
     }

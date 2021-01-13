@@ -60,7 +60,7 @@ export default {
   computed: {
     watchlistCurrencies () {
       return this.currencies.filter((item) => {
-        return this.watchlist.includes(item.uid)
+        return this.watchlist.includes(item.tag)
       })
     },
     currentCurrencies () {

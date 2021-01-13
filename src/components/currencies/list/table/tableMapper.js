@@ -90,7 +90,7 @@ export class TableMapper {
       displayData: {
         text: currency.digitalCurrency,
         url: getCurrencyRoute(currency),
-        hasAtWatchlist: watchlist.includes(currency.uid)
+        hasAtWatchlist: watchlist.includes(currency.tag)
       }
     }
   }

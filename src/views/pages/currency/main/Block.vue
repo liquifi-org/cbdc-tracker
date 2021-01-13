@@ -4,7 +4,7 @@
       <div class="m-b-16">
         <app-title>
           {{digitalCurrency}}
-          <app-watch-flag :isSelected="hasCurrencyAtWatchlist(currency.uid)"
+          <app-watch-flag :isSelected="hasCurrencyAtWatchlist(currency.tag)"
                           @isSelectedChanged="changeWatchFlag"></app-watch-flag>
         </app-title>
 
@@ -35,7 +35,7 @@
       <template #header>
         <app-title>
           {{digitalCurrency}}
-          <app-watch-flag :isSelected="hasCurrencyAtWatchlist(currency.uid)"
+          <app-watch-flag :isSelected="hasCurrencyAtWatchlist(currency.tag)"
                           @isSelectedChanged="changeWatchFlag"></app-watch-flag>
         </app-title>
 
