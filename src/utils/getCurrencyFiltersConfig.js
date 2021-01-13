@@ -8,6 +8,15 @@ export const STATUS_FILTER_POSSIBLE_VALUES = Object.values(STATUS_NAMES).filter(
 
 export const getCurrencyFiltersConfig = () => {
   return [{
+    name: CURRENCY_FIELD_NAMES.TYPE,
+    label: 'Type',
+    placeholder: 'All (Retail, Wholesale)',
+    type: FILTER_TYPES.SELECT,
+    settings: {
+      possibleValues: ['Retail', 'Wholesale']
+    },
+    value: null
+  }, {
     name: CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY,
     label: 'Digital currency',
     placeholder: 'Enter currency name',
@@ -41,15 +50,6 @@ export const getCurrencyFiltersConfig = () => {
     label: 'Technology',
     placeholder: 'Enter technology name',
     type: FILTER_TYPES.STRING,
-    value: null
-  }, {
-    name: CURRENCY_FIELD_NAMES.TYPE,
-    label: 'Type',
-    placeholder: 'Select type',
-    type: FILTER_TYPES.SELECT,
-    settings: {
-      possibleValues: ['Retail', 'Wholesale']
-    },
     value: null
   }]
 }

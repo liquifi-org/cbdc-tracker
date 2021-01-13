@@ -48,5 +48,6 @@ export default {
 
   .ui-link-wrapper {
     display: inline-block;
+    max-width: 100%;
   }
 </style>
