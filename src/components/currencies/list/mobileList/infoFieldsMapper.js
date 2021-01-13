@@ -29,7 +29,7 @@ export class InfoFieldsMapper {
 
       return {
         fields,
-        hasAtWatchlist: watchlist.includes(currency.uid),
+        hasAtWatchlist: watchlist.includes(currency.tag),
         currency
       }
     })

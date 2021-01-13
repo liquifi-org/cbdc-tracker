@@ -5,6 +5,10 @@
         <Header></Header>
       </template>
 
+      <div class="d-flex justify-content-center">
+        <MapLegend v-if="isTabletScreen" class="m-b-16"></MapLegend>
+      </div>
+
       <Map class="m-b-16"></Map>
 
       <HistoricState class="m-b-16"></HistoricState>
@@ -35,11 +39,13 @@ import FiltersCard from '../filters/Card'
 import HistoricState from './historicState/HistoricState'
 import Currencies from './currencies/Block'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import MapLegend from '@/views/pages/dashboard/main/MapLegend'
 
 export default {
   components: {
     Header,
     Map,
+    MapLegend,
     HistoricState,
     Currencies,
     FiltersCard

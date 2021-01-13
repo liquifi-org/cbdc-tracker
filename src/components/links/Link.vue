@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-link-wrapper">
+  <div class="ui-link-wrapper" :class="{block: isBlock}">
     <a v-if="isExternalLink"
        class="ui-link"
        :href="href"
@@ -23,7 +23,8 @@
 export default {
   props: {
     href: String,
-    text: String
+    text: String,
+    isBlock: Boolean
   },
   computed: {
     localText () {
@@ -49,5 +50,9 @@ export default {
   .ui-link-wrapper {
     display: inline-block;
     max-width: 100%;
+
+    &.block {
+      display: block;
+    }
   }
 </style>

@@ -13,8 +13,8 @@ export class ListDataAdapter {
     const sortDirection = sort.direction
 
     const sortedItems = items.sort(function (a, b) {
-      const valueA = a[sortName] || ''
-      const valueB = b[sortName] || ''
+      const valueA = (a[sortName] || '').toLowerCase()
+      const valueB = (b[sortName] || '').toLowerCase()
 
       if (valueA < valueB) {
         return -1

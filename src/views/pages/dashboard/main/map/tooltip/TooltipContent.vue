@@ -8,7 +8,9 @@
       </div>
 
       <div class="ui-country-tooltip_currency-name">
-        <app-link :href="getCurrencyRoute(currency)" :text="currency.digitalCurrency || CURRENCY_MOCK_NAME"></app-link>
+        <app-link :href="getCurrencyRoute(currency)"
+                  class="ui-country-tooltip_currency-name-link"
+                  :text="currency.digitalCurrency || CURRENCY_MOCK_NAME"></app-link>
       </div>
 
       <div class="ui-country-tooltip_currency-status-wrapper">
@@ -37,7 +39,7 @@ export default {
       return getCurrencyRoute(currency)
     },
     hasAtWatchlist (currency) {
-      return this.watchlist.includes(currency.uid)
+      return this.watchlist.includes(currency.tag)
     }
   }
 }
@@ -109,6 +111,10 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: 8px;
+  }
+
+  .ui-country-tooltip_currency-name-link {
+    max-width: none;
   }
 
   .ui-country-tooltip_currency-status-wrapper {

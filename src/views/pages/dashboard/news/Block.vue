@@ -14,7 +14,7 @@
           <b-col cols="6"
                  xxl="3"
                  class="ui-news-item-wrapper"
-                 v-for="(newsItem) in newsList" :key="newsItem.uid">
+                 v-for="(newsItem) in newsList" :key="newsItem.tag">
             <NewsItem :adaptiveType="NEWS_ITEM_ADAPTIVE_TYPE.MOBILE" :data="newsItem"></NewsItem>
           </b-col>
         </b-row>
@@ -29,12 +29,12 @@
       </app-card>
 
       <div class="m-b-16" v-else>
-        <app-card :class="{'m-b-16': !(index === newsList.length - 1)}" v-for="(newsItem, index) in newsList" :key="newsItem.uid">
+        <app-card :class="{'m-b-16': !(index === newsList.length - 1)}" v-for="(newsItem, index) in newsList" :key="newsItem.tag">
           <NewsItem :adaptiveType="NEWS_ITEM_ADAPTIVE_TYPE.MOBILE" :data="newsItem"></NewsItem>
         </app-card>
       </div>
 
-      <app-link href="/news">
+      <app-link href="/news" :isBlock="true">
         <app-button :type="BUTTON_TYPES.PRIMARY" :isBlock="true">
           Go to all news <app-icon class="m-l-8" :name="ICON_NAMES.ARROW_RIGHT_SQUARE"></app-icon>
         </app-button>
