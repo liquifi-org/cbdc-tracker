@@ -9,7 +9,8 @@ export const CURRENCY_FIELD_NAMES = {
   ANNOUNCEMENT_LINK: 'announcementLink',
   SOCIAL_NETWORK_LINK: 'socialNetworkLinks',
   SITE_LINK: 'siteLink',
-  CENTRAL_BANK: 'centralBank'
+  CENTRAL_BANK: 'centralBank',
+  TYPE: 'type'
 }
 
 export const CURRENCY_MOCK_NAME = '[No name]'
