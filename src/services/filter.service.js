@@ -1,6 +1,7 @@
 import { DateParserService, DATE_FORMATS } from '@/services/dateParser.service'
 
 export const FILTER_TYPES = {
+  SELECT: 'select',
   MULTIPLE_SELECT: 'multipleSelect',
   STRING: 'string',
   YEAR_RANGE: 'yearRange'
@@ -32,6 +33,8 @@ export class FilterService {
         return this.applyMultipleSelectFilter(items, filter)
       case FILTER_TYPES.YEAR_RANGE:
         return this.applyYearRangeFilter(items, filter)
+      case FILTER_TYPES.SELECT:
+        return this.applySelectFilter(items, filter)
       case FILTER_TYPES.STRING:
       default:
         return this.applyStringFilter(items, filter)
@@ -59,6 +62,16 @@ export class FilterService {
       const isLessThanTo = (!to || (itemValue <= to))
 
       return (isMoreThanFrom && isLessThanTo)
+    })
+  }
+
+  applySelectFilter (items, filter) {
+    const selectedValue = filter.value.toLowerCase()
+
+    return items.filter((item) => {
+      const itemValue = item[filter.name] ? item[filter.name].toLowerCase() : ''
+      const regExp = new RegExp(selectedValue, 'i')
+      return regExp.test(itemValue)
     })
   }
 

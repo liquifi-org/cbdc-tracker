@@ -56,13 +56,22 @@ $input-background-color: #F4F8FC;
 $input-placeholder-color: #7997C3;
 
 .ui-field-wrapper {
-  .input-group-text, input,  {
+  .input-group-text, input, select  {
     background-color: $input-background-color;
     color: $input-color;
     border-color: $input-border-color;
   }
 
   input:focus {
+    color: $input-color;
+    background-color: white;
+  }
+
+  select.placeholder {
+    color: $input-placeholder-color;
+  }
+
+  select option {
     color: $input-color;
   }
 

@@ -42,5 +42,14 @@ export const getCurrencyFiltersConfig = () => {
     placeholder: 'Enter technology name',
     type: FILTER_TYPES.STRING,
     value: null
+  }, {
+    name: CURRENCY_FIELD_NAMES.TYPE,
+    label: 'Type',
+    placeholder: 'Select type',
+    type: FILTER_TYPES.SELECT,
+    settings: {
+      possibleValues: ['Retail', 'Wholesale']
+    },
+    value: null
   }]
 }
