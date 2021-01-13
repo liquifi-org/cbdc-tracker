@@ -10,7 +10,7 @@ export const getCurrencyFiltersConfig = () => {
   return [{
     name: CURRENCY_FIELD_NAMES.TYPE,
     label: 'Type',
-    placeholder: 'All (Retail, Wholesale)',
+    placeholder: 'All',
     type: FILTER_TYPES.SELECT,
     settings: {
       possibleValues: ['Retail', 'Wholesale']
@@ -19,8 +19,11 @@ export const getCurrencyFiltersConfig = () => {
   }, {
     name: CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY,
     label: 'Digital currency',
-    placeholder: 'Enter currency name',
-    type: FILTER_TYPES.STRING,
+    placeholder: 'Choose currencies',
+    type: FILTER_TYPES.MULTIPLE_SELECT,
+    settings: {
+      possibleValues: []
+    },
     value: null
   }, {
     name: CURRENCY_FIELD_NAMES.COUNTRY,
@@ -48,8 +51,11 @@ export const getCurrencyFiltersConfig = () => {
   }, {
     name: CURRENCY_FIELD_NAMES.TECHNOLOGY,
     label: 'Technology',
-    placeholder: 'Enter technology name',
-    type: FILTER_TYPES.STRING,
+    placeholder: 'Choose technologies',
+    type: FILTER_TYPES.MULTIPLE_SELECT,
+    settings: {
+      possibleValues: []
+    },
     value: null
   }]
 }

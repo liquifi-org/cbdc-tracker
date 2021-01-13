@@ -37,6 +37,8 @@
       <FiltersContent ref="filters"
                       :filters="filters"
                       :countriesWithCurrencies="countriesWithCurrencies"
+                      :currencyNames="currencyNames"
+                      :technologiesWithCurrencies="technologiesWithCurrencies"
                       fieldCols="6"
                       @change="changeStateFilters"></FiltersContent>
     </app-collapse-block>
@@ -71,7 +73,9 @@ export default {
     }),
     ...mapGetters(MODULE_NAMES.DASHBOARD, {
       lastUpdate: 'lastUpdate',
-      countriesWithCurrencies: 'countriesWithCurrencies'
+      countriesWithCurrencies: 'countriesWithCurrencies',
+      currencyNames: 'currencyNames',
+      technologiesWithCurrencies: 'technologiesWithCurrencies'
     }),
     statuses () {
       const statusNames = [
@@ -79,8 +83,7 @@ export default {
         STATUS_NAMES.DEVELOPMENT,
         STATUS_NAMES.PILOT,
         STATUS_NAMES.LAUNCHED,
-        STATUS_NAMES.CANCELLED,
-        STATUS_NAMES.NONE
+        STATUS_NAMES.CANCELLED
       ]
 
       const statusFilter = this.filters.find((filter) => {
@@ -94,12 +97,9 @@ export default {
           return (selectedStatuesName === statusName)
         })
 
-        const isNoneStatus = (STATUS_NAMES.NONE === statusName)
-
         return {
           name: statusName,
-          isSelected: isNoneStatus || !hasFilter || isStatusSelected,
-          disabled: isNoneStatus
+          isSelected: !hasFilter || isStatusSelected
         }
       })
     }

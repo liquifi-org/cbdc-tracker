@@ -18,6 +18,20 @@ export const getters = {
 
     return filter ? filter.settings.possibleValues : []
   },
+  currencyNames: (state) => {
+    const filter = state.filters.find((filter) => {
+      return (CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY === filter.name)
+    })
+
+    return filter ? filter.settings.possibleValues : []
+  },
+  technologiesWithCurrencies: (state) => {
+    const filter = state.filters.find((filter) => {
+      return (CURRENCY_FIELD_NAMES.TECHNOLOGY === filter.name)
+    })
+
+    return filter ? filter.settings.possibleValues : []
+  },
   newsList: (state) => {
     const news = state.news
     return (news.data && news.data.content)

@@ -10,6 +10,8 @@
       <FiltersContent ref="content"
                       :filters="filters"
                       :countriesWithCurrencies="countriesWithCurrencies"
+                      :currencyNames="currencyNames"
+                      :technologiesWithCurrencies="technologiesWithCurrencies"
                       @change="onChange"></FiltersContent>
     </app-card>
   </div>
@@ -21,7 +23,9 @@ import FiltersContent from './Content'
 export default {
   props: {
     filters: Array,
-    countriesWithCurrencies: Array
+    countriesWithCurrencies: Array,
+    currencyNames: Array,
+    technologiesWithCurrencies: Array
   },
   components: {
     FiltersContent

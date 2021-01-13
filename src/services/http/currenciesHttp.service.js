@@ -20,6 +20,18 @@ export class CurrenciesHttpService {
     return await this.httpSevice.get('/currencies/tags')
   }
 
+  async getCurrencyNames () {
+    const tags = await this.getCurrencyTags()
+
+    const tagsWithСurrency = tags.filter((tag) => {
+      return !!tag.currency
+    })
+
+    return tagsWithСurrency.map((tag) => {
+      return tag.currency
+    })
+  }
+
   async getCurrencyByTag (tag) {
     return await this.httpSevice.get(`currencies/tags/${tag}`)
   }
@@ -30,5 +42,9 @@ export class CurrenciesHttpService {
 
   async getCountriesWithCurrencies () {
     return await this.httpSevice.get('countries')
+  }
+
+  async getCountriesWithTechnologies () {
+    return await this.httpSevice.get('technologies')
   }
 }
