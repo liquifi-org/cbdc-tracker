@@ -7,6 +7,8 @@ export const WATCHLIST_PAGE_MUTATION_TYPES = {
   FINISH_LOAD_CURRENCIES: 'finishLoadCurrencies',
   TABLE_CHANGE_PAGE: 'tableChangePage',
   CHANGE_COUNTRIES_WITH_CURRENCIES: 'changeCountriesWithCurrencies',
+  CHANGE_TECHNOLOGIES_WITH_CURRENCIES: 'changeTechnologiesWithCurrencies',
+  CHANGE_CURRENCY_NAMES: 'changeCountryNames',
   CHANGE_FILTERS: 'changeFilters',
   CLEAR_FILTERS: 'clearFilters',
   RESET: 'reset'
@@ -29,6 +31,20 @@ export const mutations = {
     state.filters.forEach((filter) => {
       if (CURRENCY_FIELD_NAMES.COUNTRY === filter.name) {
         filter.settings.possibleValues = [...new Set(payload.countriesWithCurrencies)]
+      }
+    })
+  },
+  [WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_CURRENCY_NAMES] (state, payload) {
+    state.filters.forEach((filter) => {
+      if (CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY === filter.name) {
+        filter.settings.possibleValues = [...new Set(payload.currencyNames)]
+      }
+    })
+  },
+  [WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_TECHNOLOGIES_WITH_CURRENCIES] (state, payload) {
+    state.filters.forEach((filter) => {
+      if (CURRENCY_FIELD_NAMES.TECHNOLOGY === filter.name) {
+        filter.settings.possibleValues = [...new Set(payload.countriesWithTechnologies)]
       }
     })
   },

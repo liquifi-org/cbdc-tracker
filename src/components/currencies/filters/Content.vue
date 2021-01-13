@@ -19,6 +19,8 @@ export default {
   props: {
     filters: Array,
     countriesWithCurrencies: Array,
+    currencyNames: Array,
+    technologiesWithCurrencies: Array,
     fieldCols: String
   },
   data () {
@@ -36,6 +38,20 @@ export default {
     countriesWithCurrencies (newValue) {
       this.localFilters.forEach((filter) => {
         if (CURRENCY_FIELD_NAMES.COUNTRY === filter.name) {
+          filter.settings.possibleValues = [...new Set(newValue)]
+        }
+      })
+    },
+    currencyNames (newValue) {
+      this.localFilters.forEach((filter) => {
+        if (CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY === filter.name) {
+          filter.settings.possibleValues = [...new Set(newValue)]
+        }
+      })
+    },
+    technologiesWithCurrencies (newValue) {
+      this.localFilters.forEach((filter) => {
+        if (CURRENCY_FIELD_NAMES.TECHNOLOGY === filter.name) {
           filter.settings.possibleValues = [...new Set(newValue)]
         }
       })

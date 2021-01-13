@@ -3,12 +3,16 @@
     <MobileFiltersCard v-if="isMobileScreen"
                        :filters="filters"
                        :countriesWithCurrencies="countriesWithCurrencies"
+                       :currencyNames="currencyNames"
+                       :technologiesWithCurrencies="technologiesWithCurrencies"
                        @change="changeStateFilters"
                        @clear="clearStateFilters"></MobileFiltersCard>
 
     <FiltersCard v-else
                  :filters="filters"
                  :countriesWithCurrencies="countriesWithCurrencies"
+                 :currencyNames="currencyNames"
+                 :technologiesWithCurrencies="technologiesWithCurrencies"
                  @change="changeStateFilters"
                  @clear="clearStateFilters"></FiltersCard>
   </div>
@@ -35,7 +39,9 @@ export default {
       }
     }),
     ...mapGetters(MODULE_NAMES.WATCHLIST_PAGE, {
-      countriesWithCurrencies: 'countriesWithCurrencies'
+      countriesWithCurrencies: 'countriesWithCurrencies',
+      currencyNames: 'currencyNames',
+      technologiesWithCurrencies: 'technologiesWithCurrencies'
     })
   },
   methods: {

@@ -21,6 +21,7 @@ import { CURRENCY_TABLE_SETTINGS_ACTION_TYPES } from '@/store/modules/currencyTa
 import { WATCHLIST_PAGE_MUTATION_TYPES } from '@/store/modules/watchlistPage/mutations'
 import { WATCHLIST_PAGE_ACTION_TYPES } from '@/store/modules/watchlistPage/actions'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import { DASHBOARD_ACTION_TYPES } from '@/store/modules/dashboard/actions'
 
 export default {
   mixins: [screenSizeMixin],
@@ -42,7 +43,9 @@ export default {
     await Promise.all([
       this.fetchCurrencies(),
       this.fetchTableColumns(),
-      this.fetchCountries()
+      this.fetchCountries(),
+      this.fetchCountryNames(),
+      this.fetchTechnologies()
     ])
   },
   destroyed () {
@@ -51,7 +54,9 @@ export default {
   methods: {
     ...mapActions(MODULE_NAMES.WATCHLIST_PAGE, {
       fetchCurrencies: WATCHLIST_PAGE_ACTION_TYPES.FETCH_CURRENCIES_DATA,
-      fetchCountries: WATCHLIST_PAGE_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES
+      fetchCountries: WATCHLIST_PAGE_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
+      fetchCountryNames: DASHBOARD_ACTION_TYPES.FETCH_CURRENCY_NAMES,
+      fetchTechnologies: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES
     }),
     ...mapActions(MODULE_NAMES.CURRENCY_TABLE_SETTINGS, {
       fetchTableColumns: CURRENCY_TABLE_SETTINGS_ACTION_TYPES.FETCH_TABLE_COLUMNS

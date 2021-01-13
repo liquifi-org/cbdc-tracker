@@ -58,7 +58,9 @@ export default {
       this.fetchCurrencies(),
       this.fetchTableColumns(),
       this.fetchHistoryOfChanges(),
-      this.fetchCountries()
+      this.fetchCountries(),
+      this.fetchCountryNames(),
+      this.fetchTechnologies()
     ])
   },
   destroyed () {
@@ -68,7 +70,9 @@ export default {
     ...mapActions(MODULE_NAMES.DASHBOARD, {
       fetchCurrencies: DASHBOARD_ACTION_TYPES.FETCH_CURRENCIES_DATA,
       fetchHistoryOfChanges: DASHBOARD_ACTION_TYPES.FETCH_HISTORY_OF_CHANGES,
-      fetchCountries: DASHBOARD_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES
+      fetchCountries: DASHBOARD_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
+      fetchCountryNames: DASHBOARD_ACTION_TYPES.FETCH_CURRENCY_NAMES,
+      fetchTechnologies: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES
     }),
     ...mapActions(MODULE_NAMES.CURRENCY_TABLE_SETTINGS, {
       fetchTableColumns: CURRENCY_TABLE_SETTINGS_ACTION_TYPES.FETCH_TABLE_COLUMNS
