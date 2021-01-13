@@ -34,17 +34,22 @@ import FiltersCard from './filters/Card'
 import FiltersContent from './filters/Content'
 import MobileFiltersCard from './filters/MobileCard'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import { REPLACE_OG_TWITTER_NEWS, SEO_NEWS } from '@/constants/seo'
 
 export default {
   mixins: [screenSizeMixin],
   metaInfo: {
-    title: 'News',
-    titleTemplate: '%s | CBDC tracker',
+    title: SEO_NEWS.TITLE,
     meta: [
       {
         name: 'description',
-        content: 'Today\'s Central Bank Digital Currencies news'
-      }
+        content: SEO_NEWS.DESCRIPTION
+      },
+      {
+        name: 'keywords',
+        content: SEO_NEWS.KEYWORDS
+      },
+      ...REPLACE_OG_TWITTER_NEWS
     ]
   },
   components: {

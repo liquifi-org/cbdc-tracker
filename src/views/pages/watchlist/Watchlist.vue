@@ -21,17 +21,17 @@ import { CURRENCY_TABLE_SETTINGS_ACTION_TYPES } from '@/store/modules/currencyTa
 import { WATCHLIST_PAGE_MUTATION_TYPES } from '@/store/modules/watchlistPage/mutations'
 import { WATCHLIST_PAGE_ACTION_TYPES } from '@/store/modules/watchlistPage/actions'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import { SEO_WHATCHLIST } from '@/constants/seo'
 import { DASHBOARD_ACTION_TYPES } from '@/store/modules/dashboard/actions'
 
 export default {
   mixins: [screenSizeMixin],
   metaInfo: {
-    title: 'Watchlist',
-    titleTemplate: '%s | CBDC tracker',
+    title: SEO_WHATCHLIST.TITLE,
     meta: [
       {
         name: 'description',
-        content: 'Watchlist with favourites Digital Currencies'
+        content: SEO_WHATCHLIST.DESCRIPTION
       }
     ]
   },
