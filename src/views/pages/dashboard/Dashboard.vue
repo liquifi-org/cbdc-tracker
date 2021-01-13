@@ -35,6 +35,7 @@ import { DASHBOARD_ACTION_TYPES } from '@/store/modules/dashboard/actions'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
 import { CURRENCY_TABLE_SETTINGS_ACTION_TYPES } from '@/store/modules/currencyTableSettings/actions'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import { SEO_DASHBOARD } from '@/constants/seo'
 
 export default {
   components: {
@@ -44,11 +45,15 @@ export default {
     AboutBlock
   },
   metaInfo: {
-    title: 'CBDC tracker',
+    title: SEO_DASHBOARD.TITLE,
     meta: [
       {
         name: 'description',
-        content: 'Tracker for latest CBDC (Central Bank Digital Currency) developments'
+        content: SEO_DASHBOARD.DESCRIPTION
+      },
+      {
+        name: 'keywords',
+        content: SEO_DASHBOARD.KEYWORDS
       }
     ]
   },

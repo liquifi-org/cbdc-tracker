@@ -11,8 +11,14 @@
 <script>
 import Header from './header/Header'
 import Footer from './footer/Footer'
+import { SEO_META_OG, SEO_META_TWITTER } from '@/constants/seo'
 
 export default {
+  metaInfo () {
+    return {
+      meta: [...SEO_META_TWITTER, ...SEO_META_OG]
+    }
+  },
   components: {
     Footer,
     Header

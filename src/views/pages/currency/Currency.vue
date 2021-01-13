@@ -40,17 +40,42 @@ import TimelineBlock from './timeline/Block'
 import { CURRENCY_PAGE_ACTION_TYPES } from '@/store/modules/currencyPage/actions'
 import { CURRENCY_PAGE_MUTATION_TYPES } from '@/store/modules/currencyPage/mutations'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import { SEO_CURRENCY } from '@/constants/seo'
 
 export default {
   mixins: [screenSizeMixin],
   metaInfo () {
     return {
       title: this.documentTitle,
-      titleTemplate: '%s Digital Currency | CBDC tracker',
+      titleTemplate: SEO_CURRENCY.TITLE_TEMPLATE,
       meta: [
         {
           name: 'description',
-          content: this.documentDescription
+          content: this.documentDescription.replace('%s', this.documentTitle)
+        },
+        {
+          name: 'keywords',
+          content: this.documentKeywords
+        },
+        {
+          vmid: 'twitter:title',
+          property: 'twitter:title',
+          content: `${this.documentTitle} ${SEO_CURRENCY.TITLE}`
+        },
+        {
+          vmid: 'twitter:description',
+          property: 'twitter:description',
+          content: this.documentDescription.replace('%s', this.documentTitle)
+        },
+        {
+          vmid: 'og:title',
+          property: 'og:title',
+          content: `${this.documentTitle} ${SEO_CURRENCY.TITLE}`
+        },
+        {
+          vmid: 'og:description',
+          property: 'og:description',
+          content: this.documentDescription.replace('%s', this.documentTitle)
         }
       ]
     }
@@ -76,11 +101,25 @@ export default {
         }
       },
       documentDescription: (state) => {
-        if (state.currency) {
+        if (state.currency && state.currency.description) {
           return state.currency.description
         } else {
-          return 'Tracker for latest CBDC (Central Bank Digital Currency) developments'
+          return SEO_CURRENCY.DESCRIPTION
         }
+      },
+      documentKeywords: (state) => {
+        const keywordsArray = []
+        if (state.currency) {
+          const country = state.currency.country
+          const digitalCurrency = state.currency.digitalCurrency
+          keywordsArray.push(`${country} virtual money`)
+          keywordsArray.push(`${country} digital currency`)
+          if (digitalCurrency) {
+            keywordsArray.push(`${digitalCurrency}`)
+            keywordsArray.push(`${digitalCurrency} updates`)
+          }
+        }
+        return keywordsArray.join(', ')
       }
     })
   },
