@@ -16,17 +16,8 @@ export class CurrenciesHttpService {
     return await this.httpSevice.get(url)
   }
 
-  // Return all sorted tags without duplicates
   async getCurrencyTags () {
-    const currencies = await this.getCurrencies()
-
-    return currencies.map((currency) => {
-      return {
-        country: currency.country,
-        currency: currency.digitalCurrency,
-        name: currency.tag
-      }
-    })
+    return await this.httpSevice.get('/currencies/tags')
   }
 
   async getCurrencyByTag (tag) {

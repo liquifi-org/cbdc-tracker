@@ -67,14 +67,6 @@ $input-placeholder-color: #7997C3;
     background-color: white;
   }
 
-  select.placeholder {
-    color: $input-placeholder-color;
-  }
-
-  select option {
-    color: $input-color;
-  }
-
   input::-webkit-input-placeholder {
     color: $input-placeholder-color;
   }
