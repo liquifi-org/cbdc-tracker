@@ -1,13 +1,13 @@
 <template>
   <div>
     <div v-if="isMobileScreen" class="m-b-16">
-      <app-title>CBDC project</app-title>
+      <app-title level="2">CBDC project</app-title>
       Current status of Central Bank Digital Currencies (CBDC) worldwide
     </div>
 
     <app-card class="ui-about">
       <template v-if="!isMobileScreen" #header>
-        <app-title>CBDC project</app-title>
+        <app-title level="2">CBDC project</app-title>
         Current status of Central Bank Digital Currencies (CBDC) worldwide
       </template>
 

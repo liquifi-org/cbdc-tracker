@@ -17,8 +17,14 @@
     </b-row>
 
     <b-row>
-      <b-col cols="12">
+      <b-col class="m-b-16" cols="12">
         <AboutBlock></AboutBlock>
+      </b-col>
+    </b-row>
+
+    <b-row>
+      <b-col cols="12">
+        <ContributingOrganizations></ContributingOrganizations>
       </b-col>
     </b-row>
   </b-container>
@@ -29,6 +35,7 @@ import MainBlock from './main/Block.vue'
 import FiltersCard from './filters/Card'
 import NewsBlock from './news/Block'
 import AboutBlock from './about/Block'
+import ContributingOrganizations from './сontributingOrganizations/Block'
 import { MODULE_NAMES } from '@/store'
 import { mapActions, mapMutations } from 'vuex'
 import { DASHBOARD_ACTION_TYPES } from '@/store/modules/dashboard/actions'
@@ -42,7 +49,8 @@ export default {
     MainBlock,
     FiltersCard,
     NewsBlock,
-    AboutBlock
+    AboutBlock,
+    ContributingOrganizations
   },
   metaInfo: {
     title: SEO_DASHBOARD.TITLE,
