@@ -23,7 +23,7 @@ export const SEO_WHATCHLIST = {
   KEYWORDS: ''
 }
 
-export const PREVIEW_IMAGE = 'http://cbdctracker.org/img/preview.706885c6.png'
+export const PREVIEW_IMAGE = 'https://cbdctracker.org/CBDC-splash.jpg'
 
 export const SEO_META_TWITTER = [
   {
