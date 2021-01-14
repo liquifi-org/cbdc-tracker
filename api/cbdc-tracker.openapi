@@ -10,8 +10,12 @@ tags:
   description: News REST API
 - name: History of changes
   description: CBDC history of changes REST API
+- name: Technologies
+  description: Technologies API
 - name: Countries
   description: Countries API
+- name: Site map
+  description: Site map API
 paths:
   /countries:
     get:
@@ -185,6 +189,30 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/News'
+  /sitemap.xml:
+    get:
+      tags:
+      - Site map
+      description: Returns sitemap.xml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: string
+  /technologies:
+    get:
+      tags:
+      - Technologies
+      description: Returns all technologies that are applied to CBDCs
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ListString'
 components:
   schemas:
     DataColumn:
