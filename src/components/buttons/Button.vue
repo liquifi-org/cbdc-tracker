@@ -24,7 +24,7 @@ export default {
     border: none;
     font-weight: 800;
     font-size: 14px;
-    padding: 12px 20px;
+    padding: 8px 20px;
     border-radius: 8px;
 
     &.primary {
@@ -57,6 +57,17 @@ export default {
         background-color: inherit;
         color: $site-primary-color;
         box-shadow: 0 0 0 0.2rem $site-primary-color;
+      }
+    }
+
+    &.danger {
+      background-color: #d53e45;
+      color: white;
+
+      &:active, &:focus, &:active:focus {
+        background-color: #d53e45;
+        color: white;
+        box-shadow: 0 0 0 0.2rem #FBECEC;
       }
     }
   }

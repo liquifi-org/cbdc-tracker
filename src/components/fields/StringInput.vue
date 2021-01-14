@@ -1,7 +1,11 @@
 <template>
   <div class="ui-field-wrapper">
-    <app-field-label :forAttribute="componentId" :text="label"></app-field-label>
-    <b-form-input :id="componentId" :placeholder="placeholder" :value="value" @input="onChange"></b-form-input>
+    <app-field-label :forAttribute="componentId" :text="localLabel"></app-field-label>
+    <b-form-input :id="componentId"
+                  :placeholder="localPlaceholder"
+                  trim
+                  :value="localValue"
+                  @input="onChange"></b-form-input>
   </div>
 </template>
 
@@ -12,7 +16,7 @@ export default {
   extends: BaseInput,
   methods: {
     onChange (value) {
-      if (value === this.value) {
+      if (value === this.localValue) {
         return
       }
 

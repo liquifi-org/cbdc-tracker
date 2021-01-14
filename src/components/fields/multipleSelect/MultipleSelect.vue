@@ -1,7 +1,7 @@
 <template>
   <div>
-    <app-field-label :forAttribute="componentId" :text="label" @click="onLabelClick"></app-field-label>
-    <TagifyInput ref="tagifyInput" :id="componentId" :value="value" :placeholder="placeholder" :possibleValues="possibleValues" @change="onChange"></TagifyInput>
+    <app-field-label :forAttribute="componentId" :text="localLabel" @click="onLabelClick"></app-field-label>
+    <TagifyInput ref="tagifyInput" :id="componentId" :value="localValue" :placeholder="localPlaceholder" :possibleValues="possibleValues" @change="onChange"></TagifyInput>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     onChange (value) {
-      if (JSON.stringify(value) === JSON.stringify(this.value)) {
+      if (JSON.stringify(value) === JSON.stringify(this.localValue)) {
         return
       }
 

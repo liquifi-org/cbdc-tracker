@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     text () {
-      return this.data.currency ? `${this.data.currency} (${this.data.country})` : `(${this.data.country})`
+      return this.data.currency ? `${this.data.currency} | ${this.data.country}` : this.data.country
     }
   },
   watch: {
@@ -63,12 +63,17 @@ export default {
     font-size: 12px;
 
     .ui-tag-text {
-      color: #0B2041;
+      color: $site-primary-color;
+      opacity: .8;
     }
 
     &:hover:not([disabled]), &.active {
       color: $site-primary-color;
       border-color: $site-primary-color;
+
+      .ui-tag-text {
+        opacity: 1;
+      }
     }
   }
 </style>

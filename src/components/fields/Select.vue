@@ -1,9 +1,9 @@
 <template>
   <div class="ui-field-wrapper">
-    <app-field-label :forAttribute="componentId" :text="label"></app-field-label>
+    <app-field-label :forAttribute="componentId" :text="localLabel"></app-field-label>
     <b-form-select :id="componentId"
-                   :class="{placeholder: !value}"
-                   :value="value"
+                   :class="{placeholder: !localValue}"
+                   :value="localValue"
                    @input="onChange"
                    :options="options"></b-form-select>
   </div>
@@ -17,7 +17,7 @@ export default {
   computed: {
     options () {
       return [
-        { value: null, text: this.data.placeholder },
+        { value: null, text: this.localPlaceholder },
         ...this.data.settings.possibleValues.map((value) => {
           return {
             value,
@@ -29,11 +29,11 @@ export default {
   },
   methods: {
     onChange (value) {
-      if (value === this.value) {
+      if (value === this.localLabel) {
         return
       }
 
-      value = (value === this.data.placeholder) ? null : value
+      value = (value === this.localPlaceholder) ? null : value
 
       this.$emit('changeValue', value)
     }
