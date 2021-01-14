@@ -9,6 +9,7 @@ import './components/globals'
 import { SAVE_USER_SETTING_PLUGIN_MUTATION_TYPES } from '@/store/saveUserSettingsPlugin/constants'
 import VueMeta from 'vue-meta'
 import VueTheMask from 'vue-the-mask'
+import VueAnalytics from 'vue-analytics'
 
 // Install BootstrapVue
 Vue.use(BootstrapVue, {
@@ -26,6 +27,10 @@ Vue.use(BootstrapVueIcons)
 Vue.use(VueMeta, {
   // optional pluginOptions
   refreshOnceOnNavigation: true
+})
+
+Vue.use(VueAnalytics, {
+  id: 'UA-168220041-1'
 })
 
 Vue.use(VueTheMask)
