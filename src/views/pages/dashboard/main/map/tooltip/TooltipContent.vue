@@ -2,7 +2,7 @@
   <div class="ui-country-tooltip">
     <div class="ui-country-tooltip_header">{{country.name}}</div>
 
-    <div class="ui-country-tooltip_currency" v-for="(currency) in country.currencies" :key="currency.digitalCurrency">
+    <div class="ui-country-tooltip_currency" v-for="(currency) in country.currencies" :key="currency.tag">
       <div class="ui-country-tooltip_currency-watch-flag">
         <app-watch-flag :isSelected="hasAtWatchlist(currency)" :isDisabled="true"></app-watch-flag>
       </div>

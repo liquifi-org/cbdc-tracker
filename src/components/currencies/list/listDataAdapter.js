@@ -1,4 +1,5 @@
 import { SORT_DIRECTIONS } from '@/constants/sortDirections'
+import { isNumber } from 'lodash'
 
 // Class for add sort and pagination to table data
 export class ListDataAdapter {
@@ -13,12 +14,15 @@ export class ListDataAdapter {
     const sortDirection = sort.direction
 
     const sortedItems = items.sort(function (a, b) {
-      const valueA = (a[sortName] || '').toLowerCase()
-      const valueB = (b[sortName] || '').toLowerCase()
+      const valueA = a[sortName]
+      const valueB = b[sortName]
 
-      if (valueA < valueB) {
+      const sortedValueA = isNumber(valueA) ? valueA : (valueA || '').toLowerCase()
+      const sortedValueB = isNumber(valueB) ? valueB : (valueB || '').toLowerCase()
+
+      if (sortedValueA < sortedValueB) {
         return -1
-      } else if (valueA > valueB) {
+      } else if (sortedValueA > sortedValueB) {
         return 1
       } else {
         return 0
