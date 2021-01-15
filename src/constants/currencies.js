@@ -12,5 +12,3 @@ export const CURRENCY_FIELD_NAMES = {
   CENTRAL_BANK: 'centralBank',
   TYPE: 'type'
 }
-
-export const CURRENCY_MOCK_NAME = '[No name]'

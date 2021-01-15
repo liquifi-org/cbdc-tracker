@@ -10,7 +10,7 @@
       <div class="ui-country-tooltip_currency-name">
         <app-link :href="getCurrencyRoute(currency)"
                   class="ui-country-tooltip_currency-name-link"
-                  :text="currency.digitalCurrency || CURRENCY_MOCK_NAME"></app-link>
+                  :text="currency.digitalCurrency"></app-link>
       </div>
 
       <div class="ui-country-tooltip_currency-status-wrapper">
@@ -24,14 +24,12 @@
 
 <script>
 import { getCurrencyRoute } from '@/utils/getCurrencyRoute'
-import { CURRENCY_MOCK_NAME } from '@/constants/currencies'
 
 export default {
   data () {
     return {
       country: this.$root.country,
-      watchlist: this.$root.watchlist,
-      CURRENCY_MOCK_NAME
+      watchlist: this.$root.watchlist
     }
   },
   methods: {

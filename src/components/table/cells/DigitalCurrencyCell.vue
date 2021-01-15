@@ -8,7 +8,6 @@
 <script>
 import BaseCell from '@/components/table/cells/BaseCell'
 import { TABLE_CELL_ACTIONS } from '@/components/table/constants'
-import { CURRENCY_MOCK_NAME } from '@/constants/currencies'
 
 export default {
   extends: BaseCell,
@@ -20,7 +19,7 @@ export default {
       return this.displayData.isDisabled
     },
     text () {
-      return this.displayData.text || CURRENCY_MOCK_NAME
+      return this.displayData.text
     },
     url () {
       return this.displayData.url

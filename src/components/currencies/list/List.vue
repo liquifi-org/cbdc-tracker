@@ -18,24 +18,23 @@
       </template>
     </Table>
 
-    <div v-else>
-      <MobileList :currencies="currencies"
-                  :columns="columns"
-                  :sort="sort"
-                  :currentPage="currentPage"
-                  :watchlist="watchlist"
-                  :isLoading="isLoading"
-                  :isOnlyWatchlistShown="isOnlyWatchlistShown"
-                  :loadHint="loadHint"
-                  @changePage="onChangePage"
-                  @changeSort="onChangeSort"
-                  @addCurrencyToWatchlist="onAddCurrencyToWatchlist"
-                  @removeCurrencyFromWatchlist="onRemoveCurrencyFromWatchlist">
-        <template #empty>
-          <slot name="empty"></slot>
-        </template>
-      </MobileList>
-    </div>
+    <MobileList v-else
+                :currencies="currencies"
+                :columns="columns"
+                :sort="sort"
+                :currentPage="currentPage"
+                :watchlist="watchlist"
+                :isLoading="isLoading"
+                :isOnlyWatchlistShown="isOnlyWatchlistShown"
+                :loadHint="loadHint"
+                @changePage="onChangePage"
+                @changeSort="onChangeSort"
+                @addCurrencyToWatchlist="onAddCurrencyToWatchlist"
+                @removeCurrencyFromWatchlist="onRemoveCurrencyFromWatchlist">
+      <template #empty>
+        <slot name="empty"></slot>
+      </template>
+    </MobileList>
   </div>
 </template>
 
