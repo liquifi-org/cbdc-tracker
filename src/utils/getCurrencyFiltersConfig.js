@@ -9,7 +9,7 @@ export const STATUS_FILTER_POSSIBLE_VALUES = Object.values(STATUS_NAMES).filter(
 export const getCurrencyFiltersConfig = () => {
   return [{
     name: CURRENCY_FIELD_NAMES.TYPE,
-    label: 'Type',
+    label: 'Retail/Wholesale',
     placeholder: 'All',
     type: FILTER_TYPES.SELECT,
     settings: {

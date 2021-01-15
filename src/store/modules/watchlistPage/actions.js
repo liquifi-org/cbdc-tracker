@@ -34,12 +34,12 @@ export const actions = {
     })
   },
   async [WATCHLIST_PAGE_ACTION_TYPES.FETCH_CURRENCY_NAMES] ({ commit }) {
-    commit(WATCHLIST_PAGE_ACTION_TYPES.CHANGE_CURRENCY_NAMES, {
+    commit(WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_CURRENCY_NAMES, {
       currencyNames: await currenciesHttpService.getCurrencyNames()
     })
   },
   async [WATCHLIST_PAGE_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES] ({ commit }) {
-    commit(WATCHLIST_PAGE_ACTION_TYPES.CHANGE_TECHNOLOGIES_WITH_CURRENCIES, {
+    commit(WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_TECHNOLOGIES_WITH_CURRENCIES, {
       countriesWithTechnologies: await currenciesHttpService.getCountriesWithTechnologies()
     })
   }
