@@ -27,7 +27,7 @@ export const getCurrencyFiltersConfig = () => {
     value: null
   }, {
     name: CURRENCY_FIELD_NAMES.COUNTRY,
-    label: 'Country',
+    label: 'Country / Region',
     placeholder: 'Choose countries',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
