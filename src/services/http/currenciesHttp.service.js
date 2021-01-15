@@ -1,4 +1,6 @@
 import { HttpService } from '@/services/http/http.service'
+import { getCurrencyMockNameByTag } from '@/utils/getCurrencyMockNameByTag'
+import { getCurrencyMockName } from '@/utils/getCurrencyMockName'
 
 export class CurrenciesHttpService {
   constructor () {
@@ -13,7 +15,15 @@ export class CurrenciesHttpService {
       url += `?date=${options.date}`
     }
 
-    return await this.httpSevice.get(url)
+    const currencies = await this.httpSevice.get(url)
+
+    return currencies.map((currency) => {
+      return {
+        ...currency,
+        digitalCurrency: currency.digitalCurrency || getCurrencyMockName(currency),
+        hasCurrencyName: !!currency.digitalCurrency
+      }
+    })
   }
 
   async getCurrencyTags () {
@@ -23,17 +33,19 @@ export class CurrenciesHttpService {
   async getCurrencyNames () {
     const tags = await this.getCurrencyTags()
 
-    const tagsWithСurrency = tags.filter((tag) => {
-      return !!tag.currency
-    })
-
-    return tagsWithСurrency.map((tag) => {
-      return tag.currency
+    return tags.map((tag) => {
+      return tag.currency || getCurrencyMockNameByTag(tag)
     })
   }
 
   async getCurrencyByTag (tag) {
-    return await this.httpSevice.get(`currencies/tags/${tag}`)
+    const currency = await this.httpSevice.get(`currencies/tags/${tag}`)
+
+    return {
+      ...currency,
+      digitalCurrency: currency.digitalCurrency || getCurrencyMockName(currency),
+      hasCurrencyName: !!currency.digitalCurrency
+    }
   }
 
   async getCurrencyColumns () {

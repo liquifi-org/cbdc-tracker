@@ -3,12 +3,12 @@
     <div v-if="isMobileScreen">
       <div class="m-b-16">
         <app-title>
-          {{digitalCurrency}}
+          {{ digitalCurrency }}
           <app-watch-flag :isSelected="hasCurrencyAtWatchlist(currency.tag)"
                           @isSelectedChanged="changeWatchFlag"></app-watch-flag>
         </app-title>
 
-        {{currency.country}}
+        {{ currency.country }}
       </div>
 
       <app-card>
@@ -34,12 +34,12 @@
     <app-card v-else>
       <template #header>
         <app-title>
-          {{digitalCurrency}}
+          {{ digitalCurrency }}
           <app-watch-flag :isSelected="hasCurrencyAtWatchlist(currency.tag)"
                           @isSelectedChanged="changeWatchFlag"></app-watch-flag>
         </app-title>
 
-        {{currency.country}}
+        {{ currency.country }}
       </template>
 
       <InfoList :items="commonInfoFields"></InfoList>
@@ -57,7 +57,7 @@
 import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { WATCHLIST_MUTATION_TYPES } from '@/store/modules/watchlist.module'
-import { CURRENCY_FIELD_NAMES, CURRENCY_MOCK_NAME } from '@/constants/currencies'
+import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import InfoList from '@/components/info/InfoList'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import { isEmptyCurrencyField } from '@/utils/isEmptyCurrencyField'
@@ -92,7 +92,7 @@ export default {
       hasCurrencyAtWatchlist: 'hasCurrencyAtWatchlist'
     }),
     digitalCurrency () {
-      return (this.currency.digitalCurrency || CURRENCY_MOCK_NAME)
+      return this.currency.digitalCurrency
     },
     infoFields () {
       return this.infoFieldsMetadata.map((metadata) => {

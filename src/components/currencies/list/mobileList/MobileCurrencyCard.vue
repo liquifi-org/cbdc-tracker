@@ -37,7 +37,7 @@
 
 <script>
 import { getCurrencyRoute } from '@/utils/getCurrencyRoute'
-import { CURRENCY_FIELD_NAMES, CURRENCY_MOCK_NAME } from '@/constants/currencies'
+import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import InfoList from '@/components/info/InfoList'
 import { isEmptyCurrencyField } from '@/utils/isEmptyCurrencyField'
 
@@ -65,7 +65,7 @@ export default {
       return this.data.currency
     },
     digitalCurrency () {
-      return this.currency.digitalCurrency || CURRENCY_MOCK_NAME
+      return this.currency.digitalCurrency
     },
     country () {
       return this.currency.country
