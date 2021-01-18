@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     fieldValue () {
-      return this.parseValueToFieldValue(this.localLabel)
+      return this.parseValueToFieldValue(this.value)
     }
   },
   watch: {
