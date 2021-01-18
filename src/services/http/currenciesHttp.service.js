@@ -31,11 +31,29 @@ export class CurrenciesHttpService {
   }
 
   async getCurrencyNames () {
-    const tags = await this.getCurrencyTags()
+    let tags = await this.getCurrencyTags()
 
-    return tags.map((tag) => {
+    tags = tags.map((tag) => {
       return tag.currency || getCurrencyMockNameByTag(tag)
     })
+
+    tags = tags.sort(function (a, b) {
+      const valueA = a
+      const valueB = b
+
+      const sortedValueA = (valueA || '').toLowerCase()
+      const sortedValueB = (valueB || '').toLowerCase()
+
+      if (sortedValueA < sortedValueB) {
+        return -1
+      } else if (sortedValueA > sortedValueB) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+
+    return tags
   }
 
   async getCurrencyByTag (tag) {

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="ui-table-cell-digital-currency">
     <app-watch-flag class="m-r-8" :isSelected="hasAtWatchlist" :isDisabled="isDisabled" @isSelectedChanged="changeHasAtWatchlist"></app-watch-flag>
-    <app-link :href="url" :text="text"></app-link>
+    <app-link class="ui-table-cell-digital-currency_link" :href="url" :text="text"></app-link>
   </div>
 </template>
 
@@ -39,3 +39,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .ui-table-cell-digital-currency {
+    display: flex;
+    vertical-align: center;
+
+    .ui-table-cell-digital-currency_link {
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+</style>
