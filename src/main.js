@@ -30,7 +30,8 @@ Vue.use(VueMeta, {
 })
 
 Vue.use(VueAnalytics, {
-  id: 'UA-168220041-1'
+  id: 'UA-168220041-1',
+  router
 })
 
 Vue.use(VueTheMask)
