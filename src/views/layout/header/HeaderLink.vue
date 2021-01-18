@@ -4,7 +4,7 @@
       {{text}}
     </router-link>
 
-    <a v-if="href" :href="href" download @click="onClick">
+    <a v-if="href" :href="href" target="_blank" @click="onClick">
       {{text}}
     </a>
 

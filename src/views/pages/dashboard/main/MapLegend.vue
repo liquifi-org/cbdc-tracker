@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import { STATUS_NAMES } from '@/constants/statuses'
 import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
@@ -31,13 +30,7 @@ export default {
       technologiesWithCurrencies: 'technologiesWithCurrencies'
     }),
     statuses () {
-      const statusNames = [
-        STATUS_NAMES.RESEARCH,
-        STATUS_NAMES.DEVELOPMENT,
-        STATUS_NAMES.PILOT,
-        STATUS_NAMES.LAUNCHED,
-        STATUS_NAMES.CANCELLED
-      ]
+      const statusNames = STATUS_FILTER_POSSIBLE_VALUES
 
       const statusFilter = this.filters.find((filter) => {
         return (filter.name === CURRENCY_FIELD_NAMES.STATUS)

@@ -2,15 +2,18 @@ import { CurrenciesHttpService } from '@/services/http/currenciesHttp.service'
 import { WATCHLIST_PAGE_MUTATION_TYPES } from './mutations'
 import { MODULE_NAMES } from '@/store'
 import { WATCHLIST_MUTATION_TYPES } from '@/store/modules/watchlist.module'
+import { SubscribesHttpService } from '@/services/http/subscribesHttp.service'
 
 export const WATCHLIST_PAGE_ACTION_TYPES = {
   FETCH_CURRENCIES_DATA: 'fetchCurrenciesData',
   FETCH_COUNTRIES_WITH_CURRENCIES: 'fetchCountriesWithCurrencies',
   FETCH_CURRENCY_NAMES: 'fetchCountryNames',
-  FETCH_TECHNOLOGIES_WITH_CURRENCIES: 'fetchTechnologiesWithCurrencies'
+  FETCH_TECHNOLOGIES_WITH_CURRENCIES: 'fetchTechnologiesWithCurrencies',
+  SUBSCRIBE: 'subscribe'
 }
 
 const currenciesHttpService = new CurrenciesHttpService()
+const subscribesHttpService = new SubscribesHttpService()
 
 export const actions = {
   async [WATCHLIST_PAGE_ACTION_TYPES.FETCH_CURRENCIES_DATA] ({ commit }) {
@@ -42,5 +45,13 @@ export const actions = {
     commit(WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_TECHNOLOGIES_WITH_CURRENCIES, {
       countriesWithTechnologies: await currenciesHttpService.getCountriesWithTechnologies()
     })
+  },
+  async [WATCHLIST_PAGE_ACTION_TYPES.SUBSCRIBE] ({ commit, state, rootState }) {
+    const email = state.subscription.email
+    const currencyTags = rootState[MODULE_NAMES.WATCHLIST].list
+
+    await subscribesHttpService.subscribe(email, currencyTags)
+
+    commit(WATCHLIST_PAGE_MUTATION_TYPES.CLEAR_EMAIL)
   }
 }

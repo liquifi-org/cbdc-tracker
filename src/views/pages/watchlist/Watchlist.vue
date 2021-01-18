@@ -2,19 +2,25 @@
   <b-container fluid>
     <b-row>
       <b-col class="m-b-16" cols="12" xxl="10">
-        <MainBlock></MainBlock>
+        <MainBlock class="m-b-16"></MainBlock>
+
+        <SubscriptionBlock></SubscriptionBlock>
       </b-col>
 
       <b-col v-if="isDesktopScreen" class="m-b-16" cols="2">
         <FiltersCard></FiltersCard>
       </b-col>
     </b-row>
+
+    <SubscriptionConfirmModal></SubscriptionConfirmModal>
   </b-container>
 </template>
 
 <script>
 import MainBlock from './main/Block.vue'
 import FiltersCard from './filters/Card'
+import SubscriptionBlock from './subscription/Block'
+import SubscriptionConfirmModal from './subscription/SubscriptionConfirmModal'
 import { MODULE_NAMES } from '@/store'
 import { mapActions, mapMutations } from 'vuex'
 import { CURRENCY_TABLE_SETTINGS_ACTION_TYPES } from '@/store/modules/currencyTableSettings/actions'
@@ -36,7 +42,9 @@ export default {
   },
   components: {
     MainBlock,
-    FiltersCard
+    FiltersCard,
+    SubscriptionBlock,
+    SubscriptionConfirmModal
   },
   async created () {
     await Promise.all([

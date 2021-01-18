@@ -1,17 +1,27 @@
 <script>
 export default {
   props: {
-    data: Object
+    data: Object,
+    label: String,
+    value: null,
+    placeholder: String,
+    required: Boolean,
+    state: Boolean
   },
   computed: {
-    value () {
-      return this.data.value
+    localValue () {
+      return this.value || (this.data && this.data.value)
     },
-    label () {
-      return this.data.label
+    localLabel () {
+      return this.label || (this.data && this.data.label)
     },
-    placeholder () {
-      return this.data.placeholder
+    localPlaceholder () {
+      return this.placeholder || (this.data && this.data.placeholder)
+    }
+  },
+  methods: {
+    validate () {
+      return this.required ? !!this.localValue : true
     }
   }
 }

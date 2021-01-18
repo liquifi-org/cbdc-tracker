@@ -11,6 +11,8 @@ export const WATCHLIST_PAGE_MUTATION_TYPES = {
   CHANGE_CURRENCY_NAMES: 'changeCountryNames',
   CHANGE_FILTERS: 'changeFilters',
   CLEAR_FILTERS: 'clearFilters',
+  CHANGE_EMAIL: 'changeEmail',
+  CLEAR_EMAIL: 'clearEmail',
   RESET: 'reset'
 }
 
@@ -66,11 +68,19 @@ export const mutations = {
       filter.value = null
     })
   },
+  [WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_EMAIL] (state, payload) {
+    state.subscription.email = payload.email
+  },
+  [WATCHLIST_PAGE_MUTATION_TYPES.CLEAR_EMAIL] (state, payload) {
+    state.subscription.email = ''
+  },
   [WATCHLIST_PAGE_MUTATION_TYPES.RESET] (state, payload) {
     state.currenciesData = null
     state.isCurrenciesLoading = false
     state.filters = getCurrencyFiltersConfig()
 
     state.table.currentPage = 1
+
+    state.subscription.email = ''
   }
 }

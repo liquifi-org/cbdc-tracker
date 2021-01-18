@@ -21,4 +21,8 @@ export default {
     font-size: 14px;
     color: #7997C4;
   }
+
+  .ui-field-wrapper.is-invalid .ui-field-label {
+    color: #D53E45;
+  }
 </style>

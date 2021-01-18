@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     fieldValue () {
-      return this.parseValueToFieldValue(this.value)
+      return this.parseValueToFieldValue(this.localLabel)
     }
   },
   watch: {
@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     const possibleValues = (this.possibleValues || [])
-    const value = (this.value || [])
+    const value = (this.localLabel || [])
 
     // We need values from value in whitelist because we can have value before possibleValues
     const whitelist = [...possibleValues, ...value]

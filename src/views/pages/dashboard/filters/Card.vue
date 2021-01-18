@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ui-dashboard-currency-filters">
     <MobileFiltersCard v-if="isMobileScreen"
                        :filters="filters"
                        :countriesWithCurrencies="countriesWithCurrencies"
@@ -52,3 +52,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@media (min-width: $min-desktop-width) {
+  .ui-dashboard-currency-filters {
+    position: sticky;
+    top: 0;
+  }
+}
+</style>
