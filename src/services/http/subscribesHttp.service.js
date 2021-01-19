@@ -5,8 +5,8 @@ export class SubscribesHttpService {
     this.httpSevice = new HttpService()
   }
 
-  async subscribe (email, currencyTags) {
-    return await this.httpSevice.post('subscriptions', { email, currencyTags })
+  async subscribe (email, currencyTags, recaptcha) {
+    return await this.httpSevice.post('subscriptions', { email, currencyTags, recaptcha })
   }
 
   async confirmSubscribe (verificationKey) {

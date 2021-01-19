@@ -64,6 +64,7 @@
       </b-row>
     </template>
 
+    <Recaptcha ref="recaptcha" @ok="onRecaptchaOk"></Recaptcha>
     <SubscribeModal ref="subscribeModal"></SubscribeModal>
   </div>
 </template>
@@ -76,11 +77,13 @@ import { WATCHLIST_PAGE_ACTION_TYPES } from '@/store/modules/watchlistPage/actio
 import { WATCHLIST_PAGE_MUTATION_TYPES } from '@/store/modules/watchlistPage/mutations'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import SubscribeModal from './SubscribeModal'
+import Recaptcha from '@/components/Recaptcha'
 
 export default {
   mixins: [screenSizeMixin],
   components: {
-    SubscribeModal
+    SubscribeModal,
+    Recaptcha
   },
   data () {
     return {
@@ -102,11 +105,14 @@ export default {
     ...mapMutations(MODULE_NAMES.WATCHLIST_PAGE, {
       changeEmail: WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_EMAIL
     }),
-    async onSubscribeClick () {
+    onSubscribeClick () {
       if (!this.validateEmail()) {
         return
       }
 
+      this.$refs.recaptcha.validate()
+    },
+    async onRecaptchaOk (recaptchaToken) {
       const modal = this.$refs.subscribeModal
 
       try {
@@ -114,13 +120,13 @@ export default {
         modal.hasError = false
 
         modal.showModal()
-        await this.subscribe()
-
-        modal.isLoading = false
+        await this.subscribe({ recaptchaToken })
       } catch (error) {
-        console.log(error)
-        modal.isLoading = false
+        console.error(error)
         modal.hasError = true
+      } finally {
+        modal.isLoading = false
+        this.$refs.recaptcha.reset()
       }
     },
     onEmailChange (email) {
