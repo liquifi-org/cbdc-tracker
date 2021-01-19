@@ -7,9 +7,9 @@
 
       <b-row>
         <b-col class="m-b-4" cols="12" xxl="6">
-          <p>Enter your e-mail to get new updates of chosen currencies. If you’ve already subscribed, list of currencies
-            will be changed to the current state.</p>
-          <p>Also you can cancel all subscribtions.</p>
+          <p>Enter your e-mail to receive updates of the chosen currencies. If you have already subscribed, the list of
+            currencies will be changed to the current state.</p>
+          <p>Also you can cancel all the subscriptions.</p>
         </b-col>
 
         <b-col cols="12" xxl="6">
@@ -28,7 +28,8 @@
             <b-col cols="6">
               <app-button class="m-t-28"
                           :type="BUTTON_TYPES.PRIMARY"
-                          @click="onSubscribeClick">Subscribe</app-button>
+                          @click="onSubscribeClick">Subscribe
+              </app-button>
             </b-col>
           </b-row>
         </b-col>
@@ -57,7 +58,8 @@
 
           <app-button :type="BUTTON_TYPES.PRIMARY"
                       @click="onSubscribeClick"
-                      :isBlock="true">Subscribe</app-button>
+                      :isBlock="true">Subscribe
+          </app-button>
         </b-col>
       </b-row>
     </template>
