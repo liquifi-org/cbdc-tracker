@@ -6,6 +6,7 @@
                   :state="state">
       <b-form-input :id="componentId"
                     :placeholder="localPlaceholder"
+                    autocomplete="email"
                     trim
                     :value="localValue"
                     :state="state"

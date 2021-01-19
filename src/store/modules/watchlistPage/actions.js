@@ -9,7 +9,8 @@ export const WATCHLIST_PAGE_ACTION_TYPES = {
   FETCH_COUNTRIES_WITH_CURRENCIES: 'fetchCountriesWithCurrencies',
   FETCH_CURRENCY_NAMES: 'fetchCountryNames',
   FETCH_TECHNOLOGIES_WITH_CURRENCIES: 'fetchTechnologiesWithCurrencies',
-  SUBSCRIBE: 'subscribe'
+  SUBSCRIBE: 'subscribe',
+  UNSUBSCRIBE: 'unsubscribe'
 }
 
 const currenciesHttpService = new CurrenciesHttpService()
@@ -46,11 +47,20 @@ export const actions = {
       countriesWithTechnologies: await currenciesHttpService.getCountriesWithTechnologies()
     })
   },
-  async [WATCHLIST_PAGE_ACTION_TYPES.SUBSCRIBE] ({ commit, state, rootState }) {
+  async [WATCHLIST_PAGE_ACTION_TYPES.SUBSCRIBE] ({ commit, state, rootState }, payload) {
     const email = state.subscription.email
     const currencyTags = rootState[MODULE_NAMES.WATCHLIST].list
+    const recaptchaToken = payload.recaptchaToken
 
-    await subscribesHttpService.subscribe(email, currencyTags)
+    await subscribesHttpService.subscribe(email, currencyTags, recaptchaToken)
+
+    commit(WATCHLIST_PAGE_MUTATION_TYPES.CLEAR_EMAIL)
+  },
+  async [WATCHLIST_PAGE_ACTION_TYPES.UNSUBSCRIBE] ({ commit, state, rootState }, payload) {
+    const email = state.subscription.email
+    const recaptchaToken = payload.recaptchaToken
+
+    await subscribesHttpService.unsubscribe(email, recaptchaToken)
 
     commit(WATCHLIST_PAGE_MUTATION_TYPES.CLEAR_EMAIL)
   }

@@ -1,6 +1,7 @@
 <template>
   <app-link class="ui-social-network-link" :href="href" :text="text">
-    <span><app-icon class="ui-social-network-link_icon" :name="iconName" :text="text"></app-icon> {{text}}</span>
+    <app-icon class="ui-social-network-link_icon" :name="iconName" :text="text"></app-icon>
+    <span class="ui-social-network-link_text">{{text}}</span>
   </app-link>
 </template>
 
@@ -38,5 +39,13 @@ export default {
 <style lang="scss">
   .ui-social-network-link_icon {
     margin-right: 8px;
+  }
+
+  .ui-social-network-link:hover {
+    text-decoration-line: none;
+
+    .ui-social-network-link_text {
+      text-decoration-line: underline;
+    }
   }
 </style>
