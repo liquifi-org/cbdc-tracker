@@ -42,17 +42,7 @@
           </div>
 
           <b-row>
-            <b-col class="m-b-16" cols="12" xxl="3">
-              <div class="m-b-12">
-                <strong>Source</strong>
-              </div>
-
-              <app-social-network-link :socialNetwork="SOCIAL_NETWORKS_NAMES.GITHUB"
-                                       href="https://github.com/liquifi-org/cbdc-tracker"
-                                       text="Github"></app-social-network-link>
-            </b-col>
-
-            <b-col class="m-b-16" cols="12" xxl="9">
+            <b-col class="m-b-16" cols="8">
               <div>
                 <strong>Key contributors</strong>
               </div>
@@ -89,6 +79,16 @@
                                          text="Gourav Roy"></app-social-network-link>
               </div>
             </b-col>
+
+            <b-col class="m-b-16" cols="4">
+              <div class="m-b-12">
+                <strong>Source</strong>
+              </div>
+
+              <app-social-network-link :socialNetwork="SOCIAL_NETWORKS_NAMES.GITHUB"
+                                       href="https://github.com/liquifi-org/cbdc-tracker"
+                                       text="Github"></app-social-network-link>
+            </b-col>
           </b-row>
 
           MIT License, free for reproduction and distribution
@@ -121,18 +121,6 @@ export default {
 
   .ui-about_social-network-link {
     margin-top: 8px;
-    width: 30%;
-  }
-
-  @media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
-    .ui-about_social-network-link {
-      width: 25%;
-    }
-  }
-
-  @media (max-width: $max-mobile-width) {
-    .ui-about_social-network-link {
-      width: 50%;
-    }
+    margin-right: 24px;
   }
 </style>
