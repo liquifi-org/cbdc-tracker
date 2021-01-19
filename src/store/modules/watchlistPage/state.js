@@ -7,6 +7,9 @@ export const state = () => {
     table: {
       currentPage: 1
     },
-    filters: getCurrencyFiltersConfig()
+    filters: getCurrencyFiltersConfig(),
+    subscription: {
+      email: ''
+    }
   }
 }

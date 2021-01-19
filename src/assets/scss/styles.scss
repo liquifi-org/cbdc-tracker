@@ -39,7 +39,7 @@ body::-webkit-scrollbar {
   height: 8px;
 }
 
-$values: (0, 4, 8, 12, 16, 20, 24, 32, 40);
+$values: (0, 4, 8, 12, 16, 20, 24, 28, 32, 40);
 $sides: (top, bottom, left, right);
 @each $value in $values {
   @each $side in $sides {
@@ -73,6 +73,32 @@ $input-placeholder-color: #7997C3;
 
   input:-moz-placeholder {
     color: $input-placeholder-color;
+  }
+
+  &.is-invalid {
+    .input-group-text, input, select  {
+      background-color: #FBECEC;
+      color: #D53E45;
+      border-color: #F3C9CB;
+    }
+
+    input:focus {
+      color: #D53E45;
+      background-color: white;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #F3C9CB;
+    }
+
+    input:-moz-placeholder {
+      color: #F3C9CB;
+    }
+
+    .invalid-feedback {
+      font-size: 12px;
+      color: #EC8596;
+    }
   }
 }
 

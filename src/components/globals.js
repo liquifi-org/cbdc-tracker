@@ -29,6 +29,8 @@ import Info from '@/components/Info'
 import Pagination from '@/components/Pagination'
 import CollapseButton from '@/components/collapse/CollapseButton'
 import CollapseBlock from '@/components/collapse/CollapseBlock'
+import EmailInput from '@/components/fields/EmailInput'
+import Modal from '@/components/modal/Modal'
 
 // Use globals for small components that plan use on most pages
 const components = [{
@@ -58,6 +60,9 @@ const components = [{
 }, {
   name: 'app-multiple-select',
   component: MultipleSelect
+}, {
+  name: 'app-email-input',
+  component: EmailInput
 }, {
   name: 'app-status',
   component: Status
@@ -121,6 +126,9 @@ const components = [{
 }, {
   name: 'app-collapse-button',
   component: CollapseButton
+}, {
+  name: 'app-modal',
+  component: Modal
 }]
 
 components.forEach((v) => {

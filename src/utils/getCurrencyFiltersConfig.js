@@ -2,9 +2,13 @@ import { STATUS_NAMES } from '@/constants/statuses'
 import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import { FILTER_TYPES } from '@/services/filter.service'
 
-export const STATUS_FILTER_POSSIBLE_VALUES = Object.values(STATUS_NAMES).filter((status) => {
-  return (STATUS_NAMES.NONE !== status)
-})
+export const STATUS_FILTER_POSSIBLE_VALUES = [
+  STATUS_NAMES.CANCELLED,
+  STATUS_NAMES.RESEARCH,
+  STATUS_NAMES.PILOT,
+  STATUS_NAMES.DEVELOPMENT,
+  STATUS_NAMES.LAUNCHED
+]
 
 export const getCurrencyFiltersConfig = () => {
   return [{

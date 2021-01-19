@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-field-label :forAttribute="componentId" :text="label"></app-field-label>
+    <app-field-label :forAttribute="componentId" :text="localLabel"></app-field-label>
 
     <b-input-group class="ui-year-range ui-field-wrapper">
       <b-form-input :id="componentId"
@@ -28,10 +28,10 @@ export default {
   extends: BaseInput,
   computed: {
     from () {
-      return this.value && this.value.from
+      return this.localValue && this.localValue.from
     },
     to () {
-      return this.value && this.value.to
+      return this.localValue && this.localValue.to
     }
   },
   methods: {
@@ -51,7 +51,7 @@ export default {
     onChange () {
       const value = this.getFieldValue()
 
-      if (JSON.stringify(value) === JSON.stringify(this.value)) {
+      if (JSON.stringify(value) === JSON.stringify(this.localValue)) {
         return
       }
 
