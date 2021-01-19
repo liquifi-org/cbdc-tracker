@@ -17,11 +17,11 @@
             <strong>Description</strong>
           </div>
 
-          <strong>Cancelled</strong> Countries cancelled or decommissioned a CBDC<br>
-          <strong>Research</strong> Countries that published multiple research reports about CBDC and start experimenting<br>
-          <strong>Pilot</strong> Countries piloting CBDC for domestic interbank or international use-cases in a real environment with a limited number of parties<br>
-          <strong>Development</strong> Countries in the midst of launching a digital currency as a small-scale pilot or moving towards a large-scale launch<br>
-          <strong>Launched</strong> Countries officially launched a digital currency and issued tokens for transactions
+          <strong>Cancelled</strong> Countries cancelled or decommissioned a CBDC.<br>
+          <strong>Research</strong> Countries that published multiple research reports about CBDC and start experimenting.<br>
+          <strong>Pilot</strong> Countries piloting CBDC for domestic interbank or international use cases in a real environment with a limited number of parties.<br>
+          <strong>Development</strong> Countries in the midst of launching a CBDC as a small-scale pilot or moving towards a large-scale launch.<br>
+          <strong>Launched</strong> Countries officially launched a CBDC.
         </b-col>
 
         <b-col cols="12" xxl="6">
@@ -42,7 +42,7 @@
           </div>
 
           <b-row>
-            <b-col class="m-b-16" cols="8">
+            <b-col class="m-b-16" cols="12" md="8">
               <div>
                 <strong>Key contributors</strong>
               </div>
@@ -80,7 +80,7 @@
               </div>
             </b-col>
 
-            <b-col class="m-b-16" cols="4">
+            <b-col class="m-b-16" cols="12" md="4">
               <div class="m-b-12">
                 <strong>Source</strong>
               </div>
