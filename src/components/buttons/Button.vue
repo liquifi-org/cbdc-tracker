@@ -52,6 +52,7 @@ export default {
     &.text {
       background-color: inherit;
       color: $site-primary-color;
+      border: 1px solid $site-primary-color;
 
       &:active, &:focus, &:active:focus {
         background-color: inherit;

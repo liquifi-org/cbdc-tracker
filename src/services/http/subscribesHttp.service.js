@@ -9,12 +9,16 @@ export class SubscribesHttpService {
     return await this.httpSevice.post('subscriptions', { email, currencyTags, recaptcha })
   }
 
+  async unsubscribe (email, recaptcha) {
+    return await this.httpSevice.post('subscriptions/cancellations', { email, recaptcha })
+  }
+
   async confirmSubscribe (verificationKey) {
-    return await this.httpSevice.post('subscriptions/cancellations', { verificationKey })
+    return await this.httpSevice.post('subscriptions/confirmations', { verificationKey })
   }
 
   async confirmUnsubscribe (verificationKey) {
-    return await this.httpSevice.post('subscriptions/confirmations', { verificationKey })
+    return await this.httpSevice.post('subscriptions/cancellations/confirmations', { verificationKey })
   }
 
   async confirmUpdate (verificationKey) {

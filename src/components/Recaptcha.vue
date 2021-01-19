@@ -3,31 +3,44 @@
                  :sitekey="sitekey"
                  size="invisible"
                  @verify="onOk"
-                 @expired="onExpired">
+                 @expired="onExpired"
+                 @error="onError">
   </vue-recaptcha>
 </template>
 
 <script>
 import VueRecaptcha from 'vue-recaptcha'
-
-const RECAPTCHA_SITEKEY = '6LcSqzIaAAAAAEkPTV9gfMGMV0vPhXa7WMMCoVZE'
+import { Subject } from 'rxjs'
+import { take } from 'rxjs/operators'
 
 export default {
   components: { VueRecaptcha },
   data () {
     return {
-      sitekey: RECAPTCHA_SITEKEY
+      sitekey: process.env.VUE_APP_RECAPTCHA_SITEKEY,
+      subject: new Subject()
     }
   },
   methods: {
     onOk (recaptchaToken) {
+      this.subject.next(recaptchaToken)
       this.$emit('ok', recaptchaToken)
     },
     onExpired () {
       this.$refs.recaptcha.reset()
     },
+    onError (error) {
+      this.subject.error(error)
+      this.$emit('error', error)
+    },
     validate () {
-      this.$refs.recaptcha.execute()
+      return new Promise((resolve, reject) => {
+        this.subject.pipe(
+          take(1)
+        ).subscribe(resolve, reject)
+
+        this.$refs.recaptcha.execute()
+      })
     },
     reset () {
       this.$refs.recaptcha.reset()
