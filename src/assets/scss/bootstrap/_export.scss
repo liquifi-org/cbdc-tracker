@@ -1,10 +1,10 @@
 $grid-breakpoints: (
-        xs: 0,
-        sm: 576px,
-        md: 768px, // mobile
-        lg: 992px,
+        xs: 0, // mobile start
+        sm: 576px, // mobile
+        md: 768px, // tablet start
+        lg: 992px, // tablet
         xl: 1200px, // tablet
-        xxl: 1440px // desktop
+        xxl: 1440px // desktop start
 );
 
 @import '~bootstrap';

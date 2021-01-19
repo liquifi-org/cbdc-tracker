@@ -14,12 +14,12 @@ import VueAnalytics from 'vue-analytics'
 // Install BootstrapVue
 Vue.use(BootstrapVue, {
   breakpoints: [
-    'xs',
-    'sm',
-    'md', // mobile
-    'lg',
+    'xs', // mobile start
+    'sm', // mobile
+    'md', // tablet start
+    'lg', // tablet
     'xl', // tablet
-    'xxl' // desktop
+    'xxl' // desktop start
   ]
 })
 Vue.use(BootstrapVueIcons)
