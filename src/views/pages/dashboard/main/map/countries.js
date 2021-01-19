@@ -2,7 +2,8 @@ export const ANTARCTICA_COUNTRY_CODE = 'AQ'
 
 // For map country names from data to country code
 const FAKE_COUNTRIES = [
-  { name: 'United Arab Emirates (Dubai)', code: 'AE' }
+  { name: 'United Arab Emirates (Dubai)', code: 'AE' },
+  { name: 'Euro Area', code: 'EU' }
 ]
 
 export const COUNTRIES = [
