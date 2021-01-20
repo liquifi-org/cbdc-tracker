@@ -1,13 +1,42 @@
 export const ANTARCTICA_COUNTRY_CODE = 'AQ'
 
-// For map country names from data to country code
+// For map country/region names from data to country code
 const FAKE_COUNTRIES = [
   { name: 'United Arab Emirates (Dubai)', code: 'AE' },
-  { name: 'Euro Area', code: 'EU' }
+
+  // Euro Area region
+  { name: 'Euro Area', code: 'AT' }, // Austria
+  { name: 'Euro Area', code: 'BE' }, // Belgium
+  { name: 'Euro Area', code: 'CY' }, // Cyprus
+  { name: 'Euro Area', code: 'EE' }, // Estonia
+  { name: 'Euro Area', code: 'FI' }, // Finland
+  { name: 'Euro Area', code: 'FR' }, // France
+  { name: 'Euro Area', code: 'DE' }, // Germany
+  { name: 'Euro Area', code: 'GR' }, // Greece
+  { name: 'Euro Area', code: 'IE' }, // Ireland
+  { name: 'Euro Area', code: 'IT' }, // Italy
+  { name: 'Euro Area', code: 'LV' }, // Latvia
+  { name: 'Euro Area', code: 'LT' }, // Lithuania
+  { name: 'Euro Area', code: 'LU' }, // Luxembourg
+  { name: 'Euro Area', code: 'MT' }, // Malta
+  { name: 'Euro Area', code: 'NL' }, // Netherlands
+  { name: 'Euro Area', code: 'PT' }, // Portugal
+  { name: 'Euro Area', code: 'SK' }, // Slovakia
+  { name: 'Euro Area', code: 'SI' }, // Slovenia
+  { name: 'Euro Area', code: 'ES' }, // Spain
+
+  // Caribbean region
+  { name: 'Caribbean', code: 'AG' }, // Antigua and Barbuda
+  { name: 'Caribbean', code: 'DM' }, // Dominica
+  { name: 'Caribbean', code: 'GD' }, // Grenada
+  { name: 'Caribbean', code: 'MS' }, // Montserrat
+  { name: 'Caribbean', code: 'KN' }, // St Kitts and Nevis
+  { name: 'Caribbean', code: 'LC' }, // Saint Lucia
+  { name: 'Caribbean', code: 'VC' } // Saint Vincent and the Grenadines
 ]
 
-export const COUNTRIES = [
-  ...FAKE_COUNTRIES,
+// Used for get country name
+export const REAL_COUNTRIES = [
   { name: 'Afghanistan', code: 'AF' },
   { name: 'Albania', code: 'AL' },
   { name: 'Algeria', code: 'DZ' },
@@ -16,7 +45,6 @@ export const COUNTRIES = [
   { name: 'Angola', code: 'AO' },
   { name: 'Anguilla', code: 'AI' },
   { name: 'Antarctica', code: ANTARCTICA_COUNTRY_CODE },
-  { name: 'Caribbean', code: 'AG' },
   { name: 'Antigua and Barbuda', code: 'AG' },
   { name: 'Argentina', code: 'AR' },
   { name: 'Armenia', code: 'AM' },
@@ -70,7 +98,6 @@ export const COUNTRIES = [
   { name: "Côte d'Ivoire", code: 'CI' },
   { name: 'Denmark', code: 'DK' },
   { name: 'Djibouti', code: 'DJ' },
-  { name: 'Caribbean', code: 'DM' },
   { name: 'Dominica', code: 'DM' },
   { name: 'Dominican Republic (the)', code: 'DO' },
   { name: 'Ecuador', code: 'EC' },
@@ -97,7 +124,6 @@ export const COUNTRIES = [
   { name: 'Gibraltar', code: 'GI' },
   { name: 'Greece', code: 'GR' },
   { name: 'Greenland', code: 'GL' },
-  { name: 'Caribbean', code: 'GD' },
   { name: 'Grenada', code: 'GD' },
   { name: 'Guadeloupe', code: 'GP' },
   { name: 'Guam', code: 'GU' },
@@ -159,7 +185,7 @@ export const COUNTRIES = [
   { name: 'Monaco', code: 'MC' },
   { name: 'Mongolia', code: 'MN' },
   { name: 'Montenegro', code: 'ME' },
-  { name: 'Caribbean', code: 'MS' },
+  { name: 'Montserrat', code: 'MS' },
   { name: 'Morocco', code: 'MA' },
   { name: 'Mozambique', code: 'MZ' },
   { name: 'Myanmar', code: 'MM' },
@@ -197,13 +223,10 @@ export const COUNTRIES = [
   { name: 'Réunion', code: 'RE' },
   { name: 'Saint Barthélemy', code: 'BL' },
   { name: 'Saint Helena, Ascension and Tristan da Cunha', code: 'SH' },
-  { name: 'Caribbean', code: 'KN' },
   { name: 'St Kitts and Nevis', code: 'KN' },
-  { name: 'Caribbean', code: 'LC' },
   { name: 'Saint Lucia', code: 'LC' },
   { name: 'Saint Martin (French part)', code: 'MF' },
   { name: 'Saint Pierre and Miquelon', code: 'PM' },
-  { name: 'Caribbean', code: 'VC' },
   { name: 'Saint Vincent and the Grenadines', code: 'VC' },
   { name: 'Samoa', code: 'WS' },
   { name: 'San Marino', code: 'SM' },
@@ -266,6 +289,11 @@ export const COUNTRIES = [
   { name: 'Europe', code: 'EU' }
 ]
 
-export const COUNTRIES_MAP = new Map(COUNTRIES.map((country) => {
-  return [country.name, country]
+export const REAL_COUNTRY_CODE_MAP = new Map(REAL_COUNTRIES.map((country) => {
+  return [country.code, country]
 }))
+
+export const COUNTRIES = [
+  ...FAKE_COUNTRIES,
+  ...REAL_COUNTRIES
+]
