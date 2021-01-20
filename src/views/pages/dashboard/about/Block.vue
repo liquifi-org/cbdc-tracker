@@ -17,11 +17,11 @@
             <strong>Description</strong>
           </div>
 
-          <strong>Cancelled</strong> Countries cancelled or decommissioned a CBDC.<br>
-          <strong>Research</strong> Countries that published multiple research reports about CBDC and start experimenting.<br>
-          <strong>Pilot</strong> Countries piloting CBDC for domestic interbank or international use cases in a real environment with a limited number of parties.<br>
-          <strong>Development</strong> Countries in the midst of launching a CBDC as a small-scale pilot or moving towards a large-scale launch.<br>
-          <strong>Launched</strong> Countries officially launched a CBDC.
+          <strong>Cancelled</strong> Countries that cancelled or decommissioned a CBDC.<br>
+          <strong>Research</strong> Countries that published multiple research reports about CBDC and started experimenting.<br>
+          <strong>Pilot</strong> Countries piloting CBDC, e.g., for domestic interbank or international use cases, in a real environment with a limited number of parties.<br>
+          <strong>Development</strong> Countries that already launched a small-scale pilot but currently prepare their CBDC for a full-scale launch.<br>
+          <strong>Launched</strong> Countries that officially launched a CBDC.
         </b-col>
 
         <b-col cols="12" xxl="6">
