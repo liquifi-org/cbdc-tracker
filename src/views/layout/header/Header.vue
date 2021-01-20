@@ -87,11 +87,16 @@ export default {
       outline-color: white;
     }
 
+    @media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+      padding-left: 47px;
+      padding-right: 47px;
+    }
+
     @media (max-width: $max-mobile-width) {
       width: 100%;
       box-sizing: border-box;
       max-height: none;
-      padding: 4px 16px;
+      padding: 4px 31px;
       margin-bottom: 16px;
       align-items: start;
 
