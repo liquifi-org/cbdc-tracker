@@ -9,6 +9,7 @@ export const DASHBOARD_ACTION_TYPES = {
   FETCH_CURRENCIES_DATA: 'fetchCurrenciesData',
   FETCH_CURRENCIES_DATA_BY_DATE: 'fetchCurrenciesDataByDate',
   FETCH_HISTORY_OF_CHANGES: 'fetchHistoryOfChanges',
+  FETCH_FIRST_NEWS: 'fetchFirstNews',
   FETCH_COUNTRIES_WITH_CURRENCIES: 'fetchCountriesWithCurrencies',
   FETCH_CURRENCY_NAMES: 'fetchCountryNames',
   FETCH_TECHNOLOGIES_WITH_CURRENCIES: 'fetchTechnologiesWithCurrencies',
@@ -53,6 +54,13 @@ export const actions = {
   async [DASHBOARD_ACTION_TYPES.FETCH_HISTORY_OF_CHANGES] ({ commit }) {
     commit(DASHBOARD_MUTATION_TYPES.SET_HISTORY_OF_CHANGES, {
       historyOfChanges: await historyOfChangesHttpService.getHistoryOfChanges({ size: 1 })
+    })
+  },
+  async [DASHBOARD_ACTION_TYPES.FETCH_FIRST_NEWS] ({ commit }) {
+    const news = await newsHttpService.getNews({ size: 1 })
+
+    commit(DASHBOARD_MUTATION_TYPES.SET_FIRST_NEWS, {
+      firstNews: news.content[0]
     })
   },
   async [DASHBOARD_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES] ({ commit }) {

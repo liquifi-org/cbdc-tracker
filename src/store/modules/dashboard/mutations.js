@@ -8,6 +8,7 @@ export const DASHBOARD_MUTATION_TYPES = {
   FINISH_LOAD_CURRENCIES: 'finishLoadCurrencies',
   CHANGE_DATE: 'changeDate',
   SET_HISTORY_OF_CHANGES: 'setHistoryOfChanges',
+  SET_FIRST_NEWS: 'setFirstNews',
   TABLE_CHANGE_SORT: 'tableChangeSort',
   TABLE_CHANGE_PAGE: 'tableChangePage',
   TABLE_CHANGE_COLUMNS: 'tableChangeColumns',
@@ -39,6 +40,9 @@ export const mutations = {
   },
   [DASHBOARD_MUTATION_TYPES.SET_HISTORY_OF_CHANGES] (state, payload) {
     state.historyOfChanges = payload.historyOfChanges
+  },
+  [DASHBOARD_MUTATION_TYPES.SET_FIRST_NEWS] (state, payload) {
+    state.news.first = payload.firstNews
   },
   [DASHBOARD_MUTATION_TYPES.TABLE_CHANGE_PAGE] (state, payload) {
     state.table.currentPage = payload.currentPage
@@ -97,6 +101,7 @@ export const mutations = {
     state.news.data = 1
     state.news.currentPage = 1
     state.news.isLoading = 1
+    state.news.first = null
 
     state.historyOfChanges = null
   }

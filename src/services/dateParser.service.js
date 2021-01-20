@@ -5,7 +5,8 @@ export const DATE_FORMATS = {
   YEAR: 'YYYY',
   DEFAULT: 'DD/MM/YY',
   DATE: 'DD/MM/YY',
-  HISTORIC_STATE: 'MMMM YYYY'
+  HISTORIC_STATE: 'MMMM YYYY',
+  NEWS_UPDATE: 'MMM, DD YY'
 }
 
 // Use this class for parse dates and never use moment(or like moment libraries) in others places.
