@@ -1,5 +1,5 @@
 <template>
-  <app-status :statusName="statusName" :isSelected="true" :disabled="true"></app-status>
+  <app-status :statusName="statusName"></app-status>
 </template>
 
 <script>

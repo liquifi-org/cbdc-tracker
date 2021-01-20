@@ -1,12 +1,13 @@
 <template>
   <div class="ui-dashboard-map-legend">
-    <app-status v-for="(status) in statuses" :key="status.name"
-                ref="statuses"
-                class="ui-dashboard-map-legend_item"
-                :status-name="status.name"
-                :isSelected="status.isSelected"
-                :disabled="status.disabled"
-                @isSelectedChanged="onIsSelectedChanged({status, isSelected: $event})"></app-status>
+    <app-status-checkbox v-for="(status) in statuses" :key="status.name"
+                         ref="statuses"
+                         class="ui-dashboard-map-legend_item"
+                         :status-name="status.name"
+                         :value="status.value"
+                         @changeValue="onStatusChanged({status, value: $event})"></app-status-checkbox>
+
+    <app-text-button text="Show all" @click="onShowAllClick"></app-text-button>
   </div>
 </template>
 
@@ -36,16 +37,16 @@ export default {
         return (filter.name === CURRENCY_FIELD_NAMES.STATUS)
       })
 
-      return statusNames.map((statusName) => {
+      return statusNames.map((name) => {
         const hasFilter = !!statusFilter.value
 
-        const isStatusSelected = hasFilter && !!statusFilter.value.find((selectedStatuesName) => {
-          return (selectedStatuesName === statusName)
+        const value = hasFilter && !!statusFilter.value.find((selectedStatuesName) => {
+          return (selectedStatuesName === name)
         })
 
         return {
-          name: statusName,
-          isSelected: !hasFilter || isStatusSelected
+          name,
+          value
         }
       })
     }
@@ -54,31 +55,27 @@ export default {
     ...mapMutations(MODULE_NAMES.DASHBOARD, {
       changeStateFilters: DASHBOARD_MUTATION_TYPES.CHANGE_FILTERS
     }),
-    onIsSelectedChanged ({
+    onStatusChanged ({
       status,
-      isSelected
+      value
     }) {
       const statusFilter = this.filters.find((filter) => {
         return (filter.name === CURRENCY_FIELD_NAMES.STATUS)
       })
 
-      const oldValue = statusFilter.value || STATUS_FILTER_POSSIBLE_VALUES
+      const oldValue = statusFilter.value || []
 
       let newValue = null
 
-      if (isSelected) {
+      if (value) {
         newValue = [status.name, ...oldValue]
       } else {
         newValue = oldValue.filter((selectedStatusName) => {
           return (status.name !== selectedStatusName)
         })
-
-        newValue = newValue.length ? newValue : null
-
-        !newValue && this.$refs.statuses.forEach((statusComponent) => {
-          statusComponent.localIsSelected = true // For update in case when IsSelected not changed
-        })
       }
+
+      newValue = newValue.length ? newValue : null
 
       this.changeStateFilters({
         filters: this.filters.map((filter) => {
@@ -87,6 +84,16 @@ export default {
           return {
             ...filter,
             value
+          }
+        })
+      })
+    },
+    onShowAllClick () {
+      this.changeStateFilters({
+        filters: this.filters.map((filter) => {
+          return {
+            ...filter,
+            value: (filter.name === CURRENCY_FIELD_NAMES.STATUS) ? STATUS_FILTER_POSSIBLE_VALUES : filter.value
           }
         })
       })
@@ -105,9 +112,5 @@ export default {
 
 .ui-dashboard-map-legend_item {
   margin-right: 24px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
 }
 </style>

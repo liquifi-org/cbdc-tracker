@@ -30,5 +30,6 @@ export const ICON_NAMES = {
   COLLAPSE: 'collapse',
   SORT: 'sort',
   SORT_ASC: 'sortAsc',
-  SORT_DESC: 'sortDesc'
+  SORT_DESC: 'sortDesc',
+  CHECK_MARK: 'checkMark'
 }
