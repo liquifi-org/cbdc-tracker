@@ -13,7 +13,7 @@
       </template>
 
       <template v-if="hasError">
-        There was some mistake while unsubscribe. Please repeat again.
+        There was some error during unsubscribe operation. Please, try again.
       </template>
 
       <app-button class="m-t-16"

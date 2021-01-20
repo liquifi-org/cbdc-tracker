@@ -31,6 +31,7 @@ import Collapse from '@/components/icons/bootstrap/Collapse'
 import SortDesc from '@/components/icons/bootstrap/SortDesc'
 import SortAsc from '@/components/icons/bootstrap/SortAsc'
 import Sort from '@/components/icons/bootstrap/Sort'
+import CheckMark from '@/components/icons/bootstrap/CheckMark'
 
 export class Resolver {
   static resolve (name) {
@@ -99,6 +100,8 @@ export class Resolver {
         return SortAsc
       case ICON_NAMES.SORT_DESC:
         return SortDesc
+      case ICON_NAMES.CHECK_MARK:
+        return CheckMark
       default:
         throw new Error(`Unknown icon: ${name}`)
     }

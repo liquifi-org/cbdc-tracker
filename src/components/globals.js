@@ -5,6 +5,7 @@ import YearRange from '@/components/fields/YearRange'
 import MultipleSelect from '@/components/fields/multipleSelect/MultipleSelect'
 import FieldLabel from '@/components/fields/FieldLabel'
 import Status from '@/components/status/Status'
+import StatusCheckbox from '@/components/status/StatusCheckbox'
 import Table from '@/components/table/Table'
 import ArrowLink from '@/components/links/ArrowLink'
 import Link from '@/components/links/Link'
@@ -31,6 +32,7 @@ import CollapseButton from '@/components/collapse/CollapseButton'
 import CollapseBlock from '@/components/collapse/CollapseBlock'
 import EmailInput from '@/components/fields/EmailInput'
 import Modal from '@/components/modal/Modal'
+import TextButton from '@/components/buttons/TextButton'
 
 // Use globals for small components that plan use on most pages
 const components = [{
@@ -66,6 +68,9 @@ const components = [{
 }, {
   name: 'app-status',
   component: Status
+}, {
+  name: 'app-status-checkbox',
+  component: StatusCheckbox
 }, {
   name: 'app-table',
   component: Table
@@ -129,6 +134,9 @@ const components = [{
 }, {
   name: 'app-modal',
   component: Modal
+}, {
+  name: 'app-text-button',
+  component: TextButton
 }]
 
 components.forEach((v) => {
