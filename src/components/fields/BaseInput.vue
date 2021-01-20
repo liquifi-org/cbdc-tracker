@@ -3,6 +3,7 @@ export default {
   props: {
     data: Object,
     label: String,
+    disabled: Boolean,
     value: null,
     placeholder: String,
     required: Boolean,

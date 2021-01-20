@@ -26,9 +26,14 @@
             </b-col>
 
             <b-col cols="6">
-              <app-button class="m-t-28"
+              <app-button class="m-t-28 m-r-16"
                           :type="BUTTON_TYPES.PRIMARY"
                           @click="onSubscribeClick">Subscribe
+              </app-button>
+
+              <app-button class="m-t-28"
+                          :type="BUTTON_TYPES.TEXT"
+                          @click="onUnsubscribeClick">Unsubsrcibe
               </app-button>
             </b-col>
           </b-row>
@@ -56,15 +61,23 @@
                            required
                            @changeValue="onEmailChange"></app-email-input>
 
-          <app-button :type="BUTTON_TYPES.PRIMARY"
+          <app-button class="m-b-16"
+                      :type="BUTTON_TYPES.PRIMARY"
                       @click="onSubscribeClick"
                       :isBlock="true">Subscribe
+          </app-button>
+
+          <app-button :type="BUTTON_TYPES.SECONDARY"
+                      @click="onUnsubscribeClick"
+                      :isBlock="true">Unsubsrcibe
           </app-button>
         </b-col>
       </b-row>
     </template>
 
+    <Recaptcha ref="recaptcha"></Recaptcha>
     <SubscribeModal ref="subscribeModal"></SubscribeModal>
+    <UnsubscribeModal ref="unsubscribeModal"></UnsubscribeModal>
   </div>
 </template>
 
@@ -76,11 +89,15 @@ import { WATCHLIST_PAGE_ACTION_TYPES } from '@/store/modules/watchlistPage/actio
 import { WATCHLIST_PAGE_MUTATION_TYPES } from '@/store/modules/watchlistPage/mutations'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import SubscribeModal from './SubscribeModal'
+import UnsubscribeModal from './UnsubscribeModal'
+import Recaptcha from '@/components/Recaptcha'
 
 export default {
   mixins: [screenSizeMixin],
   components: {
-    SubscribeModal
+    SubscribeModal,
+    UnsubscribeModal,
+    Recaptcha
   },
   data () {
     return {
@@ -97,7 +114,8 @@ export default {
   },
   methods: {
     ...mapActions(MODULE_NAMES.WATCHLIST_PAGE, {
-      subscribe: WATCHLIST_PAGE_ACTION_TYPES.SUBSCRIBE
+      subscribe: WATCHLIST_PAGE_ACTION_TYPES.SUBSCRIBE,
+      unsubscribe: WATCHLIST_PAGE_ACTION_TYPES.UNSUBSCRIBE
     }),
     ...mapMutations(MODULE_NAMES.WATCHLIST_PAGE, {
       changeEmail: WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_EMAIL
@@ -107,6 +125,8 @@ export default {
         return
       }
 
+      const recaptchaToken = await this.$refs.recaptcha.validate()
+
       const modal = this.$refs.subscribeModal
 
       try {
@@ -114,13 +134,36 @@ export default {
         modal.hasError = false
 
         modal.showModal()
-        await this.subscribe()
-
-        modal.isLoading = false
+        await this.subscribe({ recaptchaToken })
       } catch (error) {
-        console.log(error)
-        modal.isLoading = false
+        console.error(error)
         modal.hasError = true
+      } finally {
+        modal.isLoading = false
+        this.$refs.recaptcha.reset()
+      }
+    },
+    async onUnsubscribeClick () {
+      if (!this.validateEmail()) {
+        return
+      }
+
+      const recaptchaToken = await this.$refs.recaptcha.validate()
+
+      const modal = this.$refs.unsubscribeModal
+
+      try {
+        modal.isLoading = true
+        modal.hasError = false
+
+        modal.showModal()
+        await this.unsubscribe({ recaptchaToken })
+      } catch (error) {
+        console.error(error)
+        modal.hasError = true
+      } finally {
+        modal.isLoading = false
+        this.$refs.recaptcha.reset()
       }
     },
     onEmailChange (email) {
