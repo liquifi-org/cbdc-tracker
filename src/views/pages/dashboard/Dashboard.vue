@@ -73,7 +73,8 @@ export default {
       this.fetchHistoryOfChanges(),
       this.fetchCountries(),
       this.fetchCountryNames(),
-      this.fetchTechnologies()
+      this.fetchTechnologies(),
+      this.fetchFirstNews()
     ])
   },
   destroyed () {
@@ -85,7 +86,8 @@ export default {
       fetchHistoryOfChanges: DASHBOARD_ACTION_TYPES.FETCH_HISTORY_OF_CHANGES,
       fetchCountries: DASHBOARD_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
       fetchCountryNames: DASHBOARD_ACTION_TYPES.FETCH_CURRENCY_NAMES,
-      fetchTechnologies: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES
+      fetchTechnologies: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES,
+      fetchFirstNews: DASHBOARD_ACTION_TYPES.FETCH_FIRST_NEWS
     }),
     ...mapActions(MODULE_NAMES.CURRENCY_TABLE_SETTINGS, {
       fetchTableColumns: CURRENCY_TABLE_SETTINGS_ACTION_TYPES.FETCH_TABLE_COLUMNS
