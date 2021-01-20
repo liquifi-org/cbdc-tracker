@@ -13,7 +13,8 @@ export const state = () => {
     news: {
       data: null,
       currentPage: 1,
-      isLoading: false
+      isLoading: false,
+      first: null
     }
   }
 }

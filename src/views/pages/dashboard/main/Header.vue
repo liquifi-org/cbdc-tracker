@@ -3,7 +3,22 @@
     <div class="ui-dashboard-header">
       <div class="ui-dashboard-header_title">
         <app-title>Today's Central Bank Digital Currencies Status</app-title>
-        Last update: {{ lastUpdate }}
+
+        <div v-if="!isMobileScreen" class="d-flex justify-content-left align-items-center">
+          <span class="ui-dashboard-header_date-label">Database update:</span> {{ lastUpdate }}
+          <span class="ui-dashboard-header_date-separator"></span>
+          <span class="ui-dashboard-header_date-label">News update:</span> {{ lastNewsUpdate }}
+        </div>
+
+        <template v-if="isMobileScreen">
+          <div>
+            <span class="ui-dashboard-header_date-label">Database update:</span> {{ lastUpdate }}
+          </div>
+
+          <div>
+            <span class="ui-dashboard-header_date-label">News update:</span> {{ lastNewsUpdate }}
+          </div>
+        </template>
       </div>
 
       <MapLegend v-if="isDesktopScreen" class="ui-dashboard-header_statuses"></MapLegend>
@@ -64,6 +79,7 @@ export default {
     }),
     ...mapGetters(MODULE_NAMES.DASHBOARD, {
       lastUpdate: 'lastUpdate',
+      lastNewsUpdate: 'lastNewsUpdate',
       countriesWithCurrencies: 'countriesWithCurrencies',
       currencyNames: 'currencyNames',
       technologiesWithCurrencies: 'technologiesWithCurrencies'
@@ -89,7 +105,7 @@ export default {
 .ui-dashboard-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .ui-dashboard-header_title {
@@ -109,5 +125,19 @@ export default {
   &:last-of-type {
     margin-right: 0;
   }
+}
+
+.ui-dashboard-header_date-label {
+  color: #7997C3;
+  margin-right: 4px;
+}
+
+.ui-dashboard-header_date-separator {
+  display: inline-block;
+  background-color: #7997C3;
+  border-radius: 100%;
+  height: 6px;
+  width: 6px;
+  margin: 0 8px;
 }
 </style>
