@@ -65,11 +65,19 @@ export default {
     }
 
     &:hover {
-      background-color: #EC8596;
+      background-color: #7997C3;
+
+      &:after {
+        color: white;
+      }
     }
   }
 
   .multiselect__option {
+    &.multiselect__option--selected {
+      background-color: #F3F6F9;
+    }
+
     &.multiselect__option--highlight {
       background-color: $site-primary-color;
 
