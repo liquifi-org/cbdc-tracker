@@ -20,6 +20,7 @@ export const ICON_NAMES = {
   WATCHLIST_UNSELECTED_ITEM: 'watchlistUnselectedItem',
   INFO: 'info',
   ARROW_RIGHT: 'arrowRight',
+  ARROW_UP: 'arrowUp',
   ARROW_RIGHT_SQUARE: 'arrowRightSquare',
   UPDATE: 'update',
   ADD: 'add',

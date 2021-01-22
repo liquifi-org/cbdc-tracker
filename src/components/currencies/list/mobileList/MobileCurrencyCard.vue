@@ -4,12 +4,12 @@
       <div class="d-flex justify-content-between align-items-top">
         <div>
           <app-title level="3">
-            <app-link class="m-r-8" :href="currencyRoute">{{digitalCurrency}}</app-link>
+            <app-link class="m-r-8" :href="currencyRoute">{{ digitalCurrency }}</app-link>
             <app-watch-flag :isSelected="hasAtWatchlist"
                             @isSelectedChanged="onChangeHasAtWatchlist"></app-watch-flag>
           </app-title>
 
-          {{country}}
+          {{ country }}
         </div>
 
         <app-arrow-link class="ui-mobile-currency-card_header-arrow-link" :route="currencyRoute"></app-arrow-link>
@@ -28,6 +28,7 @@
       <div class="m-t-16 text-center">
         <app-collapse-button :target="'additionalFields' + componentId"
                              :isTextRight="true"
+                             @toggle="onCollapseToggle"
                              collapseText="Hide advanced info"
                              expandText="Show advanced info"></app-collapse-button>
       </div>
@@ -107,19 +108,25 @@ export default {
       } else {
         this.$emit('removeCurrencyFromWatchlist', { currency })
       }
+    },
+    onCollapseToggle () {
+      this.scrollIntoView()
+    },
+    scrollIntoView () {
+      this.$el.scrollIntoView()
     }
   }
 }
 </script>
 
 <style lang="scss">
-  .ui-mobile-currency-card {
-    .ui-mobile-currency-card_header-arrow-link {
-      font-size: 16px;
-    }
-
-    .ui-card_header {
-      background-color: #CDE0F1;
-    }
+.ui-mobile-currency-card {
+  .ui-mobile-currency-card_header-arrow-link {
+    font-size: 16px;
   }
+
+  .ui-card_header {
+    background-color: #CDE0F1;
+  }
+}
 </style>

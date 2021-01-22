@@ -98,7 +98,7 @@ export default {
 
   @media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
     .ui-dashboard-news_content {
-      height: 870px;
+      min-height: 870px;
     }
   }
 </style>

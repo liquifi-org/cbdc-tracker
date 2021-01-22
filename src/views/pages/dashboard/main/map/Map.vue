@@ -53,4 +53,15 @@ export default {
     height: 580px;
     max-height: 100vh;
   }
+
+  .ui-map-chart_zoom-button {
+    font-size: 14px;
+    line-height: 100%;
+    color: $site-primary-color;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border: 1px solid $site-primary-color;
+    text-align: center;
+  }
 </style>

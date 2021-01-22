@@ -32,6 +32,7 @@ import SortDesc from '@/components/icons/bootstrap/SortDesc'
 import SortAsc from '@/components/icons/bootstrap/SortAsc'
 import Sort from '@/components/icons/bootstrap/Sort'
 import CheckMark from '@/components/icons/bootstrap/CheckMark'
+import ArrowUp from '@/components/icons/bootstrap/ArrowUp'
 
 export class Resolver {
   static resolve (name) {
@@ -78,6 +79,8 @@ export class Resolver {
         return Info
       case ICON_NAMES.ARROW_RIGHT:
         return ArrowRight
+      case ICON_NAMES.ARROW_UP:
+        return ArrowUp
       case ICON_NAMES.ARROW_RIGHT_SQUARE:
         return ArrowRightSquare
       case ICON_NAMES.UPDATE:

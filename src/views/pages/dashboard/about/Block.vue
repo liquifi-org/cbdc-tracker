@@ -164,7 +164,7 @@ export default {
 <style lang="scss">
 .ui-about {
   strong {
-    font-weight: 800;
+    font-weight: bold;
   }
 }
 
