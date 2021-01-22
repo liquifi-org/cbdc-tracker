@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
   .ui-spinner {
-    font-weight: 900;
+    font-weight: bold;
     font-size: 18px;
     color: $site-primary-color;
     text-align: center;

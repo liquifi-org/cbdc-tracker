@@ -35,9 +35,9 @@ export class MapChartService {
     // Zoom
     mapChart.seriesContainer.resizable = MAP_CHART_CONFIG.resizable
     mapChart.zoomControl = new am4maps.ZoomControl()
-    mapChart.zoomControl.align = 'right'
-    mapChart.zoomControl.valign = 'middle'
     mapChart.chartContainer.wheelable = false // Disabling mouse wheel zoom
+
+    this.addZoomControl(mapChart)
 
     const polygonSeries = mapChart.series.push(new am4maps.MapPolygonSeries())
     // Excluded countries in non-globe projection
@@ -140,6 +140,62 @@ export class MapChartService {
 
   getTooltipTemplate (country) {
     return (this.options.getTooltipTemplate && country && this.options.getTooltipTemplate(country)) || null
+  }
+
+  addZoomControl (mapChart) {
+    const zoomControl = mapChart.zoomControl
+    const minusButton = zoomControl.minusButton
+    const plusButton = zoomControl.plusButton
+
+    zoomControl.align = 'right'
+    zoomControl.valign = 'top'
+    zoomControl.marginTop = 0
+    zoomControl.marginRight = 0
+    zoomControl.width = 50
+
+    minusButton.width = 40
+    plusButton.width = 40
+    minusButton.height = 40
+    plusButton.height = 40
+    minusButton.marginTop = 12
+    minusButton.stroke = am4core.color('#0F4698')
+    plusButton.stroke = am4core.color('#0F4698')
+    minusButton.padding(0, 0, 0, 0)
+    plusButton.padding(0, 0, 0, 0)
+    minusButton.opacity = 0.7
+    plusButton.opacity = 0.7
+
+    minusButton.events.on('over', (event) => {
+      minusButton.opacity = 1
+    })
+
+    minusButton.events.on('out', (event) => {
+      minusButton.opacity = 0.7
+    })
+
+    plusButton.events.on('over', (event) => {
+      plusButton.opacity = 1
+    })
+
+    plusButton.events.on('out', (event) => {
+      plusButton.opacity = 0.7
+    })
+
+    minusButton.background.fill = am4core.color('#EEF6FD')
+    plusButton.background.fill = am4core.color('#EEF6FD')
+    minusButton.background.states.getKey('hover').properties.fill = am4core.color('#EEF6FD')
+    plusButton.background.states.getKey('hover').properties.fill = am4core.color('#EEF6FD')
+    minusButton.background.states.getKey('down').properties.fill = am4core.color('#EEF6FD')
+    plusButton.background.states.getKey('down').properties.fill = am4core.color('#EEF6FD')
+
+    minusButton.label.width = 16
+    plusButton.label.width = 16
+    minusButton.label.height = 16
+    plusButton.label.height = 16
+    minusButton.label.padding(12, 12, 12, 12)
+    plusButton.label.padding(12, 12, 12, 12)
+    minusButton.label.html = '<div class="ui-map-chart_zoom-button">-</div>'
+    plusButton.label.html = '<div class="ui-map-chart_zoom-button">+</div>'
   }
 
   destroy () {
