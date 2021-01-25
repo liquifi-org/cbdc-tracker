@@ -62,12 +62,7 @@ export default {
     .ui-news-item_source {
       a {
         font-size: 12px;
-        opacity: .8;
         color: $site-primary-color;
-
-        &:hover {
-          opacity: 1;
-        }
       }
     }
 
