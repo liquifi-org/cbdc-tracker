@@ -40,11 +40,6 @@ export default {
 <style lang="scss">
   .ui-link, .ui-link:hover {
     color: $site-primary-color;
-    opacity: .8;
-
-    &:hover {
-      opacity: 1;
-    }
   }
 
   .ui-link-wrapper {

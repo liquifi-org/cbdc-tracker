@@ -34,16 +34,13 @@ export default {
   .ui-text-button {
     @extend .ui-button-without-styles;
     color: $site-primary-color;
-    opacity: .8;
 
     &:hover {
-      opacity: 1;
       text-decoration-line: underline;
     }
 
     &:focus {
       outline: 0;
-      opacity: 1;
       text-decoration-line: underline;
     }
   }

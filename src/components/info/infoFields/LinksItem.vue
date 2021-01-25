@@ -25,11 +25,6 @@ export default {
   .ui-currency-info-item.links {
     a {
       color: $site-primary-color;
-      opacity: .8;
-
-      &:hover {
-        opacity: 1;
-      }
     }
   }
 </style>

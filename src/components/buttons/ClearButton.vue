@@ -34,11 +34,8 @@ export default {
 <style lang="scss">
   .ui-clear-button {
     color: $site-primary-color;
-    opacity: .8;
 
     &:hover {
-      opacity: 1;
-
       .ui-clear-button_text {
         text-decoration-line: underline;
       }
