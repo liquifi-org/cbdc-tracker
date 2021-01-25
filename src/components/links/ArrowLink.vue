@@ -22,12 +22,4 @@ export default {
   .ui-arrow-link, .ui-arrow-link:hover {
     color: $site-primary-color;
   }
-
-  .ui-arrow-link {
-    opacity: .8;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
 </style>
