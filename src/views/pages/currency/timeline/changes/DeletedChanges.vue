@@ -1,5 +1,5 @@
 <template>
-  <TimelineItem class="ui-currency-timeline-item deleted" :type="TIMELINE_CHANGE_TYPES.DELETED">
+  <TimelineItem :isFullWidth="true" class="ui-currency-timeline-item deleted" :type="TIMELINE_CHANGE_TYPES.DELETED">
     <template #header>
       <div class="ui-currency-timeline-item_header">
         <app-icon :name="ICON_NAMES.DELETE"></app-icon> Deleted data

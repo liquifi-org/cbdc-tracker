@@ -1,8 +1,10 @@
 <template>
   <span class="ui-info">
-    <button :id="'info-' + componentId" class="ui-button-without-styles ui-info_button">
+    <app-active-element ref="activeElement"
+                        :id="'info-' + componentId"
+                        class="ui-info_button">
       <app-icon :name="ICON_NAMES.INFO"></app-icon>
-    </button>
+    </app-active-element>
 
     <b-tooltip custom-class="ui-info_tooltip"
                :target="'info-' + componentId"

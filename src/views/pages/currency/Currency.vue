@@ -146,7 +146,7 @@ export default {
     }),
     async initialize () {
       await Promise.all([
-        await this.fetchCurrency({ tag: this.tag }),
+        this.fetchCurrency({ tag: this.tag }),
         this.fetchInfoFieldsMetadata()
       ])
 

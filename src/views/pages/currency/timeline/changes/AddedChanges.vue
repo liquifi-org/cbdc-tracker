@@ -1,5 +1,5 @@
 <template>
-  <TimelineItem class="ui-currency-timeline-item added" :type="TIMELINE_CHANGE_TYPES.ADDED">
+  <TimelineItem :isFullWidth="true" class="ui-currency-timeline-item added" :type="TIMELINE_CHANGE_TYPES.ADDED">
     <template #header>
       <div class="ui-currency-timeline-item_header">
         <app-icon :name="ICON_NAMES.ADD"></app-icon> Added data

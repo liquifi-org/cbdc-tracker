@@ -1,5 +1,5 @@
 <template>
-  <TimelineItem class="ui-currency-timeline-item updated" :type="TIMELINE_CHANGE_TYPES.UPDATED">
+  <TimelineItem :isFullWidth="true" class="ui-currency-timeline-item updated" :type="TIMELINE_CHANGE_TYPES.UPDATED">
     <template #header>
       <div class="ui-currency-timeline-item_header">
         <app-icon :name="ICON_NAMES.UPDATE"></app-icon> Updated data

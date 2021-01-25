@@ -1,12 +1,14 @@
 <template>
-  <button v-b-toggle="target" class="ui-collapse-button ui-button-without-styles" @click="onClick">
+  <app-active-element v-b-toggle="target"
+                      class="ui-collapse-button"
+                      @click="onClick">
     <span v-if="!isTextRight && text" class="m-r-8">{{text}}</span>
 
     <app-icon v-if="!isExpanded" :name="ICON_NAMES.EXPAND"></app-icon>
     <app-icon v-if="isExpanded" :name="ICON_NAMES.COLLAPSE"></app-icon>
 
     <span v-if="isTextRight && text" class="m-l-8">{{text}}</span>
-  </button>
+  </app-active-element>
 </template>
 
 <script>

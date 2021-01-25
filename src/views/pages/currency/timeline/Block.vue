@@ -43,7 +43,7 @@
                             :isLoading="isLoading"
                             text="Show more events"
                             class="m-t-16 m-b-16"
-                            @click="fetchNextTimeline()"></app-show-more-button>
+                            @click="fetchNextTimeline"></app-show-more-button>
     </div>
   </div>
 </template>
@@ -106,11 +106,6 @@ export default {
         border: none;
       }
 
-      .ui-currency-timeline-card_card {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-
       .card-body {
         padding-bottom: 0;
       }
@@ -122,8 +117,6 @@ export default {
       }
 
       .ui-currency-timeline-card_card {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
         min-height: auto;
       }
 

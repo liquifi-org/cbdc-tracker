@@ -18,6 +18,7 @@
         <HeaderLink class="flex-right" route="/" text="Dashboard" @click="onLickClick"></HeaderLink>
         <HeaderLink class="flex-right" route="/watchlist" text="Watchlist" @click="onLickClick"></HeaderLink>
         <HeaderLink class="flex-right" route="/news" text="News" @click="onLickClick"></HeaderLink>
+        <HeaderLink class="flex-right" route="/timeline" text="Timeline" @click="onLickClick"></HeaderLink>
         <HeaderLink class="flex-right" href="/cbdc-tracker-whitepaper.pdf" text="Whitepaper" @click="onLickClick"></HeaderLink>
 
         <div class="ui-layout-header-footer">

@@ -1,24 +1,18 @@
 <template>
-  <button class="ui-button-without-styles ui-watch-flag" :class="{'isSelected': localIsSelected}"
-          v-on:click="toggleIsSelected"
-          :disabled="isDisabled">
+  <app-active-element :class="{'isSelected': localIsSelected}"
+                      :disabled="isDisabled"
+                      class="ui-watch-flag"
+                      @click="toggleIsSelected">
     <app-icon v-if="localIsSelected" :name="ICON_NAMES.WATCHLIST_SELECTED_ITEM"></app-icon>
     <app-icon v-else :name="ICON_NAMES.WATCHLIST_UNSELECTED_ITEM"></app-icon>
-  </button>
+  </app-active-element>
 </template>
 
 <script>
-import { ICON_NAMES } from '@/components/icons/constants'
-
 export default {
   props: {
     isSelected: Boolean,
     isDisabled: Boolean
-  },
-  data () {
-    return {
-      ICON_NAMES
-    }
   },
   computed: {
     localIsSelected () {
@@ -38,11 +32,11 @@ export default {
 </script>
 
 <style lang="scss">
-  .ui-watch-flag {
-    color: #67A8EF;
+.ui-watch-flag {
+  color: #67A8EF;
 
-    &.isSelected {
-      color: $site-primary-color;
-    }
+  &.isSelected {
+    color: $site-primary-color;
   }
+}
 </style>
