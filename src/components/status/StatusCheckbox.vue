@@ -1,10 +1,12 @@
 <template>
-  <button class="ui-status-checkbox" :class="statusName" @click="onClick">
+  <app-active-element :class="statusName"
+                      class="ui-status-checkbox"
+                      @click="onClick">
     <span class="ui-status-checkbox_rect">
       <app-icon v-if="localValue" :name="ICON_NAMES.CHECK_MARK"></app-icon>
     </span>
     <span class="ui-status-checkbox_text">{{ localLabel }}</span>
-  </button>
+  </app-active-element>
 </template>
 
 <script>

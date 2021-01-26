@@ -23,6 +23,12 @@ export const SEO_WHATCHLIST = {
   KEYWORDS: ''
 }
 
+export const SEO_TIMELINE = {
+  TITLE: 'Timeline | CBDC Tracker',
+  DESCRIPTION: 'Timeline',
+  KEYWORDS: ''
+}
+
 export const PREVIEW_IMAGE = 'https://cbdctracker.org/CBDC-splash.jpg'
 
 export const SEO_META_TWITTER = [

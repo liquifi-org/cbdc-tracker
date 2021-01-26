@@ -1,12 +1,12 @@
 <template>
-  <button class="ui-table-header-cell ui-button-without-styles"
+  <app-active-element class="ui-table-header-cell"
           :title="title"
           :disabled="!isSortable"
-          v-on:click="toggleSort">
+          @click="toggleSort">
     <app-icon :name="ICON_NAMES.WATCHLIST"></app-icon>
     <span class="ui-table-header-cell_text m-l-8">{{ title }}</span> <SortIcon class="m-l-4"
                                                                                :direction="sortDirection"></SortIcon>
-  </button>
+  </app-active-element>
 </template>
 
 <script>

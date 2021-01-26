@@ -63,7 +63,7 @@ export default {
     }
 
     .ui-info-item_data {
-      color: #0B2041;
+      color: $default-font-color;
     }
   }
 </style>

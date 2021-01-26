@@ -1,10 +1,10 @@
 <template>
-  <button class="ui-button-without-styles ui-tag"
+  <app-active-element class="ui-tag"
           :class="{'active': localIsSelected}"
           :disabled="!isSelectable && !isLinks"
           @click="onClick">
     <app-icon :name="ICON_NAMES.TAG"></app-icon> <span class="ui-tag-text">{{text}}</span>
-  </button>
+  </app-active-element>
 </template>
 
 <script>

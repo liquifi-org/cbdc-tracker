@@ -16,6 +16,7 @@ import Card from '@/components/cards/Card'
 import CardLine from '@/components/cards/CardLine'
 import CardList from '@/components/cards/CardList'
 import ListCard from '@/components/cards/ListCard'
+import FullCardBlock from '@/components/cards/FullCardBlock'
 import ClearButton from '@/components/buttons/ClearButton'
 import Title from '@/components/Title'
 import WatchFlag from '@/components/WatchFlag'
@@ -33,9 +34,14 @@ import CollapseBlock from '@/components/collapse/CollapseBlock'
 import EmailInput from '@/components/fields/EmailInput'
 import Modal from '@/components/modal/Modal'
 import TextButton from '@/components/buttons/TextButton'
+import ActiveElement from '@/components/ActiveElement'
+import InfiniteLoading from '@/components/InfiniteLoading'
 
 // Use globals for small components that plan use on most pages
 const components = [{
+  name: 'app-active-element',
+  component: ActiveElement
+}, {
   name: 'app-icon',
   component: Icon
 }, {
@@ -99,6 +105,9 @@ const components = [{
   name: 'app-list-card',
   component: ListCard
 }, {
+  name: 'app-full-card-block',
+  component: FullCardBlock
+}, {
   name: 'app-title',
   component: Title
 }, {
@@ -137,6 +146,9 @@ const components = [{
 }, {
   name: 'app-text-button',
   component: TextButton
+}, {
+  name: 'app-infinite-loading',
+  component: InfiniteLoading
 }]
 
 components.forEach((v) => {

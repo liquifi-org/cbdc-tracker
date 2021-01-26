@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import dashboard from './modules/dashboard/index'
 import watchlistPage from './modules/watchlistPage/index'
+import timelinePage from './modules/timelinePage.module'
 import watchlist from './modules/watchlist.module'
 import news from './modules/news.module'
 import currencyPage from './modules/currencyPage/index'
@@ -17,6 +18,7 @@ Vue.use(Vuex)
 export const MODULE_NAMES = {
   DASHBOARD: 'dashboard',
   WATCHLIST_PAGE: 'watchlistPage',
+  TIMELINE_PAGE: 'timelinePage',
   WATCHLIST: 'watchlist',
   NEWS: 'news',
   CURRENCY_PAGE: 'currencyPage',
@@ -30,6 +32,7 @@ export default new Vuex.Store({
   modules: {
     [MODULE_NAMES.DASHBOARD]: dashboard,
     [MODULE_NAMES.WATCHLIST_PAGE]: watchlistPage,
+    [MODULE_NAMES.TIMELINE_PAGE]: timelinePage,
     [MODULE_NAMES.WATCHLIST]: watchlist,
     [MODULE_NAMES.NEWS]: news,
     [MODULE_NAMES.CURRENCY_PAGE]: currencyPage,

@@ -32,6 +32,8 @@ export default {
   },
   methods: {
     onInput (value) {
+      value = (value && value.length) ? value : null
+
       if (JSON.stringify(value) === JSON.stringify(this.localValue)) {
         return
       }

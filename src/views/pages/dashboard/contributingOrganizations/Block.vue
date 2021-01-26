@@ -9,15 +9,13 @@
         <app-title>{{ title }}</app-title>
       </template>
 
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="ui-сontributing-organizations_items">
         <div class="ui-сontributing-organizations_item">
           <app-link href="https://www.bcg.com/"
                     text="BCG">
             <BcgLogo class="ui-сontributing-organizations_item-logo"></BcgLogo>
           </app-link>
         </div>
-
-        <Separator></Separator>
 
         <div class="ui-сontributing-organizations_item">
           <app-link href="https://bcgplatinion.com/"
@@ -26,16 +24,12 @@
           </app-link>
         </div>
 
-        <Separator></Separator>
-
         <div class="ui-сontributing-organizations_item">
           <app-link href="https://home.digital-euro-association.de/en"
                     text="DEA (Digital Euro Association)">
             <DeaLogo class="ui-сontributing-organizations_item-logo"></DeaLogo>
           </app-link>
         </div>
-
-        <Separator></Separator>
 
         <div class="ui-сontributing-organizations_item">
           <app-link href="http://firmshift.com/"
@@ -45,6 +39,22 @@
         </div>
       </div>
     </app-card>
+
+    <div class="ui-сontributing-organizations_item-filter">
+      <svg id="svg">
+        <defs>
+          <filter id="blue-filter">
+            <feColorMatrix
+              color-interpolation-filters="sRGB"
+              type="matrix"
+              values="0.25 0   0   0   0
+                        0   0.42  0   0   0
+                        0   0   0.68  0   0
+                        0   0   0   1   0 "/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -54,7 +64,6 @@ import BcgLogo from './Logos/Bcg.vue'
 import BcgPlatinionLogo from './Logos/BcgPlatinion.vue'
 import DeaLogo from './Logos/Dea.vue'
 import FrimshiftLogo from './Logos/Frimshift.vue'
-import Separator from './Separator.vue'
 
 export default {
   mixins: [screenSizeMixin],
@@ -62,8 +71,7 @@ export default {
     BcgLogo,
     BcgPlatinionLogo,
     DeaLogo,
-    FrimshiftLogo,
-    Separator
+    FrimshiftLogo
   },
   data () {
     return {
@@ -74,6 +82,18 @@ export default {
 </script>
 
 <style lang="scss">
+.ui-сontributing-organizations_items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: $min-desktop-width) {
+  .ui-сontributing-organizations_items {
+    margin: 0 32px;
+  }
+}
+
 .ui-сontributing-organizations_item {
   min-width: 10%;
   max-width: 15%;
@@ -86,5 +106,9 @@ export default {
   .ui-сontributing-organizations_item-logo {
     width: 100%;
   }
+}
+
+.ui-сontributing-organizations_item-filter {
+  display: none;
 }
 </style>
