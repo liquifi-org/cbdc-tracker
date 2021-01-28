@@ -7,16 +7,20 @@
     </template>
 
     <div v-for="(change, index) in changes" :key="index">
-      {{change.valueOld || STATUS_NAMES.NONE}} <TimelineArrow></TimelineArrow> {{change.valueNew}}
+      <StatusChange :change="change"></StatusChange>
     </div>
   </TimelineItem>
 </template>
 
 <script>
 import BaseTimelineChanges from '@/components/timeline/BaseTimelineChanges'
+import StatusChange from '@/components/timeline/changes/StatusChange'
 
 export default {
-  extends: BaseTimelineChanges
+  extends: BaseTimelineChanges,
+  components: {
+    StatusChange
+  }
 }
 </script>
 

@@ -1,21 +1,20 @@
 <template>
-  <div class="ui-info-item links">
-    <InfoItemTitle :title="title"></InfoItemTitle>
-
-    <div v-for="(link, index) in links" :key="index">
-      <app-link :href="link.href">
+  <span>
+      <app-link v-for="(link, index) in links"
+                class="m-r-4"
+                :key="index"
+                :href="link.href">
         <app-icon :name="ICON_NAMES.SOURCE_LINK" :text="link.href"></app-icon> {{link.text}}
       </app-link>
-    </div>
-  </div>
+  </span>
 </template>
 
 <script>
-import BaseInfoItem from './BaseInfoItem'
+import BaseValueChange from './BaseValueChange'
 import { LinkParserService } from '@/services/linkParser.service'
 
 export default {
-  extends: BaseInfoItem,
+  extends: BaseValueChange,
   computed: {
     links () {
       const linkParserService = new LinkParserService()
@@ -24,11 +23,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  .ui-currency-info-item.links {
-    a {
-      color: $site-primary-color;
-    }
-  }
-</style>

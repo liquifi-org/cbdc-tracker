@@ -24,9 +24,9 @@ export const SEO_WHATCHLIST = {
 }
 
 export const SEO_TIMELINE = {
-  TITLE: 'Timeline | CBDC Tracker',
-  DESCRIPTION: 'Timeline',
-  KEYWORDS: ''
+  TITLE: 'Central Bank Digital Currency (CBDC) Tracker Updates Timeline',
+  DESCRIPTION: 'Central Bank Digital Currencies are a new form of electronic money that, unlike well-known cryptocurrencies, are issued by central banks of certain countries. See the updates timeline of all the world cryptocurrencies in CBDC Tracker.',
+  KEYWORDS: 'cbdc tracker, cbdc, central bank digital currency, new electronic virtual money, timeline'
 }
 
 export const PREVIEW_IMAGE = 'https://cbdctracker.org/CBDC-splash.jpg'

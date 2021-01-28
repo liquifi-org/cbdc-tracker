@@ -68,6 +68,10 @@ export default {
       {
         name: 'description',
         content: SEO_TIMELINE.DESCRIPTION
+      },
+      {
+        name: 'keywords',
+        content: SEO_TIMELINE.KEYWORDS
       }
     ]
   },
