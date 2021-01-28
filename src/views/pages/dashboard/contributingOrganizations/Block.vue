@@ -39,22 +39,6 @@
         </div>
       </div>
     </app-card>
-
-    <div class="ui-сontributing-organizations_item-filter">
-      <svg id="svg">
-        <defs>
-          <filter id="blue-filter">
-            <feColorMatrix
-              color-interpolation-filters="sRGB"
-              type="matrix"
-              values="0.25 0   0   0   0
-                        0   0.42  0   0   0
-                        0   0   0.68  0   0
-                        0   0   0   1   0 "/>
-          </filter>
-        </defs>
-      </svg>
-    </div>
   </div>
 </template>
 
@@ -88,19 +72,46 @@ export default {
   align-items: center;
 }
 
+@media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+  .ui-сontributing-organizations_items {
+    padding: 8px 0;
+  }
+}
+
 @media (min-width: $min-desktop-width) {
   .ui-сontributing-organizations_items {
-    margin: 0 32px;
+    padding: 32px;
   }
 }
 
 .ui-сontributing-organizations_item {
-  min-width: 10%;
-  max-width: 15%;
-  filter: grayscale(100%);
+  max-width: 20%;
+
+  .ui-сontributing-organizations_item-logo {
+    .ui-сontributing-organizations_item-logo-img {
+      max-width: 100%;
+      max-height: 50px;
+
+      &.default {
+        display: inline;
+      }
+
+      &.hover {
+        display: none;
+      }
+    }
+  }
 
   &:hover {
-    filter: none;
+    .ui-сontributing-organizations_item-logo-img {
+      &.default {
+        display: none;
+      }
+
+      &.hover {
+        display: inline;
+      }
+    }
   }
 
   .ui-сontributing-organizations_item-logo {
@@ -108,7 +119,13 @@ export default {
   }
 }
 
-.ui-сontributing-organizations_item-filter {
-  display: none;
+@media (max-width: $max-mobile-width) {
+  .ui-сontributing-organizations_item {
+    .ui-сontributing-organizations_item-logo {
+      .ui-сontributing-organizations_item-logo-img {
+        max-height: 20px;
+      }
+    }
+  }
 }
 </style>
