@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import BaseInput from '../BaseInput'
+import BaseInput from './BaseInput'
 import Multiselect from 'vue-multiselect'
 import 'vue-multiselect/dist/vue-multiselect.min.css'
 
@@ -92,6 +92,10 @@ export default {
   .multiselect__placeholder {
     color: $input-placeholder-color;
     font-size: 16px;
+  }
+
+  .multiselect__select:before {
+    border-color: #7997C4 transparent transparent;
   }
 }
 </style>
