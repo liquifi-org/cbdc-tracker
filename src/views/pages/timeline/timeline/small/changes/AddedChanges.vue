@@ -7,12 +7,7 @@
     </template>
 
     <div v-for="(change, index) in changes" :key="index">
-      <TimelineLabel :text="change.title"></TimelineLabel>
-      {{ getChangeShortText(change.valueNew) }}
-      <app-info
-        v-show="isChangeInfoShown(change.valueNew)"
-        :text="change.valueNew"
-      ></app-info>
+      <AddedChange :change="change"></AddedChange>
     </div>
   </TimelineItem>
 </template>
@@ -20,9 +15,13 @@
 <script>
 import BaseTimelineChanges from '@/components/timeline/BaseTimelineChanges'
 import { getCurrencyMockNameByTag } from '@/utils/getCurrencyMockNameByTag'
+import AddedChange from '@/components/timeline/changes/AddedChange'
 
 export default {
   extends: BaseTimelineChanges,
+  components: {
+    AddedChange
+  },
   props: {
     tag: Object
   },

@@ -3,19 +3,23 @@
     <InfoItemTitle :title="title"></InfoItemTitle>
 
     <div v-for="(link, index) in links" :key="index">
-      <app-link :href="link"></app-link>
+      <app-link :href="link.href">
+        {{link.text}}
+      </app-link>
     </div>
   </div>
 </template>
 
 <script>
 import BaseInfoItem from './BaseInfoItem'
+import { LinkParserService } from '@/services/linkParser.service'
 
 export default {
   extends: BaseInfoItem,
   computed: {
     links () {
-      return this.value.split('\n')
+      const linkParserService = new LinkParserService()
+      return linkParserService.parseStringToObjectArray(this.value)
     }
   }
 }

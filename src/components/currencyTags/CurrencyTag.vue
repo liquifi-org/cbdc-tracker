@@ -9,6 +9,7 @@
 
 <script>
 import { ICON_NAMES } from '@/components/icons/constants'
+import { getCurrencyRouteByTag } from '@/utils/getCurrencyRouteByTag'
 
 export default {
   props: {
@@ -40,7 +41,7 @@ export default {
       }
 
       if (this.isLinks) {
-        const route = `/currency/${this.data.name}`
+        const route = getCurrencyRouteByTag(this.data)
 
         if (route !== this.$route.fullPath) {
           this.$router.push(route)

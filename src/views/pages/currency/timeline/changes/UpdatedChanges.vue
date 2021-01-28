@@ -7,23 +7,20 @@
     </template>
 
     <div v-for="(change, index) in changes" :key="index">
-      <TimelineLabel :text="change.title"></TimelineLabel> {{getChangeShortText(change.valueNew)}} <app-info
-        v-show="isChangeInfoShown(change.valueNew)"
-        :text="change.valueNew"
-      ></app-info> <TimelineArrow>
-      </TimelineArrow> {{getChangeShortText(change.valueOld)}} <app-info
-        v-show="isChangeInfoShown(change.valueOld)"
-        :text="change.valueOld"
-      ></app-info>
+      <UpdatedChange :change="change"></UpdatedChange>
     </div>
   </TimelineItem>
 </template>
 
 <script>
 import BaseTimelineChanges from '@/components/timeline/BaseTimelineChanges'
+import UpdatedChange from '@/components/timeline/changes/UpdatedChange'
 
 export default {
-  extends: BaseTimelineChanges
+  extends: BaseTimelineChanges,
+  components: {
+    UpdatedChange
+  }
 }
 </script>
 

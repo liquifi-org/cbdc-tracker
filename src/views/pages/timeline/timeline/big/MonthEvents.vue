@@ -125,6 +125,8 @@ $big-timeline_month-events-header-height: 30px;
 }
 
 .ui-big-timeline-item_header {
-  color: $default-font-color;
+  a, a:hover {
+    color: $default-font-color;
+  }
 }
 </style>

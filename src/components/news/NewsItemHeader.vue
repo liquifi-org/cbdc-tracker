@@ -21,6 +21,7 @@
 <script>
 import { DateParserService } from '@/services/dateParser.service'
 import { ICON_NAMES } from '@/components/icons/constants'
+import { getUrlOrigin } from '@/utils/getUrlOrigin'
 
 export default {
   props: {
@@ -43,7 +44,7 @@ export default {
       return this.data.sourceUrl
     },
     hostnameSourceUrl () {
-      return new URL(this.data.sourceUrl).origin
+      return getUrlOrigin(this.data.sourceUrl)
     },
     title () {
       return this.data.title

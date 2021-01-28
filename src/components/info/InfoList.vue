@@ -8,7 +8,7 @@
 
 <script>
 import TextInfoItem from './infoFields/TextInfoItem'
-import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
+import { CURRENCY_FIELD_NAMES, CURRENCY_LINKS_FIELDS } from '@/constants/currencies'
 import YearInfoItem from './infoFields/YearInfoItem'
 import UpdateRateItem from './infoFields/UpdateRateItem'
 import InteroperabilityValueItem from './infoFields/InteroperabilityValueItem'
@@ -28,6 +28,10 @@ export default {
   },
   methods: {
     getInfoFieldComponent (infoFieldName) {
+      if (CURRENCY_LINKS_FIELDS.includes(infoFieldName)) {
+        return LinksItem
+      }
+
       switch (infoFieldName) {
         case CURRENCY_FIELD_NAMES.ANNOUNCEMENT_YEAR:
           return YearInfoItem
@@ -35,10 +39,6 @@ export default {
           return UpdateRateItem
         case CURRENCY_FIELD_NAMES.INTEROPERABILITY:
           return InteroperabilityValueItem
-        case CURRENCY_FIELD_NAMES.ANNOUNCEMENT_LINK:
-        case CURRENCY_FIELD_NAMES.SITE_LINK:
-        case CURRENCY_FIELD_NAMES.SOCIAL_NETWORK_LINK:
-          return LinksItem
         default:
           return TextInfoItem
       }

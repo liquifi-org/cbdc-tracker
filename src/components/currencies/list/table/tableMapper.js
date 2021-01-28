@@ -1,7 +1,7 @@
 import { CELL_TYPES, HEADER_CELL_TYPES } from '@/components/table/constants'
 import { ListDataAdapter } from '../listDataAdapter'
 import { getCurrencyRoute } from '@/utils/getCurrencyRoute'
-import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
+import { CURRENCY_FIELD_NAMES, CURRENCY_LINKS_FIELDS } from '@/constants/currencies'
 
 export class TableMapper {
   constructor () {
@@ -67,6 +67,13 @@ export class TableMapper {
     columnName,
     watchlist
   }) {
+    if (CURRENCY_LINKS_FIELDS.includes(columnName)) {
+      return this.getLinksCell({
+        currency,
+        columnName
+      })
+    }
+
     switch (columnName) {
       case CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY:
         return this.getDigitalCurrencyCell({
@@ -91,13 +98,6 @@ export class TableMapper {
         })
       case CURRENCY_FIELD_NAMES.INTEROPERABILITY:
         return this.getInteroperabilityCell({
-          currency,
-          columnName
-        })
-      case CURRENCY_FIELD_NAMES.ANNOUNCEMENT_LINK:
-      case CURRENCY_FIELD_NAMES.SOCIAL_NETWORK_LINK:
-      case CURRENCY_FIELD_NAMES.SITE_LINK:
-        return this.getLinksCell({
           currency,
           columnName
         })
