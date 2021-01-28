@@ -35,8 +35,13 @@ const routes = [{
       component: () => import('@/views/pages/timeline/Timeline')
     },
     {
+      path: '/404',
+      name: 'NotFound',
+      component: () => import('@/views/pages/notFound/NotFound')
+    },
+    {
       path: '*',
-      redirect: '/'
+      redirect: '/404'
     }
   ]
 }]

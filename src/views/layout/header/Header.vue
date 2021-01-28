@@ -1,7 +1,7 @@
 <template>
   <b-navbar class="ui-layout-header" :class="{'isNavbarExpanded': isNavbarExpanded}" toggleable="md">
     <b-navbar-brand>
-      <router-link to="/" title="Visit the main page" @click="onLickClick">
+      <router-link class="d-flex" to="/" title="Visit the main page" @click="onLickClick">
         <Logo></Logo>
       </router-link>
     </b-navbar-brand>

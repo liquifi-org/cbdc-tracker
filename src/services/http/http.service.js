@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import { NotFoundError } from '@/errors/notFound.error'
 
 let instance
 const BASE_URL = 'api/'
@@ -26,20 +27,28 @@ export class HttpService {
    * @returns {*}
    */
   async get (url, options) {
-    options = options || {}
+    try {
+      options = options || {}
 
-    if (!options.isExternalResource) {
-      url = `${BASE_URL}${url}`
+      if (!options.isExternalResource) {
+        url = `${BASE_URL}${url}`
+      }
+
+      const config = {}
+
+      if (options.responseType) {
+        config.responseType = options.responseType
+      }
+
+      const response = await Vue.axios.get(url, config)
+      return response.data
+    } catch (error) {
+      if (error.response && (error.response.status === 404)) {
+        throw new NotFoundError()
+      } else {
+        throw error
+      }
     }
-
-    const config = {}
-
-    if (options.responseType) {
-      config.responseType = options.responseType
-    }
-
-    const response = await Vue.axios.get(url, config)
-    return response.data
   }
 
   /**
