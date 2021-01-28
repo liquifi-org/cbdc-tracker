@@ -2,7 +2,7 @@
   <div>
     <div v-for="(link, index) in links" :key="index">
       <app-link :href="link.href">
-        {{ link.text }}
+        <app-icon :name="ICON_NAMES.SOURCE_LINK" :text="link.href"></app-icon> {{ link.text }}
       </app-link>
     </div>
   </div>

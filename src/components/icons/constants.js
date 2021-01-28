@@ -32,5 +32,6 @@ export const ICON_NAMES = {
   SORT: 'sort',
   SORT_ASC: 'sortAsc',
   SORT_DESC: 'sortDesc',
-  CHECK_MARK: 'checkMark'
+  CHECK_MARK: 'checkMark',
+  MAIL: 'mail'
 }

@@ -4,7 +4,7 @@
                 class="m-r-4"
                 :key="index"
                 :href="link.href">
-        {{link.text}}
+        <app-icon :name="ICON_NAMES.SOURCE_LINK" :text="link.href"></app-icon> {{link.text}}
       </app-link>
   </span>
 </template>

@@ -32,17 +32,29 @@
             <strong>Publications</strong>
           </div>
 
-          <div class="m-b-16">
-            <div class="m-b-8">
-              <app-external-link href="https://www.bcg.com/en-nl/publications/2020/get-ready-for-the-future-of-money"
-                                 text="Get Ready for the Future of Money"></app-external-link>
-            </div>
+          <b-row class="m-b-16">
+            <b-col class="m-b-16" cols="12" md="8">
+              <div class="m-b-8">
+                <app-external-link href="https://www.bcg.com/en-nl/publications/2020/get-ready-for-the-future-of-money"
+                                   text="Get Ready for the Future of Money"></app-external-link>
+              </div>
 
-            <div>
-              <app-external-link href="https://www.coindesk.com/central-bank-digital-currencies-need-decentralization"
-                                 text="Central Bank Digital Currencies Need Decentralization"></app-external-link>
-            </div>
-          </div>
+              <div>
+                <app-external-link href="https://www.coindesk.com/central-bank-digital-currencies-need-decentralization"
+                                   text="Central Bank Digital Currencies Need Decentralization"></app-external-link>
+              </div>
+            </b-col>
+
+            <b-col class="m-b-16" cols="12" md="4">
+              <div class="m-b-12">
+                <strong>Source</strong>
+              </div>
+
+              <app-social-network-link :socialNetwork="SOCIAL_NETWORKS_NAMES.GITHUB"
+                                       href="https://github.com/liquifi-org/cbdc-tracker"
+                                       text="Github"></app-social-network-link>
+            </b-col>
+          </b-row>
 
           <b-row>
             <b-col class="m-b-16" cols="12" md="8">
@@ -131,12 +143,10 @@
 
             <b-col class="m-b-16" cols="12" md="4">
               <div class="m-b-12">
-                <strong>Source</strong>
+                <strong>Mail</strong>
               </div>
 
-              <app-social-network-link :socialNetwork="SOCIAL_NETWORKS_NAMES.GITHUB"
-                                       href="https://github.com/liquifi-org/cbdc-tracker"
-                                       text="Github"></app-social-network-link>
+              <app-email-link :email="'hello@cbdctracker.org'"></app-email-link>
             </b-col>
           </b-row>
 

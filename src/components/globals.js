@@ -36,6 +36,7 @@ import Modal from '@/components/modal/Modal'
 import TextButton from '@/components/buttons/TextButton'
 import ActiveElement from '@/components/ActiveElement'
 import InfiniteLoading from '@/components/InfiniteLoading'
+import EmailLink from '@/components/links/EmailLink'
 
 // Use globals for small components that plan use on most pages
 const components = [{
@@ -149,6 +150,9 @@ const components = [{
 }, {
   name: 'app-infinite-loading',
   component: InfiniteLoading
+}, {
+  name: 'app-email-link',
+  component: EmailLink
 }]
 
 components.forEach((v) => {
