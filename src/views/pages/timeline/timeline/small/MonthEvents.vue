@@ -90,6 +90,8 @@ export default {
 }
 
 .ui-small-timeline-item_header-currency {
-  color: $default-font-color;
+  a, a:hover {
+    color: $default-font-color;
+  }
 }
 </style>
