@@ -2,7 +2,9 @@
   <TimelineItem :isFullWidth="true" class="ui-small-timeline-item status" :type="TIMELINE_CHANGE_TYPES.STATUS">
     <template #header>
       <div class="ui-small-timeline-item_header">
-        <span class="ui-small-timeline-item_header-currency">{{ currency }}</span> <app-icon :name="ICON_NAMES.UPDATE"></app-icon> Status updated
+        <app-link class="ui-small-timeline-item_header-currency"
+                  :href="currencyHref"
+                  :text="currency">{{ currency }}</app-link> <app-icon :name="ICON_NAMES.UPDATE"></app-icon> Status updated
       </div>
     </template>
 
@@ -16,6 +18,7 @@
 import BaseTimelineChanges from '@/components/timeline/BaseTimelineChanges'
 import { getCurrencyMockNameByTag } from '@/utils/getCurrencyMockNameByTag'
 import StatusChange from '@/components/timeline/changes/StatusChange'
+import { getCurrencyRouteByTag } from '@/utils/getCurrencyRouteByTag'
 
 export default {
   extends: BaseTimelineChanges,
@@ -28,6 +31,9 @@ export default {
   computed: {
     currency () {
       return this.tag.currency || getCurrencyMockNameByTag(this.tag)
+    },
+    currencyHref () {
+      return getCurrencyRouteByTag(this.tag)
     }
   }
 }
