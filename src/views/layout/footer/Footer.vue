@@ -64,9 +64,8 @@ export default {
 
    @media (max-width: $max-mobile-width) {
      .ui-page-footer {
-       padding: 26px 16px;
+       padding: 20px 16px;
        flex-direction: column;
-       height: 115px;
      }
 
      .ui-page-footer_copyright {
