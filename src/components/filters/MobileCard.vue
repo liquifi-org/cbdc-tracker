@@ -15,6 +15,7 @@
       <FiltersContent ref="content"
                       :filters="filters"
                       :countriesWithCurrencies="countriesWithCurrencies"
+                      :currencyFieldName="currencyFieldName"
                       :currencyNames="currencyNames"
                       :technologiesWithCurrencies="technologiesWithCurrencies"
                       @change="onChange"></FiltersContent>
@@ -29,6 +30,7 @@ export default {
   props: {
     filters: Array,
     countriesWithCurrencies: Array,
+    currencyFieldName: String,
     currencyNames: Array,
     technologiesWithCurrencies: Array
   },

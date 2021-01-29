@@ -19,6 +19,7 @@ export default {
   props: {
     filters: Array,
     countriesWithCurrencies: Array,
+    currencyFieldName: String,
     currencyNames: Array,
     technologiesWithCurrencies: Array,
     fieldCols: String
@@ -43,8 +44,10 @@ export default {
       })
     },
     currencyNames (newValue) {
+      const fieldName = this.currencyFieldName || CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY
+
       this.localFilters.forEach((filter) => {
-        if (CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY === filter.name) {
+        if (fieldName === filter.name) {
           filter.settings.possibleValues = [...new Set(newValue)]
         }
       })

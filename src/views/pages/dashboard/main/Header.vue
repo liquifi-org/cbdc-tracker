@@ -56,7 +56,7 @@
 import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
-import FiltersContent from '@/components/currencies/filters/Content'
+import FiltersContent from '@/components/filters/Content'
 import MapLegend from './MapLegend'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
 

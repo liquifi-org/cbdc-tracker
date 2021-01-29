@@ -63,6 +63,10 @@ export default {
 
 <style lang="scss">
   .ui-year-range {
+    > * {
+      min-height: $input-min-height;
+    }
+
     .input-group-text {
       border-left: 0;
       border-right: 0;

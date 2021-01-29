@@ -46,7 +46,10 @@ export default {
 
 <style lang="scss">
 .ui-field-wrapper.ui-field-multiselect-wrapper .multiselect {
+  min-height: $input-min-height;
+
   .multiselect__tags {
+    font-size: 16px;
     border-color: $input-border-color;
     background-color: $input-background-color;
   }
@@ -96,6 +99,10 @@ export default {
 
   .multiselect__select:before {
     border-color: #7997C4 transparent transparent;
+  }
+
+  .multiselect__content-wrapper {
+    z-index: 5000;
   }
 }
 </style>
