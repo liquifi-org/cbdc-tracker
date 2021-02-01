@@ -54,7 +54,7 @@ export default {
   }
 
   a {
-    font-weight: 800;
+    font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
 
@@ -80,7 +80,7 @@ export default {
 
   @media (max-width: $max-mobile-width) {
     a {
-      font-weight: 900;
+      font-weight: bold;
       font-size: 18px;
     }
 

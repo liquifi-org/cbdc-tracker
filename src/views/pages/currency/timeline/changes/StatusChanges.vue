@@ -1,5 +1,5 @@
 <template>
-  <TimelineItem class="ui-currency-timeline-item status" :type="TIMELINE_CHANGE_TYPES.STATUS">
+  <TimelineItem :isFullWidth="true" class="ui-currency-timeline-item status" :type="TIMELINE_CHANGE_TYPES.STATUS">
     <template #header>
       <div class="ui-currency-timeline-item_header">
         <app-icon :name="ICON_NAMES.UPDATE"></app-icon> Status updated
@@ -7,16 +7,20 @@
     </template>
 
     <div v-for="(change, index) in changes" :key="index">
-      {{change.valueOld || STATUS_NAMES.NONE}} <TimelineArrow></TimelineArrow> {{change.valueNew}}
+      <StatusChange :change="change"></StatusChange>
     </div>
   </TimelineItem>
 </template>
 
 <script>
 import BaseTimelineChanges from '@/components/timeline/BaseTimelineChanges'
+import StatusChange from '@/components/timeline/changes/StatusChange'
 
 export default {
-  extends: BaseTimelineChanges
+  extends: BaseTimelineChanges,
+  components: {
+    StatusChange
+  }
 }
 </script>
 

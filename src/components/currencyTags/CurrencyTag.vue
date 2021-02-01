@@ -1,14 +1,15 @@
 <template>
-  <button class="ui-button-without-styles ui-tag"
+  <app-active-element class="ui-tag"
           :class="{'active': localIsSelected}"
           :disabled="!isSelectable && !isLinks"
           @click="onClick">
     <app-icon :name="ICON_NAMES.TAG"></app-icon> <span class="ui-tag-text">{{text}}</span>
-  </button>
+  </app-active-element>
 </template>
 
 <script>
 import { ICON_NAMES } from '@/components/icons/constants'
+import { getCurrencyRouteByTag } from '@/utils/getCurrencyRouteByTag'
 
 export default {
   props: {
@@ -40,7 +41,7 @@ export default {
       }
 
       if (this.isLinks) {
-        const route = `/currency/${this.data.name}`
+        const route = getCurrencyRouteByTag(this.data)
 
         if (route !== this.$route.fullPath) {
           this.$router.push(route)

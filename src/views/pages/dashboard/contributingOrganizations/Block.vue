@@ -9,15 +9,13 @@
         <app-title>{{ title }}</app-title>
       </template>
 
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="ui-сontributing-organizations_items">
         <div class="ui-сontributing-organizations_item">
           <app-link href="https://www.bcg.com/"
                     text="BCG">
             <BcgLogo class="ui-сontributing-organizations_item-logo"></BcgLogo>
           </app-link>
         </div>
-
-        <Separator></Separator>
 
         <div class="ui-сontributing-organizations_item">
           <app-link href="https://bcgplatinion.com/"
@@ -26,16 +24,12 @@
           </app-link>
         </div>
 
-        <Separator></Separator>
-
         <div class="ui-сontributing-organizations_item">
           <app-link href="https://home.digital-euro-association.de/en"
                     text="DEA (Digital Euro Association)">
             <DeaLogo class="ui-сontributing-organizations_item-logo"></DeaLogo>
           </app-link>
         </div>
-
-        <Separator></Separator>
 
         <div class="ui-сontributing-organizations_item">
           <app-link href="http://firmshift.com/"
@@ -54,7 +48,6 @@ import BcgLogo from './Logos/Bcg.vue'
 import BcgPlatinionLogo from './Logos/BcgPlatinion.vue'
 import DeaLogo from './Logos/Dea.vue'
 import FrimshiftLogo from './Logos/Frimshift.vue'
-import Separator from './Separator.vue'
 
 export default {
   mixins: [screenSizeMixin],
@@ -62,8 +55,7 @@ export default {
     BcgLogo,
     BcgPlatinionLogo,
     DeaLogo,
-    FrimshiftLogo,
-    Separator
+    FrimshiftLogo
   },
   data () {
     return {
@@ -74,17 +66,66 @@ export default {
 </script>
 
 <style lang="scss">
+.ui-сontributing-organizations_items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
+  .ui-сontributing-organizations_items {
+    padding: 8px 0;
+  }
+}
+
+@media (min-width: $min-desktop-width) {
+  .ui-сontributing-organizations_items {
+    padding: 32px;
+  }
+}
+
 .ui-сontributing-organizations_item {
-  min-width: 10%;
-  max-width: 15%;
-  filter: grayscale(100%);
+  max-width: 20%;
+
+  .ui-сontributing-organizations_item-logo {
+    .ui-сontributing-organizations_item-logo-img {
+      max-width: 100%;
+      max-height: 50px;
+
+      &.default {
+        display: inline;
+      }
+
+      &.hover {
+        display: none;
+      }
+    }
+  }
 
   &:hover {
-    filter: none;
+    .ui-сontributing-organizations_item-logo-img {
+      &.default {
+        display: none;
+      }
+
+      &.hover {
+        display: inline;
+      }
+    }
   }
 
   .ui-сontributing-organizations_item-logo {
     width: 100%;
+  }
+}
+
+@media (max-width: $max-mobile-width) {
+  .ui-сontributing-organizations_item {
+    .ui-сontributing-organizations_item-logo {
+      .ui-сontributing-organizations_item-logo-img {
+        max-height: 20px;
+      }
+    }
   }
 }
 </style>

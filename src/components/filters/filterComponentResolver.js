@@ -1,6 +1,6 @@
 import YearRange from '@/components/fields/YearRange'
 import Select from '@/components/fields/Select'
-import MultipleSelect from '@/components/fields/multipleSelect/MultipleSelect'
+import MultipleSelect from '@/components/fields/MultipleSelect'
 import StringInput from '@/components/fields/StringInput'
 import { FILTER_TYPES } from '@/services/filter.service'
 

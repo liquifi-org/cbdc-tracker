@@ -6,19 +6,22 @@
       </div>
 
       <div class="ui-news-item_source">
-        <app-link :href="sourceUrl" :text="sourceName">
+        <app-link :href="hostnameSourceUrl" :text="sourceName">
           <app-icon :name="ICON_NAMES.SOURCE_LINK" text="Source"></app-icon> {{sourceName}}
         </app-link>
       </div>
     </div>
 
-    <app-title level="3">{{title}}</app-title>
+    <app-title level="3">
+      <app-link :href="sourceUrl" :text="title">{{title}}</app-link>
+    </app-title>
   </header>
 </template>
 
 <script>
 import { DateParserService } from '@/services/dateParser.service'
 import { ICON_NAMES } from '@/components/icons/constants'
+import { getUrlOrigin } from '@/utils/getUrlOrigin'
 
 export default {
   props: {
@@ -39,6 +42,9 @@ export default {
     },
     sourceUrl () {
       return this.data.sourceUrl
+    },
+    hostnameSourceUrl () {
+      return getUrlOrigin(this.data.sourceUrl)
     },
     title () {
       return this.data.title

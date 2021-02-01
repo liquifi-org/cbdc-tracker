@@ -18,9 +18,13 @@ export default {
 
 <style lang="scss">
   .ui-title {
-    font-weight: 900;
+    font-weight: bold;
     font-size: 18px;
     color: $site-primary-color;
+
+    a {
+      opacity: 1;
+    }
   }
 
   h3.ui-title {

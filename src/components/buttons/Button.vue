@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
   button.ui-button.btn {
     border: none;
-    font-weight: 800;
+    font-weight: bold;
     font-size: 14px;
     padding: 8px 20px;
     border-radius: 8px;

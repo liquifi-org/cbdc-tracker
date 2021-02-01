@@ -1,24 +1,30 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col cols="12" xxl="9">
+      <b-col cols="12" xxl="10">
         <NewsBlock :newsList="newsList"
                    :totalElements="totalElements"
                    :isLoading="isLoading"
                    :hasFilters="isTabletScreen"
-                   @clearFilters="onClearFilters"
+                   @clearFilters="onClearFiltersClick"
                    @showMoreNews="fetchNextNews">
           <template #filters>
-            <FiltersContent></FiltersContent>
+            <FiltersContent ref="tabletFiltersContent"
+                            :currencyFieldName="TAG_FIELD_NAMES.CURRENCY"
+                            :countriesWithCurrencies="countriesWithCurrencies"
+                            :currencyNames="currencyNames"
+                            :filters="filters"
+                            @change="changeStateFilters"
+                            fieldCols="6"></FiltersContent>
           </template>
 
           <template #mobileFilters>
-            <MobileFiltersCard class="m-b-16"></MobileFiltersCard>
+            <FiltersCard class="m-b-16"></FiltersCard>
           </template>
         </NewsBlock>
       </b-col>
 
-      <b-col v-if="isDesktopScreen" cols="12" xxl="3">
+      <b-col v-if="isDesktopScreen" cols="2">
         <FiltersCard></FiltersCard>
       </b-col>
     </b-row>
@@ -27,14 +33,15 @@
 
 <script>
 import NewsBlock from '@/components/news/NewsBlock'
-import { mapActions, mapMutations, mapState } from 'vuex'
+import { mapActions, mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
-import { NEWS_ACTION_TYPES, NEWS_MUTATION_TYPES } from '@/store/modules/news.module'
 import FiltersCard from './filters/Card'
-import FiltersContent from './filters/Content'
-import MobileFiltersCard from './filters/MobileCard'
+import FiltersContent from '@/components/filters/Content'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import { REPLACE_OG_TWITTER_NEWS, SEO_NEWS } from '@/constants/seo'
+import { NEWS_MUTATION_TYPES } from '@/store/modules/news/mutations'
+import { NEWS_ACTION_TYPES } from '@/store/modules/news/actions'
+import { TAG_FIELD_NAMES } from '@/constants/tags'
 
 export default {
   mixins: [screenSizeMixin],
@@ -55,8 +62,12 @@ export default {
   components: {
     NewsBlock,
     FiltersCard,
-    MobileFiltersCard,
     FiltersContent
+  },
+  data () {
+    return {
+      TAG_FIELD_NAMES
+    }
   },
   computed: {
     ...mapState(MODULE_NAMES.NEWS, {
@@ -66,15 +77,24 @@ export default {
       totalElements: (state) => {
         return state.totalElements
       },
+      filters: (state) => {
+        return state.filters
+      },
       isLoading: (state) => {
         return state.isLoading
       }
+    }),
+    ...mapGetters(MODULE_NAMES.NEWS, {
+      countriesWithCurrencies: 'countriesWithCurrencies',
+      currencyNames: 'currencyNames'
     })
   },
   async created () {
     await Promise.all([
       this.fetchFirstNews(),
-      this.fetchTags()
+      this.fetchTags(),
+      this.fetchCountries(),
+      this.fetchCurrencyNames()
     ])
   },
   destroyed () {
@@ -84,14 +104,18 @@ export default {
     ...mapActions(MODULE_NAMES.NEWS, {
       fetchFirstNews: NEWS_ACTION_TYPES.FETCH_FIRST_NEWS,
       fetchTags: NEWS_ACTION_TYPES.FETCH_CURRENCIES_TAGS,
+      fetchCountries: NEWS_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
+      fetchCurrencyNames: NEWS_ACTION_TYPES.FETCH_CURRENCY_NAMES,
       fetchNextNews: NEWS_ACTION_TYPES.FETCH_NEXT_NEWS,
-      changeIsSelected: NEWS_ACTION_TYPES.FETCH_NEWS_BY_SELECTED_TAGS
+      clearStateFilters: NEWS_ACTION_TYPES.CLEAR_FILTERS_AND_FETCH_NEWS,
+      changeStateFilters: NEWS_ACTION_TYPES.FETCH_NEWS_BY_SELECTED_FILTERS
     }),
     ...mapMutations(MODULE_NAMES.NEWS, {
       resetNews: NEWS_MUTATION_TYPES.RESET
     }),
-    onClearFilters () {
-      this.changeIsSelected({ selectedCurrencyTags: [] })
+    onClearFiltersClick () {
+      this.$refs.tabletFiltersContent.clear()
+      this.clearStateFilters()
     }
   }
 }

@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import FiltersCard from '@/components/currencies/filters/Card'
-import MobileFiltersCard from '@/components/currencies/filters/MobileCard'
+import FiltersCard from '@/components/filters/Card'
+import MobileFiltersCard from '@/components/filters/MobileCard'
 import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
@@ -58,6 +58,7 @@ export default {
   .ui-dashboard-currency-filters {
     position: sticky;
     top: 0;
+    z-index: 50;
   }
 }
 </style>

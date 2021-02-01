@@ -20,6 +20,7 @@ export const ICON_NAMES = {
   WATCHLIST_UNSELECTED_ITEM: 'watchlistUnselectedItem',
   INFO: 'info',
   ARROW_RIGHT: 'arrowRight',
+  ARROW_UP: 'arrowUp',
   ARROW_RIGHT_SQUARE: 'arrowRightSquare',
   UPDATE: 'update',
   ADD: 'add',
@@ -31,5 +32,6 @@ export const ICON_NAMES = {
   SORT: 'sort',
   SORT_ASC: 'sortAsc',
   SORT_DESC: 'sortDesc',
-  CHECK_MARK: 'checkMark'
+  CHECK_MARK: 'checkMark',
+  MAIL: 'mail'
 }

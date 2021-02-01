@@ -15,7 +15,7 @@ export const DASHBOARD_MUTATION_TYPES = {
   TABLE_CHANGE_COLUMNS_VISIBLE: 'tableChangeColumnsVisible',
   CHANGE_COUNTRIES_WITH_CURRENCIES: 'changeCountriesWithCurrencies',
   CHANGE_TECHNOLOGIES_WITH_CURRENCIES: 'changeTechnologiesWithCurrencies',
-  CHANGE_CURRENCY_NAMES: 'changeCountryNames',
+  CHANGE_CURRENCY_NAMES: 'changeCurrenciesNames',
   CHANGE_FILTERS: 'changeFilters',
   CLEAR_FILTERS: 'clearFilters',
   CHANGE_NEWS: 'changeNews',

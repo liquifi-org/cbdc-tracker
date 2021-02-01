@@ -1,7 +1,9 @@
 <template>
-  <button class="ui-button-without-styles ui-clear-button" :disabled="disabled" @click="onClick">
+  <app-active-element class="ui-clear-button"
+                      :disabled="disabled"
+                      @click="onClick">
     <app-icon :name="ICON_NAMES.CLEAR"></app-icon> <span class="ui-clear-button_text">{{localText}}</span>
-  </button>
+  </app-active-element>
 </template>
 
 <script>

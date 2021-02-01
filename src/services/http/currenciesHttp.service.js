@@ -27,22 +27,29 @@ export class CurrenciesHttpService {
   }
 
   async getCurrencyTags () {
-    return await this.httpSevice.get('/currencies/tags')
+    const tags = await this.httpSevice.get('/currencies/tags')
+    return tags.map((tag) => {
+      return {
+        ...tag,
+        currency: tag.currency || getCurrencyMockNameByTag(tag),
+        hasCurrencyName: !!tag.currency
+      }
+    })
   }
 
   async getCurrencyNames () {
-    let tags = await this.getCurrencyTags()
+    const tags = await this.getCurrencyTags()
 
-    tags = tags.map((tag) => {
-      return tag.currency || getCurrencyMockNameByTag(tag)
+    let currencyNames = tags.map((tag) => {
+      return tag.currency
     })
 
-    tags = tags.sort(function (a, b) {
+    currencyNames = currencyNames.sort(function (a, b) {
       const valueA = a
       const valueB = b
 
-      const sortedValueA = (valueA || '').toLowerCase()
-      const sortedValueB = (valueB || '').toLowerCase()
+      const sortedValueA = valueA.toLowerCase()
+      const sortedValueB = valueB.toLowerCase()
 
       if (sortedValueA < sortedValueB) {
         return -1
@@ -53,7 +60,7 @@ export class CurrenciesHttpService {
       }
     })
 
-    return tags
+    return currencyNames
   }
 
   async getCurrencyByTag (tag) {

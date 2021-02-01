@@ -7,6 +7,21 @@ $min-tablet-width: 768px;
 $max-tablet-width: 1439px;
 $min-desktop-width: 1440px;
 
+// Fonts
+$default-font-color: #0B2041;
+
+%ui-default-font {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  color: $default-font-color;
+}
+
+body {
+  @extend %ui-default-font;
+}
+
 // Buttons
 .ui-button-without-styles {
   border: none;
@@ -51,9 +66,10 @@ $sides: (top, bottom, left, right);
 
 // Fields
 $input-border-color: #DBE6F1;
-$input-color: #0B2041;
+$input-color: $default-font-color;
 $input-background-color: #F4F8FC;
 $input-placeholder-color: #7997C3;
+$input-min-height: 46px;
 
 .ui-field-wrapper {
   .input-group-text, input, select  {
@@ -100,19 +116,6 @@ $input-placeholder-color: #7997C3;
       color: #EC8596;
     }
   }
-}
-
-// Fonts
-%ui-default-font {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: normal;
-  color: #0B2041;
-}
-
-body {
-  @extend %ui-default-font;
 }
 
 // Utils

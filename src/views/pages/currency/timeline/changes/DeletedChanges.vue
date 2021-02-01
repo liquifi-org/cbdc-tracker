@@ -1,5 +1,5 @@
 <template>
-  <TimelineItem class="ui-currency-timeline-item deleted" :type="TIMELINE_CHANGE_TYPES.DELETED">
+  <TimelineItem :isFullWidth="true" class="ui-currency-timeline-item deleted" :type="TIMELINE_CHANGE_TYPES.DELETED">
     <template #header>
       <div class="ui-currency-timeline-item_header">
         <app-icon :name="ICON_NAMES.DELETE"></app-icon> Deleted data
@@ -7,19 +7,20 @@
     </template>
 
     <div v-for="(change, index) in changes" :key="index">
-      <TimelineLabel :text="change.title"></TimelineLabel> {{getChangeShortText(change.valueOld)}} <app-info
-        v-show="isChangeInfoShown(change.valueOld)"
-        :text="change.valueOld"
-      ></app-info>
+      <DeletedChange :change="change"></DeletedChange>
     </div>
   </TimelineItem>
 </template>
 
 <script>
 import BaseTimelineChanges from '@/components/timeline/BaseTimelineChanges'
+import DeletedChange from '@/components/timeline/changes/DeletedChange'
 
 export default {
-  extends: BaseTimelineChanges
+  extends: BaseTimelineChanges,
+  components: {
+    DeletedChange
+  }
 }
 </script>
 

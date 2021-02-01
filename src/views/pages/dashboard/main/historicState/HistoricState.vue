@@ -239,7 +239,7 @@ export default {
   }
 
   .ui-historic-state_timeline-label {
-    font-weight: 900;
+    font-weight: bold;
     font-size: 12px;
     color: #C4D4E4;
   }
@@ -283,8 +283,7 @@ export default {
 
     .ui-historic-state_tooltip-text {
       padding: 8px 12px;
-      font-style: normal;
-      font-weight: 800;
+      font-weight: bold;
       color: #FFFFFF;
       cursor: grabbing;
     }
@@ -316,7 +315,7 @@ export default {
 
     .ui-historic-state_mobile-date {
       color: $site-primary-color;
-      font-weight: 800;
+      font-weight: bold;
     }
   }
 </style>

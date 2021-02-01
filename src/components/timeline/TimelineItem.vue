@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-timeline-item" :class="type">
+  <div class="ui-timeline-item" :class="[type, isFullWidth && 'is-full-width']">
     <header class="ui-timeline-item_header">
       <slot name="header"></slot>
     </header>
@@ -13,18 +13,26 @@
 <script>
 export default {
   props: {
-    type: String
+    type: String,
+    isFullWidth: Boolean
   }
 }
 </script>
 
 <style lang="scss">
   .ui-timeline-item {
+    display: inline-block;
+    max-width: 100%;
+
+    &.is-full-width {
+      display: block;
+    }
+
     .ui-timeline-item_header {
       padding: 8px 16px;
       margin-bottom: 2px;
       border-radius: 4px 4px 0 0;
-      font-weight: 800;
+      font-weight: bold;
       font-size: 12px;
     }
 
@@ -32,7 +40,7 @@ export default {
       padding: 8px 16px;
       border-radius: 0 0 4px 4px;
       font-size: 12px;
-      color: #0B2041;
+      color: $default-font-color;
     }
 
     .ui-timeline-item_label {

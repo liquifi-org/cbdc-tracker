@@ -72,7 +72,7 @@ export default {
       this.fetchTableColumns(),
       this.fetchHistoryOfChanges(),
       this.fetchCountries(),
-      this.fetchCountryNames(),
+      this.fetchCurrencyNames(),
       this.fetchTechnologies(),
       this.fetchFirstNews()
     ])
@@ -85,7 +85,7 @@ export default {
       fetchCurrencies: DASHBOARD_ACTION_TYPES.FETCH_CURRENCIES_DATA,
       fetchHistoryOfChanges: DASHBOARD_ACTION_TYPES.FETCH_HISTORY_OF_CHANGES,
       fetchCountries: DASHBOARD_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
-      fetchCountryNames: DASHBOARD_ACTION_TYPES.FETCH_CURRENCY_NAMES,
+      fetchCurrencyNames: DASHBOARD_ACTION_TYPES.FETCH_CURRENCY_NAMES,
       fetchTechnologies: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES,
       fetchFirstNews: DASHBOARD_ACTION_TYPES.FETCH_FIRST_NEWS
     }),

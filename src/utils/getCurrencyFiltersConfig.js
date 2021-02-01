@@ -23,7 +23,7 @@ export const getCurrencyFiltersConfig = () => {
   }, {
     name: CURRENCY_FIELD_NAMES.DIGITAL_CURRENCY,
     label: 'Digital currency',
-    placeholder: 'Choose currencies',
+    placeholder: 'Select...',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
       possibleValues: []
@@ -32,7 +32,7 @@ export const getCurrencyFiltersConfig = () => {
   }, {
     name: CURRENCY_FIELD_NAMES.COUNTRY,
     label: 'Country / Region',
-    placeholder: 'Choose countries',
+    placeholder: 'Select...',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
       possibleValues: []
@@ -46,7 +46,7 @@ export const getCurrencyFiltersConfig = () => {
   }, {
     name: CURRENCY_FIELD_NAMES.STATUS,
     label: 'Status',
-    placeholder: 'Choose statuses',
+    placeholder: 'Select...',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
       possibleValues: STATUS_FILTER_POSSIBLE_VALUES
@@ -55,7 +55,7 @@ export const getCurrencyFiltersConfig = () => {
   }, {
     name: CURRENCY_FIELD_NAMES.TECHNOLOGY,
     label: 'Technology',
-    placeholder: 'Choose technologies',
+    placeholder: 'Select...',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
       possibleValues: []

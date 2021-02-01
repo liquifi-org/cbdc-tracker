@@ -41,6 +41,7 @@ import { CURRENCY_PAGE_ACTION_TYPES } from '@/store/modules/currencyPage/actions
 import { CURRENCY_PAGE_MUTATION_TYPES } from '@/store/modules/currencyPage/mutations'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import { SEO_CURRENCY } from '@/constants/seo'
+import { NotFoundError } from '@/errors/notFound.error'
 
 export default {
   mixins: [screenSizeMixin],
@@ -145,15 +146,23 @@ export default {
       resetStore: CURRENCY_PAGE_MUTATION_TYPES.RESET
     }),
     async initialize () {
-      await Promise.all([
-        await this.fetchCurrency({ tag: this.tag }),
-        this.fetchInfoFieldsMetadata()
-      ])
+      try {
+        await Promise.all([
+          this.fetchCurrency({ tag: this.tag }),
+          this.fetchInfoFieldsMetadata()
+        ])
 
-      await Promise.all([
-        this.fetchFirstNews(),
-        this.fetchFirstTimeline()
-      ])
+        await Promise.all([
+          this.fetchFirstNews(),
+          this.fetchFirstTimeline()
+        ])
+      } catch (error) {
+        if (NotFoundError.name === error.name) {
+          this.$router.push('/404')
+        }
+
+        throw error
+      }
     },
     async refresh () {
       this.resetStore()

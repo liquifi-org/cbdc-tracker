@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button class="ui-sort-dropdown ui-button-without-styles"
-            ref="button"
-            :id="'popover-'+componentId">
-      {{activeItem.title}}<SortIcon class="m-l-8" :direction="activeItem.direction"></SortIcon>
-    </button>
+    <app-active-element class="ui-sort-dropdown"
+                        ref="button"
+                        :id="'popover-'+componentId">
+                  {{activeItem.title}}<SortIcon class="m-l-8" :direction="activeItem.direction"></SortIcon>
+    </app-active-element>
 
     <b-popover custom-class="ui-sort-dropdown_popover"
                :target="'popover-'+componentId"

@@ -49,7 +49,7 @@ export default {
   .modal-title {
     font-size: 14px;
     line-height: 14px;
-    font-weight: 800;
+    font-weight: bold;
     color: $site-primary-color;
   }
 
