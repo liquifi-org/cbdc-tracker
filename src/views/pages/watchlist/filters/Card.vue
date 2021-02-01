@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import FiltersCard from '@/components/currencies/filters/Card'
+import FiltersCard from '@/components/filters/Card'
 import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { WATCHLIST_PAGE_MUTATION_TYPES } from '@/store/modules/watchlistPage/mutations'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
-import MobileFiltersCard from '@/components/currencies/filters/MobileCard'
+import MobileFiltersCard from '@/components/filters/MobileCard'
 
 export default {
   mixins: [screenSizeMixin],

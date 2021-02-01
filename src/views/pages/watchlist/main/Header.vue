@@ -49,7 +49,7 @@ import { MODULE_NAMES } from '@/store'
 import { CURRENCY_TABLE_SETTINGS_MUTATION_TYPES } from '@/store/modules/currencyTableSettings/mutations'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import { WATCHLIST_PAGE_MUTATION_TYPES } from '@/store/modules/watchlistPage/mutations'
-import FiltersContent from '@/components/currencies/filters/Content'
+import FiltersContent from '@/components/filters/Content'
 
 export default {
   mixins: [screenSizeMixin],

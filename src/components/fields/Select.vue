@@ -43,6 +43,8 @@ export default {
 
 <style lang="scss">
 .ui-field-select-wrapper select {
+  min-height: $input-min-height;
+
   background-image:
     linear-gradient(45deg, transparent 50%, #7997C4 60%),
     linear-gradient(135deg, #7997C4 40%, transparent 50%) !important;

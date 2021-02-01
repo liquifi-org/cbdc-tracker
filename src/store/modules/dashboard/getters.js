@@ -1,7 +1,7 @@
 import { FilterService } from '@/services/filter.service'
 import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
-import { getLastUpdateDateFromHistoryOfChanges } from '@/utils/getLastUpdateDateFromHistoryOfChanges'
 import { DATE_FORMATS, DateParserService } from '@/services/dateParser.service'
+import { getDashboardLastUpdateDateFromHistoryOfChanges } from '@/utils/getDashboardLastUpdateDateFromHistoryOfChanges'
 
 export const getters = {
   filteredCurrencies: (state) => {
@@ -53,7 +53,7 @@ export const getters = {
   },
   lastUpdate: (state) => {
     if (state.historyOfChanges) {
-      return getLastUpdateDateFromHistoryOfChanges(state.historyOfChanges.content)
+      return getDashboardLastUpdateDateFromHistoryOfChanges(state.historyOfChanges.content)
     } else {
       return ''
     }
