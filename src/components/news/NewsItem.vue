@@ -2,7 +2,7 @@
   <div class="ui-news-item" :class="adaptiveType">
     <NewsItemHeader class="ui-news-item_header-under-image" :data="data"></NewsItemHeader>
 
-    <NewsImage :src="imageSrc" :alt="data.title" :adaptiveType="adaptiveType"></NewsImage>
+    <NewsImage ref="image" :src="imageSrc" :alt="data.title" :adaptiveType="adaptiveType"></NewsImage>
 
     <NewsItemHeader class="ui-news-item_header-above-image" :data="data"></NewsItemHeader>
 
@@ -40,6 +40,11 @@ export default {
     },
     imageSrc () {
       return this.data.image
+    }
+  },
+  methods: {
+    refresh () {
+      this.$ref.image.checkImageSize()
     }
   }
 }

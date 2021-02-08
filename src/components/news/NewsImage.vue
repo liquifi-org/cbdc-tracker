@@ -1,16 +1,18 @@
 <template>
   <div ref="wrapper"
-       class="ui-news-image-wrapper"
-       :class="[adaptiveType, isHorizontalImageShown && 'isHorizontalImageShown']">
-    <template v-show="!isFallbackShown">
-      <img ref="horizontalImage"
-           :alt="alt"
-           class="ui-news-horizontal-image"
-           @load="onHorizontalImageLoad"
-           @error="onHorizontalImageError">
+       :class="[adaptiveType, isReady && 'isReady', isHorizontalImageShown && 'isHorizontalImageShown']"
+       class="ui-news-image-wrapper">
+    <img v-show="!isFallbackShown"
+         ref="horizontalImage"
+         :alt="alt"
+         class="ui-news-horizontal-image"
+         @error="onHorizontalImageError"
+         @load="onHorizontalImageLoad">
 
-      <img ref="verticalImage" :alt="alt" class="ui-news-vertical-image">
-    </template>
+    <img v-show="!isFallbackShown"
+         ref="verticalImage"
+         :alt="alt"
+         class="ui-news-vertical-image">
 
     <NewsImageFallback></NewsImageFallback>
   </div>
@@ -19,8 +21,10 @@
 <script>
 import { LoadFileService } from '@/services/loadFile.service'
 import NewsImageFallback from '@/components/news/NewsImageFallback'
+import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 
 export default {
+  mixins: [screenSizeMixin],
   components: {
     NewsImageFallback
   },
@@ -32,7 +36,8 @@ export default {
   data () {
     return {
       isFallbackShown: true,
-      isHorizontalImageShown: true
+      isHorizontalImageShown: true,
+      isReady: false
     }
   },
   async mounted () {
@@ -54,8 +59,13 @@ export default {
     onHorizontalImageError () {
       this.isFallbackShown = true
     },
+    onScreenResize () {
+      this.checkImageSize()
+    },
     async showImg () {
       try {
+        this.isReady = false
+
         if (!this.src) {
           return
         }
@@ -71,6 +81,7 @@ export default {
         }
       } catch (error) {
         console.warn(error)
+        this.isFallbackShown = true
       }
     },
     async downloadImg () {
@@ -80,10 +91,12 @@ export default {
       })
     },
     checkImageSize () {
-      const wrapperRect = this.$refs.wrapper.getBoundingClientRect()
-      const horizontalImageRect = this.$refs.horizontalImage.getBoundingClientRect()
-
-      this.isHorizontalImageShown = (horizontalImageRect.width >= wrapperRect.width)
+      setTimeout(() => {
+        const wrapperRect = this.$refs.wrapper.getBoundingClientRect()
+        const horizontalImageRect = this.$refs.horizontalImage.getBoundingClientRect()
+        this.isHorizontalImageShown = (horizontalImageRect.width >= wrapperRect.width)
+        this.isReady = true
+      }, 1)
     }
   }
 }
@@ -111,6 +124,12 @@ export default {
 
     .ui-news-horizontal-image {
       opacity: 1;
+    }
+  }
+
+  &:not(.isReady) {
+    .ui-news-vertical-image, .ui-news-horizontal-image {
+      opacity: 0;
     }
   }
 

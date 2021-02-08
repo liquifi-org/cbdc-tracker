@@ -54,7 +54,7 @@
                      :showMoreButtonText="showMoreButtonText"
                      @showMore="onShowMore">
         <template v-slot:item="{ item }">
-          <NewsItem :adaptiveType="NEWS_ITEM_ADAPTIVE_TYPE.MOBILE" :data="item"></NewsItem>
+          <NewsItem ref="items" :adaptiveType="NEWS_ITEM_ADAPTIVE_TYPE.MOBILE" :data="item"></NewsItem>
         </template>
       </app-card-list>
     </div>
