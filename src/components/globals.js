@@ -23,7 +23,6 @@ import WatchFlag from '@/components/WatchFlag'
 import Icon from '@/components/icons/Icon'
 import IconButton from '@/components/buttons/IconButton'
 import Spinner from '@/components/Spinner'
-import Image from '@/components/Image'
 import ShowMoreButton from '@/components/buttons/ShowMoreButton'
 import UpdateRate from '@/components/UpdateRate'
 import InteroperabilityValue from '@/components/InteroperabilityValue'
@@ -117,9 +116,6 @@ const components = [{
 }, {
   name: 'app-spinner',
   component: Spinner
-}, {
-  name: 'app-image',
-  component: Image
 }, {
   name: 'app-update-rate',
   component: UpdateRate

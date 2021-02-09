@@ -2,11 +2,7 @@
   <div class="ui-news-item" :class="adaptiveType">
     <NewsItemHeader class="ui-news-item_header-under-image" :data="data"></NewsItemHeader>
 
-    <app-image class="ui-news-item_image" :src="imageSrc" :alt="data.title">
-      <template #fallback>
-        <NewsImageFallback></NewsImageFallback>
-      </template>
-    </app-image>
+    <NewsImage ref="image" :src="imageSrc" :alt="data.title" :adaptiveType="adaptiveType"></NewsImage>
 
     <NewsItemHeader class="ui-news-item_header-above-image" :data="data"></NewsItemHeader>
 
@@ -21,13 +17,13 @@
 import { ICON_NAMES } from '@/components/icons/constants'
 import NewsItemHeader from './NewsItemHeader'
 import NewsItemFooter from './NewsItemFooter'
-import NewsImageFallback from './NewsImageFallback'
+import NewsImage from './NewsImage'
 
 export default {
   components: {
     NewsItemHeader,
     NewsItemFooter,
-    NewsImageFallback
+    NewsImage
   },
   props: {
     data: Object,
@@ -44,6 +40,11 @@ export default {
     },
     imageSrc () {
       return this.data.image
+    }
+  },
+  methods: {
+    refresh () {
+      this.$ref.image.checkImageSize()
     }
   }
 }
@@ -71,13 +72,8 @@ export default {
     }
   }
 
-  .ui-news-item_image, .ui-news-item_tablet_image {
-    text-align: center;
-    height: 200px;
-  }
-
   .ui-news-item, .ui-news-item.desktop {
-    .ui-news-item_header-above-image, .ui-news-item_content, .ui-news-item_image  {
+    .ui-news-item_header-above-image, .ui-news-item_content  {
       width: auto;
       float: none;
       padding: 0;
@@ -88,12 +84,6 @@ export default {
       display: none;
     }
 
-    .ui-news-item_image {
-      display: block;
-      width: 25%;
-      float: left;
-    }
-
     .ui-news-item_header-above-image, .ui-news-item_content {
       padding: 0 0 0 16px;
       width: 75%;
@@ -102,7 +92,7 @@ export default {
   }
 
   .ui-news-item.tablet {
-    .ui-news-item_header-under-image, .ui-news-item_content, .ui-news-item_image  {
+    .ui-news-item_header-under-image, .ui-news-item_content  {
       width: auto;
       float: none;
       padding: 0;
@@ -111,11 +101,6 @@ export default {
 
     .ui-news-item_header-above-image {
       display: none;
-    }
-
-    .ui-news-item_image {
-      width: 35%;
-      float: left;
     }
 
     .ui-news-item_header-under-image {
@@ -131,7 +116,7 @@ export default {
   }
 
   .ui-news-item.mobile {
-    .ui-news-item_header-above-image, .ui-news-item_content, .ui-news-item_image  {
+    .ui-news-item_header-above-image, .ui-news-item_content  {
       width: auto;
       float: none;
       padding: 0;
@@ -140,16 +125,6 @@ export default {
 
     .ui-news-item_header-under-image {
       display: none;
-    }
-
-    .ui-news-item_image {
-      width: 100%;
-      margin-bottom: 16px;
-    }
-
-    .ui-news-item_image {
-      display: block;
-      height: 200px;
     }
   }
 </style>
