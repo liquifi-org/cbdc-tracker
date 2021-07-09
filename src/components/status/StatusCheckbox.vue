@@ -58,6 +58,14 @@ export default {
     }
   }
 
+  &.Proof {
+    .ui-status-checkbox_rect {
+      background-color: $status-development-secondary-color;
+      border-color: $status-development-primary-color;
+      color: $status-development-primary-color;
+    }
+  }
+
   &.Development {
     .ui-status-checkbox_rect {
       background-color: $status-development-secondary-color;

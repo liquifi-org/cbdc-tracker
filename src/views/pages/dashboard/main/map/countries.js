@@ -26,13 +26,13 @@ const FAKE_COUNTRIES = [
   { name: 'Euro Area', code: 'ES' }, // Spain
 
   // Caribbean region
-  { name: 'Caribbean', code: 'AG' }, // Antigua and Barbuda
-  { name: 'Caribbean', code: 'DM' }, // Dominica
-  { name: 'Caribbean', code: 'GD' }, // Grenada
-  { name: 'Caribbean', code: 'MS' }, // Montserrat
-  { name: 'Caribbean', code: 'KN' }, // St Kitts and Nevis
-  { name: 'Caribbean', code: 'LC' }, // Saint Lucia
-  { name: 'Caribbean', code: 'VC' } // Saint Vincent and the Grenadines
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'AG' }, // Antigua and Barbuda
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'DM' }, // Dominica
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'GD' }, // Grenada
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'MS' }, // Montserrat
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'KN' }, // St Kitts and Nevis
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'LC' }, // Saint Lucia
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'VC' } // Saint Vincent and the Grenadines
 ]
 
 // Used for get country name

@@ -1,6 +1,7 @@
 export const STATUS_NAMES = {
   RESEARCH: 'Research',
   DEVELOPMENT: 'Development',
+  PROOF_OF_CONCEPT: 'Proof of concept',
   PILOT: 'Pilot',
   LAUNCHED: 'Launched',
   CANCELLED: 'Cancelled',
@@ -10,6 +11,7 @@ export const STATUS_NAMES = {
 export const STATUS_COLOR = {
   [`${STATUS_NAMES.RESEARCH}`]: '#B5DED7',
   [`${STATUS_NAMES.DEVELOPMENT}`]: '#AFA3DA',
+  [`${STATUS_NAMES.PROOF_OF_CONCEPT}`]: '#AFA3DA',
   [`${STATUS_NAMES.PILOT}`]: '#F1CDB2',
   [`${STATUS_NAMES.LAUNCHED}`]: '#67A8EF',
   [`${STATUS_NAMES.CANCELLED}`]: '#EC8596',
@@ -19,6 +21,7 @@ export const STATUS_COLOR = {
 export const STATUS_BORDER_COLOR = {
   [`${STATUS_NAMES.RESEARCH}`]: '#6BBEAF',
   [`${STATUS_NAMES.DEVELOPMENT}`]: '#8F81C7',
+  [`${STATUS_NAMES.PROOF_OF_CONCEPT}`]: '#8F81C7',
   [`${STATUS_NAMES.PILOT}`]: '#E4A57C',
   [`${STATUS_NAMES.LAUNCHED}`]: '#4E87D3',
   [`${STATUS_NAMES.CANCELLED}`]: '#D53E45',
