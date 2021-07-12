@@ -47,7 +47,7 @@ export default {
 .ui-country-tooltip {
   @extend %ui-default-font;
 
-  width: 300px;
+  width: 330px;
 
   .ui-country-tooltip_header {
     background-color: $site-secondary-color;
