@@ -72,7 +72,7 @@ export const getCurrencyFiltersConfig = () => {
     name: CURRENCY_FIELD_NAMES.DLT,
     label: 'Technology',
     placeholder: 'All',
-    type: FILTER_TYPES.SELECT,
+    type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
       possibleValues: TECHNOLOGY_FILTER_POSSIBLE_VALUES
     },
