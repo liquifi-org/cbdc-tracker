@@ -24,7 +24,7 @@ export const getCurrencyFiltersConfig = () => {
     placeholder: 'All',
     type: FILTER_TYPES.SELECT,
     settings: {
-      possibleValues: ['Retail', 'Wholesale']
+      possibleValues: ['Retail', 'Wholesale', 'Others']
     },
     value: null
   }, {
@@ -61,7 +61,7 @@ export const getCurrencyFiltersConfig = () => {
     value: null
   }, {
     name: CURRENCY_FIELD_NAMES.TECHNOLOGY,
-    label: 'Technology Provider',
+    label: 'Technology provider',
     placeholder: 'Select...',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
