@@ -18,13 +18,12 @@
           </div>
 
           <strong>Cancelled</strong> Countries that cancelled or decommissioned a CBDC.<br>
-          <strong>Research</strong> Countries that published multiple research reports about CBDC and started
-          experimenting.<br>
-          <strong>Pilot</strong> Countries piloting CBDC, e.g., for domestic interbank or international use cases, in a
-          real environment with a limited number of parties.<br>
-          <strong>Development</strong> Countries that already launched a small-scale pilot but currently prepare their
-          CBDC for a full-scale launch.<br>
-          <strong>Launched</strong> Countries that officially launched a CBDC.
+          <strong>Research</strong> Countries that have conducted first explanatory CBDC research.<br>
+          <strong>Proof of Concept</strong> Countries that are in an advanced research stage and have published a CBDC
+          proof of concept.<br>
+          <strong>Pilot</strong> Countries that have developed a CBDC that is tested in a real environment either with a
+          limited number of parties or on a wide scale.<br>
+          <strong>Launched</strong> Countries that officially fully launched a CBDC.
         </b-col>
 
         <b-col cols="12" xxl="6">
@@ -75,6 +74,11 @@
                                                :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
                                                href="https://www.linkedin.com/in/igor-struchkov-7a4994163/"
                                                text="Igor Struchkov"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/kiffmeister/"
+                                               text="John Kiff "></app-social-network-link>
                     </div>
 
                     <div class="ui-about_contributors-group">
@@ -105,15 +109,15 @@
 
                 <template v-else>
                   <div class="ui-about_contributors-group">
-                  <app-social-network-link class="ui-about_social-network-link"
-                                           :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                           href="https://www.linkedin.com/in/mikhalev/"
-                                           text="Igor Mikhalev"></app-social-network-link>
+                    <app-social-network-link class="ui-about_social-network-link"
+                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                             href="https://www.linkedin.com/in/mikhalev/"
+                                             text="Igor Mikhalev"></app-social-network-link>
                     <br>
-                  <app-social-network-link class="ui-about_social-network-link"
-                                           :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                           href="https://www.linkedin.com/in/bihaosong/"
-                                           text="Bihao Song"></app-social-network-link>
+                    <app-social-network-link class="ui-about_social-network-link"
+                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                             href="https://www.linkedin.com/in/bihaosong/"
+                                             text="Bihao Song"></app-social-network-link>
                     <br>
                     <app-social-network-link class="ui-about_social-network-link"
                                              :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
@@ -172,22 +176,22 @@ export default {
 </script>
 
 <style lang="scss">
-.ui-about {
-  strong {
-    font-weight: bold;
+  .ui-about {
+    strong {
+      font-weight: bold;
+    }
   }
-}
 
-.ui-about_social-network-link {
-  margin-top: 8px;
-  display: inline-block;
-}
-
-.ui-about_contributors-group {
-  display: inline-block;
-
-  &:not(:last-of-type) {
-    margin-right: 24px;
+  .ui-about_social-network-link {
+    margin-top: 8px;
+    display: inline-block;
   }
-}
+
+  .ui-about_contributors-group {
+    display: inline-block;
+
+    &:not(:last-of-type) {
+      margin-right: 24px;
+    }
+  }
 </style>

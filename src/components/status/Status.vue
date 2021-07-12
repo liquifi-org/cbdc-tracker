@@ -45,6 +45,13 @@ export default {
     }
   }
 
+  &.Proof {
+    .ui-status_rect {
+      background-color: $status-development-secondary-color;
+      border-color: $status-development-primary-color;
+    }
+  }
+
   &.Pilot {
     .ui-status_rect {
       background-color: $status-pilot-secondary-color;
