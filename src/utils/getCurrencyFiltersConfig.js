@@ -24,7 +24,7 @@ export const getCurrencyFiltersConfig = () => {
     placeholder: 'All',
     type: FILTER_TYPES.SELECT,
     settings: {
-      possibleValues: ['Retail', 'Wholesale', 'Others']
+      possibleValues: ['Retail', 'Wholesale', 'Other']
     },
     value: null
   }, {
