@@ -3,5 +3,6 @@ export const SOCIAL_NETWORKS_NAMES = {
   LINKEDIN: 'linkedin',
   FACEBOOK: 'facebook',
   INSTAGRAM: 'instagram',
-  TWITTER: 'twitter'
+  TWITTER: 'twitter',
+  TELEGRAM: 'telegram'
 }

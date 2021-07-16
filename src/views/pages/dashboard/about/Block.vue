@@ -147,10 +147,14 @@
 
             <b-col class="m-b-16" cols="12" md="4">
               <div class="m-b-12">
-                <strong>Mail</strong>
+                <strong>Contacts</strong>
               </div>
 
               <app-email-link :email="'hello@cbdctracker.org'"></app-email-link>
+              <app-social-network-link class="ui-about_social-network-link"
+                                       :socialNetwork="SOCIAL_NETWORKS_NAMES.TELEGRAM"
+                                       href="https://t.me/joinchat/zyy_CB7AEMtkODlk"
+                                       text="Telegram chat"></app-social-network-link>
             </b-col>
           </b-row>
 

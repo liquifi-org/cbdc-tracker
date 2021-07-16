@@ -34,6 +34,7 @@ import Sort from '@/components/icons/bootstrap/Sort'
 import CheckMark from '@/components/icons/bootstrap/CheckMark'
 import ArrowUp from '@/components/icons/bootstrap/ArrowUp'
 import Mail from '@/components/icons/bootstrap/Mail'
+import Telegram from '@/components/icons/bootstrap/Telegram'
 
 export class Resolver {
   static resolve (name) {
@@ -108,6 +109,8 @@ export class Resolver {
         return CheckMark
       case ICON_NAMES.MAIL:
         return Mail
+      case ICON_NAMES.TELEGRAM:
+        return Telegram
       default:
         throw new Error(`Unknown icon: ${name}`)
     }
