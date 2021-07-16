@@ -28,6 +28,8 @@ export default {
           return ICON_NAMES.LINKEDIN
         case SOCIAL_NETWORKS_NAMES.TWITTER:
           return ICON_NAMES.TWITTER
+        case SOCIAL_NETWORKS_NAMES.TELEGRAM:
+          return ICON_NAMES.TELEGRAM
         default:
           throw new Error(`SocialNetworkLink: Can\`t get icon for ${this.socialNetwork}`)
       }
