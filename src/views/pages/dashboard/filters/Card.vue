@@ -5,6 +5,7 @@
                        :countriesWithCurrencies="countriesWithCurrencies"
                        :currencyNames="currencyNames"
                        :technologiesWithCurrencies="technologiesWithCurrencies"
+                       :technologyNameWithCurrencies="technologyNameWithCurrencies"
                        @change="changeStateFilters"
                        @clear="clearStateFilters"></MobileFiltersCard>
 
@@ -13,6 +14,7 @@
                  :countriesWithCurrencies="countriesWithCurrencies"
                  :currencyNames="currencyNames"
                  :technologiesWithCurrencies="technologiesWithCurrencies"
+                 :technologyNameWithCurrencies="technologyNameWithCurrencies"
                  @change="changeStateFilters"
                  @clear="clearStateFilters"></FiltersCard>
   </div>
@@ -41,7 +43,8 @@ export default {
     ...mapGetters(MODULE_NAMES.DASHBOARD, {
       countriesWithCurrencies: 'countriesWithCurrencies',
       currencyNames: 'currencyNames',
-      technologiesWithCurrencies: 'technologiesWithCurrencies'
+      technologiesWithCurrencies: 'technologiesWithCurrencies',
+      technologyNameWithCurrencies: 'technologyNameWithCurrencies'
     })
   },
   methods: {

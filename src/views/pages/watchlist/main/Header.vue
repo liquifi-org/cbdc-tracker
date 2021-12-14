@@ -36,6 +36,7 @@
                       :countriesWithCurrencies="countriesWithCurrencies"
                       :currencyNames="currencyNames"
                       :technologiesWithCurrencies="technologiesWithCurrencies"
+                      :technologyNameWithCurrencies="technologyNameWithCurrencies"
                       fieldCols="6"
                       @change="changeStateFilters"></FiltersContent>
     </app-collapse-block>
@@ -71,7 +72,8 @@ export default {
     ...mapGetters(MODULE_NAMES.WATCHLIST_PAGE, {
       countriesWithCurrencies: 'countriesWithCurrencies',
       currencyNames: 'currencyNames',
-      technologiesWithCurrencies: 'technologiesWithCurrencies'
+      technologiesWithCurrencies: 'technologiesWithCurrencies',
+      technologyNameWithCurrencies: 'technologyNameWithCurrencies'
     }),
     ...mapState(MODULE_NAMES.WATCHLIST_PAGE, {
       filters: (state) => {

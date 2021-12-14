@@ -74,6 +74,7 @@ export default {
       this.fetchCountries(),
       this.fetchCurrencyNames(),
       this.fetchTechnologies(),
+      this.fetchTechnologyName(),
       this.fetchFirstNews()
     ])
   },
@@ -87,6 +88,7 @@ export default {
       fetchCountries: DASHBOARD_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
       fetchCurrencyNames: DASHBOARD_ACTION_TYPES.FETCH_CURRENCY_NAMES,
       fetchTechnologies: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES,
+      fetchTechnologyName: DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGY_NAME_WITH_CURRENCIES,
       fetchFirstNews: DASHBOARD_ACTION_TYPES.FETCH_FIRST_NEWS
     }),
     ...mapActions(MODULE_NAMES.CURRENCY_TABLE_SETTINGS, {

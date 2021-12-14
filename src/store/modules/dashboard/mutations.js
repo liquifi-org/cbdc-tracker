@@ -15,6 +15,7 @@ export const DASHBOARD_MUTATION_TYPES = {
   TABLE_CHANGE_COLUMNS_VISIBLE: 'tableChangeColumnsVisible',
   CHANGE_COUNTRIES_WITH_CURRENCIES: 'changeCountriesWithCurrencies',
   CHANGE_TECHNOLOGIES_WITH_CURRENCIES: 'changeTechnologiesWithCurrencies',
+  CHANGE_TECHNOLOGY_NAME_WITH_CURRENCIES: 'changeTechnologyNameWithCurrencies',
   CHANGE_CURRENCY_NAMES: 'changeCurrenciesNames',
   CHANGE_FILTERS: 'changeFilters',
   CLEAR_FILTERS: 'clearFilters',
@@ -65,6 +66,13 @@ export const mutations = {
     state.filters.forEach((filter) => {
       if (CURRENCY_FIELD_NAMES.TECHNOLOGY === filter.name) {
         filter.settings.possibleValues = [...new Set(payload.countriesWithTechnologies)]
+      }
+    })
+  },
+  [DASHBOARD_MUTATION_TYPES.CHANGE_TECHNOLOGY_NAME_WITH_CURRENCIES] (state, payload) {
+    state.filters.forEach((filter) => {
+      if (CURRENCY_FIELD_NAMES.TECHNOLOGY_NAME === filter.name) {
+        filter.settings.possibleValues = [...new Set(payload.countriesWithTechnologyName)]
       }
     })
   },

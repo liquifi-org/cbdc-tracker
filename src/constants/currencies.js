@@ -4,6 +4,7 @@ export const CURRENCY_FIELD_NAMES = {
   STATUS: 'status',
   ANNOUNCEMENT_YEAR: 'announcementYear',
   TECHNOLOGY: 'technology',
+  TECHNOLOGY_NAME: 'technologyName',
   DLT: 'dlt',
   UPDATE_RATE: 'updateRate',
   INTEROPERABILITY: 'interoperability',

@@ -13,6 +13,7 @@
                     :currencyFieldName="currencyFieldName"
                     :currencyNames="currencyNames"
                     :technologiesWithCurrencies="technologiesWithCurrencies"
+                    :technologyNameWithCurrencies="technologyNameWithCurrencies"
                     @change="onChange"></FiltersContent>
   </app-card>
 </template>
@@ -26,7 +27,8 @@ export default {
     countriesWithCurrencies: Array,
     currencyFieldName: String,
     currencyNames: Array,
-    technologiesWithCurrencies: Array
+    technologiesWithCurrencies: Array,
+    technologyNameWithCurrencies: Array
   },
   components: {
     FiltersContent

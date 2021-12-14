@@ -1,7 +1,6 @@
 import { STATUS_NAMES } from '@/constants/statuses'
 import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import { FILTER_TYPES } from '@/services/filter.service'
-import { TECHNOLOGY_NAMES } from '@/constants/technologies'
 
 export const STATUS_FILTER_POSSIBLE_VALUES = [
   STATUS_NAMES.CANCELLED,
@@ -10,11 +9,6 @@ export const STATUS_FILTER_POSSIBLE_VALUES = [
   STATUS_NAMES.PILOT,
   // STATUS_NAMES.DEVELOPMENT,
   STATUS_NAMES.LAUNCHED
-]
-
-export const TECHNOLOGY_FILTER_POSSIBLE_VALUES = [
-  TECHNOLOGY_NAMES.DLT,
-  TECHNOLOGY_NAMES.NON_DLT
 ]
 
 export const getCurrencyFiltersConfig = () => {
@@ -69,13 +63,14 @@ export const getCurrencyFiltersConfig = () => {
     },
     value: null
   }, {
-    name: CURRENCY_FIELD_NAMES.DLT,
+    name: CURRENCY_FIELD_NAMES.TECHNOLOGY_NAME,
     label: 'Technology',
-    placeholder: 'All',
+    placeholder: 'Select...',
     type: FILTER_TYPES.MULTIPLE_SELECT,
     settings: {
-      possibleValues: TECHNOLOGY_FILTER_POSSIBLE_VALUES
+      possibleValues: []
     },
     value: null
-  }]
+  }
+  ]
 }
