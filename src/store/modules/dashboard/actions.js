@@ -13,6 +13,7 @@ export const DASHBOARD_ACTION_TYPES = {
   FETCH_COUNTRIES_WITH_CURRENCIES: 'fetchCountriesWithCurrencies',
   FETCH_CURRENCY_NAMES: 'fetchCountryNames',
   FETCH_TECHNOLOGIES_WITH_CURRENCIES: 'fetchTechnologiesWithCurrencies',
+  FETCH_TECHNOLOGY_NAME_WITH_CURRENCIES: 'fetchTechnologyNameWithCurrencies',
   FETCH_NEWS_CURRENT_PAGE: 'fetchNewsCurrentPage',
   FETCH_NEWS_NEXT_PAGE: 'fetchNewsNextPage',
   FETCH_NEWS_PREVIOUS_PAGE: 'fetchNewsPreviousPage'
@@ -76,6 +77,11 @@ export const actions = {
   async [DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES] ({ commit }) {
     commit(DASHBOARD_MUTATION_TYPES.CHANGE_TECHNOLOGIES_WITH_CURRENCIES, {
       countriesWithTechnologies: await currenciesHttpService.getCountriesWithTechnologies()
+    })
+  },
+  async [DASHBOARD_ACTION_TYPES.FETCH_TECHNOLOGY_NAME_WITH_CURRENCIES] ({ commit }) {
+    commit(DASHBOARD_MUTATION_TYPES.CHANGE_TECHNOLOGY_NAME_WITH_CURRENCIES, {
+      countriesWithTechnologyName: await currenciesHttpService.getCountriesWithTechnologyName()
     })
   },
   async [DASHBOARD_ACTION_TYPES.FETCH_NEWS_CURRENT_PAGE] ({ commit, state }) {

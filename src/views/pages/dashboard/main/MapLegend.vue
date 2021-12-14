@@ -28,7 +28,8 @@ export default {
     ...mapGetters(MODULE_NAMES.DASHBOARD, {
       countriesWithCurrencies: 'countriesWithCurrencies',
       currencyNames: 'currencyNames',
-      technologiesWithCurrencies: 'technologiesWithCurrencies'
+      technologiesWithCurrencies: 'technologiesWithCurrencies',
+      technologyNameWithCurrencies: 'technologyNameWithCurrencies'
     }),
     statuses () {
       const statusNames = STATUS_FILTER_POSSIBLE_VALUES

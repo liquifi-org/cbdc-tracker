@@ -9,6 +9,7 @@ export const WATCHLIST_PAGE_ACTION_TYPES = {
   FETCH_COUNTRIES_WITH_CURRENCIES: 'fetchCountriesWithCurrencies',
   FETCH_CURRENCY_NAMES: 'fetchCountryNames',
   FETCH_TECHNOLOGIES_WITH_CURRENCIES: 'fetchTechnologiesWithCurrencies',
+  FETCH_TECHNOLOGY_NAME_WITH_CURRENCIES: 'fetchTechnologyNameWithCurrencies',
   SUBSCRIBE: 'subscribe',
   UNSUBSCRIBE: 'unsubscribe'
 }
@@ -45,6 +46,11 @@ export const actions = {
   async [WATCHLIST_PAGE_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES] ({ commit }) {
     commit(WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_TECHNOLOGIES_WITH_CURRENCIES, {
       countriesWithTechnologies: await currenciesHttpService.getCountriesWithTechnologies()
+    })
+  },
+  async [WATCHLIST_PAGE_ACTION_TYPES.FETCH_TECHNOLOGY_NAME_WITH_CURRENCIES] ({ commit }) {
+    commit(WATCHLIST_PAGE_MUTATION_TYPES.CHANGE_TECHNOLOGY_NAME_WITH_CURRENCIES, {
+      countriesWithTechnologyName: await currenciesHttpService.getCountriesWithTechnologyName()
     })
   },
   async [WATCHLIST_PAGE_ACTION_TYPES.SUBSCRIBE] ({ commit, state, rootState }, payload) {
