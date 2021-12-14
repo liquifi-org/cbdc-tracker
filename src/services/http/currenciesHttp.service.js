@@ -84,4 +84,10 @@ export class CurrenciesHttpService {
   async getCountriesWithTechnologies () {
     return await this.httpSevice.get('technologies')
   }
+
+  async getCountriesWithTechnologyName () {
+    const test = await this.httpSevice.get('technologyNames')
+    console.log('name', test)
+    return test
+  }
 }

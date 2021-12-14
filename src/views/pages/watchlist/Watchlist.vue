@@ -52,7 +52,8 @@ export default {
       this.fetchTableColumns(),
       this.fetchCountries(),
       this.fetchCountryNames(),
-      this.fetchTechnologies()
+      this.fetchTechnologies(),
+      this.fetchTechnologyName()
     ])
   },
   destroyed () {
@@ -63,7 +64,8 @@ export default {
       fetchCurrencies: WATCHLIST_PAGE_ACTION_TYPES.FETCH_CURRENCIES_DATA,
       fetchCountries: WATCHLIST_PAGE_ACTION_TYPES.FETCH_COUNTRIES_WITH_CURRENCIES,
       fetchCountryNames: WATCHLIST_PAGE_ACTION_TYPES.FETCH_CURRENCY_NAMES,
-      fetchTechnologies: WATCHLIST_PAGE_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES
+      fetchTechnologies: WATCHLIST_PAGE_ACTION_TYPES.FETCH_TECHNOLOGIES_WITH_CURRENCIES,
+      fetchTechnologyName: WATCHLIST_PAGE_ACTION_TYPES.FETCH_TECHNOLOGY_NAME_WITH_CURRENCIES
     }),
     ...mapActions(MODULE_NAMES.CURRENCY_TABLE_SETTINGS, {
       fetchTableColumns: CURRENCY_TABLE_SETTINGS_ACTION_TYPES.FETCH_TABLE_COLUMNS

@@ -46,6 +46,7 @@
                       :countriesWithCurrencies="countriesWithCurrencies"
                       :currencyNames="currencyNames"
                       :technologiesWithCurrencies="technologiesWithCurrencies"
+                      :technologyNameWithCurrencies="technologyNameWithCurrencies"
                       fieldCols="6"
                       @change="changeStateFilters"></FiltersContent>
     </app-collapse-block>
@@ -82,7 +83,8 @@ export default {
       lastNewsUpdate: 'lastNewsUpdate',
       countriesWithCurrencies: 'countriesWithCurrencies',
       currencyNames: 'currencyNames',
-      technologiesWithCurrencies: 'technologiesWithCurrencies'
+      technologiesWithCurrencies: 'technologiesWithCurrencies',
+      technologyNameWithCurrencies: 'technologyNameWithCurrencies'
     })
   },
   methods: {

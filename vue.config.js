@@ -9,12 +9,12 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://cbdc.factory.bcgp.io/api',
-        // target: 'http://localhost:8080',
+//        target: 'https://cbdctracker.org/api',
+         target: 'http://localhost:8081/',
         pathRewrite: { '^/api': '' }
       },
       '/images': {
-        target: 'https://cbdc.factory.bcgp.io/images',
+        target: 'https://cbdctracker.org/images',
         pathRewrite: { '^/images': '' }
       }
     }

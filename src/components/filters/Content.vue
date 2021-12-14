@@ -22,6 +22,7 @@ export default {
     currencyFieldName: String,
     currencyNames: Array,
     technologiesWithCurrencies: Array,
+    technologyNameWithCurrencies: Array,
     fieldCols: String
   },
   data () {
@@ -55,6 +56,13 @@ export default {
     technologiesWithCurrencies (newValue) {
       this.localFilters.forEach((filter) => {
         if (CURRENCY_FIELD_NAMES.TECHNOLOGY === filter.name) {
+          filter.settings.possibleValues = [...new Set(newValue)]
+        }
+      })
+    },
+    technologyNameWithCurrencies (newValue) {
+      this.localFilters.forEach((filter) => {
+        if (CURRENCY_FIELD_NAMES.TECHNOLOGY_NAME === filter.name) {
           filter.settings.possibleValues = [...new Set(newValue)]
         }
       })
