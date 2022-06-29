@@ -255,7 +255,7 @@ export const REAL_COUNTRIES = [
   { name: 'Syrian Arab Republic', code: 'SY' },
   { name: 'Taiwan (Province of China)', code: 'TW' },
   { name: 'Tajikistan', code: 'TJ' },
-  { name: 'Tanzania, United Republic of', code: 'TZ' },
+  { name: 'Tanzania', code: 'TZ' },
   { name: 'Thailand', code: 'TH' },
   { name: 'Timor-Leste', code: 'TL' },
   { name: 'Togo', code: 'TG' },
