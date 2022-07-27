@@ -91,6 +91,11 @@
                                                :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
                                                href="https://www.linkedin.com/in/jonasgross94/"
                                                text="Jonas Gross"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/atakan-kavuklu-b37315179/"
+                                               text="Atakan Kavuklu"></app-social-network-link>
                     </div>
 
                     <div class="ui-about_contributors-group">
@@ -123,6 +128,11 @@
                                              :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
                                              href="https://www.linkedin.com/in/jonasgross94/"
                                              text="Jonas Gross"></app-social-network-link>
+                    <br>
+                    <app-social-network-link class="ui-about_social-network-link"
+                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                             href="https://www.linkedin.com/in/kiffmeister/"
+                                             text="John Kiff "></app-social-network-link>
                   </div>
 
                   <div class="ui-about_contributors-group">
@@ -140,6 +150,11 @@
                                              :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
                                              href="https://www.linkedin.com/in/gourav-roy-6b5ab4a4/"
                                              text="Gourav Roy"></app-social-network-link>
+                    <br>
+                    <app-social-network-link class="ui-about_social-network-link"
+                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                             href="https://www.linkedin.com/in/atakan-kavuklu-b37315179/"
+                                             text="Atakan Kavuklu"></app-social-network-link>
                   </div>
                 </template>
               </div>
