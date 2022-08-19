@@ -25,6 +25,13 @@
         </div>
 
         <div class="ui-сontributing-organizations_item">
+          <app-link href="https://www.ey.com/"
+                    text="EY">
+            <EyLogo class="ui-сontributing-organizations_item-logo"></EyLogo>
+          </app-link>
+        </div>
+
+        <div class="ui-сontributing-organizations_item">
           <app-link href="https://home.digital-euro-association.de/en"
                     text="DEA (Digital Euro Association)">
             <DeaLogo class="ui-сontributing-organizations_item-logo"></DeaLogo>
@@ -37,6 +44,7 @@
             <FrimshiftLogo class="ui-сontributing-organizations_item-logo"></FrimshiftLogo>
           </app-link>
         </div>
+
       </div>
     </app-card>
   </div>
@@ -48,6 +56,7 @@ import BcgLogo from './Logos/Bcg.vue'
 import BcgPlatinionLogo from './Logos/BcgPlatinion.vue'
 import DeaLogo from './Logos/Dea.vue'
 import FrimshiftLogo from './Logos/Frimshift.vue'
+import EyLogo from './Logos/Ey.vue'
 
 export default {
   mixins: [screenSizeMixin],
@@ -55,7 +64,8 @@ export default {
     BcgLogo,
     BcgPlatinionLogo,
     DeaLogo,
-    FrimshiftLogo
+    FrimshiftLogo,
+    EyLogo
   },
   data () {
     return {
