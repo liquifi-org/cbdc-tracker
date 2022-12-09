@@ -1,6 +1,6 @@
 <template>
   <footer class="ui-page-footer">
-    <div class="ui-page-footer_copyright">CBDC Tracker © 2021</div>
+    <div class="ui-page-footer_copyright">CBDC Tracker © 2021-2022</div>
 
     <div v-if="false" class="ui-page-footer-contacts">
       <router-link class="ui-page-footer-contact" to="/">
