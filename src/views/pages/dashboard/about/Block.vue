@@ -108,53 +108,65 @@
                                                :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
                                                href="https://www.linkedin.com/in/gourav-roy-6b5ab4a4/"
                                                text="Gourav Roy"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://ca.linkedin.com/in/arunabhmishra"
+                                               text="Arunabh Mishra"></app-social-network-link>
                     </div>
                   </div>
                 </template>
 
                 <template v-else>
-                  <div class="ui-about_contributors-group">
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/mikhalev/"
-                                             text="Igor Mikhalev"></app-social-network-link>
-                    <br>
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/bihaosong/"
-                                             text="Bihao Song"></app-social-network-link>
-                    <br>
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/jonasgross94/"
-                                             text="Jonas Gross"></app-social-network-link>
-                    <br>
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/kiffmeister/"
-                                             text="John Kiff "></app-social-network-link>
-                  </div>
+                  <div class="d-flex align-items-start">
+                    <div class="ui-about_contributors-group">
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/mikhalev/"
+                                               text="Igor Mikhalev"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/bihaosong/"
+                                               text="Bihao Song"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/jonasgross94/"
+                                               text="Jonas Gross"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/kiffmeister/"
+                                               text="John Kiff "></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/kaj-burchardi-b1030242/"
+                                               text="Kaj Burchardi"></app-social-network-link>
+                    </div>
 
-                  <div class="ui-about_contributors-group">
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/kaj-burchardi-b1030242/"
-                                             text="Kaj Burchardi"></app-social-network-link>
-                    <br>
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/igor-struchkov-7a4994163/"
-                                             text="Igor Struchkov"></app-social-network-link>
-                    <br>
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/gourav-roy-6b5ab4a4/"
-                                             text="Gourav Roy"></app-social-network-link>
-                    <br>
-                    <app-social-network-link class="ui-about_social-network-link"
-                                             :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
-                                             href="https://www.linkedin.com/in/atakan-kavuklu-b37315179/"
-                                             text="Atakan Kavuklu"></app-social-network-link>
+                    <div class="ui-about_contributors-group">
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/igor-struchkov-7a4994163/"
+                                               text="Igor Struchkov"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/gourav-roy-6b5ab4a4/"
+                                               text="Gourav Roy"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://www.linkedin.com/in/atakan-kavuklu-b37315179/"
+                                               text="Atakan Kavuklu"></app-social-network-link>
+                      <br>
+                      <app-social-network-link class="ui-about_social-network-link"
+                                               :socialNetwork="SOCIAL_NETWORKS_NAMES.LINKEDIN"
+                                               href="https://ca.linkedin.com/in/arunabhmishra"
+                                               text="Arunabh Mishra"></app-social-network-link>
+                    </div>
                   </div>
                 </template>
               </div>
