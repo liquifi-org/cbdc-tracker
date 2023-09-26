@@ -158,7 +158,7 @@ export const REAL_COUNTRIES = [
   { name: 'South Korea', code: 'KR' },
   { name: 'Kuwait', code: 'KW' },
   { name: 'Kyrgyzstan', code: 'KG' },
-  { name: "Lao People's Democratic Republic (the)", code: 'LA' },
+  { name: "Laos", code: 'LA' },
   { name: 'Latvia', code: 'LV' },
   { name: 'Lebanon', code: 'LB' },
   { name: 'Lesotho', code: 'LS' },
