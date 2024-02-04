@@ -32,7 +32,14 @@ const FAKE_COUNTRIES = [
   { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'MS' }, // Montserrat
   { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'KN' }, // St Kitts and Nevis
   { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'LC' }, // Saint Lucia
-  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'VC' } // Saint Vincent and the Grenadines
+  { name: 'Eastern Caribbean Economic and Currency Union (OECS/ECCU)', code: 'VC' }, // Saint Vincent and the Grenadines
+
+  { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'CM' }, // Cameroon
+  { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'TD' }, // Chad
+  { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'CD' }, // Republic of Congo
+  { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'GA' }, // Gabon
+  { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'GQ' }, // Equatorial Guinea
+  { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'CF' } // Central African Republic
 ]
 
 // Used for get country name
