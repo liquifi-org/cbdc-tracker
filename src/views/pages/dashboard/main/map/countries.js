@@ -7,6 +7,7 @@ const FAKE_COUNTRIES = [
   // Euro Area region
   { name: 'Euro Area', code: 'AT' }, // Austria
   { name: 'Euro Area', code: 'BE' }, // Belgium
+  { name: 'Euro Area', code: 'HR' }, // Croatia
   { name: 'Euro Area', code: 'CY' }, // Cyprus
   { name: 'Euro Area', code: 'EE' }, // Estonia
   { name: 'Euro Area', code: 'FI' }, // Finland
