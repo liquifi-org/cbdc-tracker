@@ -6,8 +6,10 @@
       </template>
 
       <div class="d-flex justify-content-center">
-        <MapLegend v-if="isTabletScreen" class="m-b-16"></MapLegend>
+        <MapLegend class="m-b-16"></MapLegend>
       </div>
+
+      <app-card-line class="m-b-16"></app-card-line>
 
       <Map class="m-b-16"></Map>
 

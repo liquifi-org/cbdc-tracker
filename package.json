@@ -17,6 +17,7 @@
     "css-element-queries": "^1.2.3",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
+    "papaparse": "^5.4.1",
     "rxjs": "^6.6.3",
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1",
