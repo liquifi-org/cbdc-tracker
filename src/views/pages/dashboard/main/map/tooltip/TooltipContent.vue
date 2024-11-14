@@ -14,7 +14,9 @@
       </div>
 
       <div class="ui-country-tooltip_currency-status-wrapper">
-        <div :class="currency.status" class="ui-country-tooltip_currency-status">{{currency.status}}</div>
+        <div :class="currency.status.replaceAll(' ', '_')"
+             class="ui-country-tooltip_currency-status"
+             :title="getStatusDescription(currency.status)">{{currency.status}}</div>
       </div>
 
       <app-arrow-link class="ui-country-tooltip_currency-link" :route="getCurrencyRoute(currency)"></app-arrow-link>
@@ -24,6 +26,7 @@
 
 <script>
 import { getCurrencyRoute } from '@/utils/getCurrencyRoute'
+import { STATUS_DESCRIPTION } from '@/constants/statuses'
 
 export default {
   data () {
@@ -38,6 +41,9 @@ export default {
     },
     hasAtWatchlist (currency) {
       return this.watchlist.includes(currency.tag)
+    },
+    getStatusDescription (status) {
+      return STATUS_DESCRIPTION[status]
     }
   }
 }
@@ -73,7 +79,7 @@ export default {
       border-color: $status-research-secondary-color;
     }
 
-    &.Development {
+    &.Development, &.Proof_of_concept {
       color: $status-development-primary-color;
       border-color: $status-development-primary-color;
     }

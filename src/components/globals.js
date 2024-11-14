@@ -1,11 +1,11 @@
 import Vue from 'vue'
+import Tooltip from '@/components/Tooltip.vue'
 import Button from '@/components/buttons/Button'
 import StringInput from '@/components/fields/StringInput'
 import YearRange from '@/components/fields/YearRange'
 import MultipleSelect from '@/components/fields/MultipleSelect'
 import FieldLabel from '@/components/fields/FieldLabel'
 import Status from '@/components/status/Status'
-import StatusCheckbox from '@/components/status/StatusCheckbox'
 import Table from '@/components/table/Table'
 import ArrowLink from '@/components/links/ArrowLink'
 import Link from '@/components/links/Link'
@@ -39,6 +39,9 @@ import EmailLink from '@/components/links/EmailLink'
 
 // Use globals for small components that plan use on most pages
 const components = [{
+  name: 'app-tooltip',
+  component: Tooltip
+}, {
   name: 'app-active-element',
   component: ActiveElement
 }, {
@@ -74,9 +77,6 @@ const components = [{
 }, {
   name: 'app-status',
   component: Status
-}, {
-  name: 'app-status-checkbox',
-  component: StatusCheckbox
 }, {
   name: 'app-table',
   component: Table

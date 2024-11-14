@@ -5,9 +5,7 @@
         <Header></Header>
       </template>
 
-      <div class="d-flex justify-content-center">
-        <MapLegend class="m-b-16"></MapLegend>
-      </div>
+      <MapLegend class="m-b-16"></MapLegend>
 
       <app-card-line class="m-b-16"></app-card-line>
 
@@ -41,7 +39,7 @@ import FiltersCard from '../filters/Card'
 import HistoricState from './historicState/HistoricState'
 import Currencies from './currencies/Block'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
-import MapLegend from '@/views/pages/dashboard/main/MapLegend'
+import MapLegend from '@/views/pages/dashboard/main/mapLegend/MapLegend.vue'
 
 export default {
   components: {
