@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
 import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
@@ -26,15 +26,15 @@ export default {
   },
   computed: {
     ...mapState(MODULE_NAMES.DASHBOARD, {
-      currenciesData: (state) => {
-        return state.currenciesData
-      },
       filters: (state) => {
         return state.filters
       }
     }),
+    ...mapGetters(MODULE_NAMES.DASHBOARD, {
+      filteredCurrencies: 'filteredCurrencies'
+    }),
     cbdcNumber () {
-      return (this.currenciesData || []).filter(v => (v.status === this.status)).length
+      return this.filteredCurrencies.filter(v => (v.status === this.status)).length
     },
     isActive () {
       const statusFilter = this.filters.find((filter) => {

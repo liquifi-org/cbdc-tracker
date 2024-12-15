@@ -84,7 +84,7 @@ export default {
         filters: this.filters.map((filter) => {
           return {
             ...filter,
-            value: (filter.name === CURRENCY_FIELD_NAMES.STATUS) ? [] : filter.value
+            value: (filter.name === CURRENCY_FIELD_NAMES.STATUS) ? null : filter.value
           }
         })
       })
