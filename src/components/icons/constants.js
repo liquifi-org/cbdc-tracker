@@ -35,5 +35,6 @@ export const ICON_NAMES = {
   SORT_DESC: 'sortDesc',
   CHECK_MARK: 'checkMark',
   MAIL: 'mail',
-  TELEGRAM: 'telegram'
+  TELEGRAM: 'telegram',
+  CROSS_BORDER_PROJECT: 'crossBorderProject'
 }

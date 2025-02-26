@@ -9,7 +9,8 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'https://cbdctracker.org/api',
+        target: 'https://preprod.cbdctracker.org/api',
+        // target: 'https://cbdctracker.org/api',
         // target: 'http://localhost:8081/',
         pathRewrite: { '^/api': '' }
       },

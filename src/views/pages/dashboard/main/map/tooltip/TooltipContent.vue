@@ -11,6 +11,10 @@
         <app-link :href="getCurrencyRoute(currency)"
                   class="ui-country-tooltip_currency-name-link"
                   :text="currency.digitalCurrency"></app-link>
+        <app-icon v-if="currency.crossBorderProject"
+                  class="ui-country-tooltip_cross-border-project"
+                  :name="ICON_NAMES.CROSS_BORDER_PROJECT"
+                  :text="getCrossBorderProjectText(currency)"></app-icon>
       </div>
 
       <div class="ui-country-tooltip_currency-status-wrapper">
@@ -44,6 +48,9 @@ export default {
     },
     getStatusDescription (status) {
       return STATUS_DESCRIPTION[status]
+    },
+    getCrossBorderProjectText (currency) {
+      return `This cross-border project is available in: ${currency.country}`
     }
   }
 }
@@ -66,6 +73,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .ui-country-tooltip_cross-border-project {
+    vertical-align: text-bottom;
+    color: #7997C4;
+    margin-left: 4px;
   }
 
   .ui-country-tooltip_currency-status {
