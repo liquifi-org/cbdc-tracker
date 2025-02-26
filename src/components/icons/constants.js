@@ -19,6 +19,7 @@ export const ICON_NAMES = {
   WATCHLIST_SELECTED_ITEM: 'watchlistSelectedItem',
   WATCHLIST_UNSELECTED_ITEM: 'watchlistUnselectedItem',
   INFO: 'info',
+  QUESTION: 'question',
   ARROW_RIGHT: 'arrowRight',
   ARROW_UP: 'arrowUp',
   ARROW_RIGHT_SQUARE: 'arrowRightSquare',
@@ -34,5 +35,6 @@ export const ICON_NAMES = {
   SORT_DESC: 'sortDesc',
   CHECK_MARK: 'checkMark',
   MAIL: 'mail',
-  TELEGRAM: 'telegram'
+  TELEGRAM: 'telegram',
+  CROSS_BORDER_PROJECT: 'crossBorderProject'
 }

@@ -81,6 +81,11 @@ export class TableMapper {
           columnName,
           watchlist
         })
+      case CURRENCY_FIELD_NAMES.COUNTRY:
+        return this.getCountryCell({
+          currency,
+          columnName
+        })
       case CURRENCY_FIELD_NAMES.STATUS:
         return this.getStatusCell({
           currency,
@@ -122,6 +127,19 @@ export class TableMapper {
         text: currency.digitalCurrency,
         url: getCurrencyRoute(currency),
         hasAtWatchlist: watchlist.includes(currency.tag)
+      }
+    }
+  }
+
+  getCountryCell ({
+    currency,
+    columnName
+  }) {
+    return {
+      type: CELL_TYPES.COUNTRY,
+      displayData: {
+        country: currency.country,
+        crossBorderProject: currency.crossBorderProject
       }
     }
   }

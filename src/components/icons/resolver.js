@@ -35,6 +35,8 @@ import CheckMark from '@/components/icons/bootstrap/CheckMark'
 import ArrowUp from '@/components/icons/bootstrap/ArrowUp'
 import Mail from '@/components/icons/bootstrap/Mail'
 import Telegram from '@/components/icons/bootstrap/Telegram'
+import Question from '@/components/icons/bootstrap/Question.vue'
+import CrossBorderProject from '@/components/icons/custom/CrossBorderProject.vue'
 
 export class Resolver {
   static resolve (name) {
@@ -79,6 +81,8 @@ export class Resolver {
         return WatchlistUnselectedItem
       case ICON_NAMES.INFO:
         return Info
+      case ICON_NAMES.QUESTION:
+        return Question
       case ICON_NAMES.ARROW_RIGHT:
         return ArrowRight
       case ICON_NAMES.ARROW_UP:
@@ -111,6 +115,8 @@ export class Resolver {
         return Mail
       case ICON_NAMES.TELEGRAM:
         return Telegram
+      case ICON_NAMES.CROSS_BORDER_PROJECT:
+        return CrossBorderProject
       default:
         throw new Error(`Unknown icon: ${name}`)
     }

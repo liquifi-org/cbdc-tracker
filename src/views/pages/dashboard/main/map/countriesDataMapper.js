@@ -20,18 +20,18 @@ export class CountriesDataMapper {
     const countryDataMap = new Map()
 
     currencies.length && currencies.forEach((currency) => {
-      const countries = COUNTRIES.filter((country) => {
-        return (country.name === currency.country)
-      }).map((country) => {
-        const realCountry = REAL_COUNTRY_CODE_MAP.get(country.code)
+      const countries = COUNTRIES
+        .filter(country => currency.country.includes(country.name))
+        .map((country) => {
+          const realCountry = REAL_COUNTRY_CODE_MAP.get(country.code)
 
-        !realCountry && console.warn(`CountriesDataMapper: Can\`t find country name for code: ${country.code}`)
+          !realCountry && console.warn(`CountriesDataMapper: Can\`t find country name for code: ${country.code}`)
 
-        return {
-          ...country,
-          name: realCountry ? realCountry.name : country.name
-        }
-      })
+          return {
+            ...country,
+            name: realCountry ? realCountry.name : country.name
+          }
+        })
 
       if (!countries.length) {
         console.warn(`CountriesDataMapper: Can\`t find country/region: ${currency.country}`)

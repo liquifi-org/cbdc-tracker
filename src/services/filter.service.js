@@ -42,11 +42,11 @@ export class FilterService {
   }
 
   applyMultipleSelectFilter (items, filter) {
-    const selectedValues = filter.value
+    const selectedValues = filter.value.map(v => v.toLowerCase())
 
     return items.filter((item) => {
-      const itemValue = item[filter.name]
-      return selectedValues.includes(itemValue)
+      const itemValues = item[filter.name].toLowerCase().split(', ')
+      return selectedValues.find((v) => itemValues.includes(v)) || itemValues.find((v) => selectedValues.includes(v))
     })
   }
 

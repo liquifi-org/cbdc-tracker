@@ -5,14 +5,17 @@
         <div>
           <app-title level="3">
             <app-link class="m-r-8" :href="currencyRoute">{{ digitalCurrency }}</app-link>
-            <app-watch-flag :isSelected="hasAtWatchlist"
-                            @isSelectedChanged="onChangeHasAtWatchlist"></app-watch-flag>
+            <app-icon v-if="currency.crossBorderProject"
+                      class="ui-mobile-currency-card_cross-border-project"
+                      :name="ICON_NAMES.CROSS_BORDER_PROJECT"></app-icon>
           </app-title>
 
           {{ country }}
         </div>
 
-        <app-arrow-link class="ui-mobile-currency-card_header-arrow-link" :route="currencyRoute"></app-arrow-link>
+        <app-watch-flag class="ui-mobile-currency-card_watch-flag"
+                        :isSelected="hasAtWatchlist"
+                        @isSelectedChanged="onChangeHasAtWatchlist"></app-watch-flag>
       </div>
     </template>
 
@@ -121,12 +124,17 @@ export default {
 
 <style lang="scss">
 .ui-mobile-currency-card {
-  .ui-mobile-currency-card_header-arrow-link {
-    font-size: 16px;
-  }
-
   .ui-card_header {
     background-color: #CDE0F1;
+  }
+
+  .ui-mobile-currency-card_cross-border-project {
+    vertical-align: text-top;
+    color: #7997C4;
+  }
+
+  .ui-mobile-currency-card_watch-flag {
+    height: 16px;
   }
 }
 </style>

@@ -8,7 +8,9 @@
                           @isSelectedChanged="changeWatchFlag"></app-watch-flag>
         </app-title>
 
-        {{ currency.country }}
+        <app-icon v-if="crossBorderProject"
+                  :name="ICON_NAMES.CROSS_BORDER_PROJECT"
+                  class="ui-currency-page_cross-border-project m-r-4"></app-icon>{{ currency.country }}
       </div>
 
       <app-card>
@@ -39,7 +41,9 @@
                           @isSelectedChanged="changeWatchFlag"></app-watch-flag>
         </app-title>
 
-        {{ currency.country }}
+        <app-icon v-if="crossBorderProject"
+                  :name="ICON_NAMES.CROSS_BORDER_PROJECT"
+                  class="ui-currency-page_cross-border-project m-r-4"></app-icon>{{currency.country}}
       </template>
 
       <InfoList :items="commonInfoFields"></InfoList>
@@ -143,6 +147,9 @@ export default {
         ...metadata,
         value: this.currency[metadata.name]
       }
+    },
+    crossBorderProject () {
+      return !!this.currency.crossBorderProject
     }
   },
   methods: {
@@ -157,3 +164,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.ui-currency-page_cross-border-project {
+  vertical-align: text-bottom;
+  color: #7997C4;
+}
+</style>

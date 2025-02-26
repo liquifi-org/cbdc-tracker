@@ -1,14 +1,25 @@
 <template>
-  <span class="ui-status" :class="statusName">
+  <span class="ui-status" :class="statusName" :id="'status-' + componentId">
     <span class="ui-status_rect"></span>
     <span class="ui-status_text">{{ statusName }}</span>
+
+    <app-tooltip v-if="description" :target="'status-' + componentId">
+      {{ description }}
+    </app-tooltip>
   </span>
 </template>
 
 <script>
+import { STATUS_DESCRIPTION } from '@/constants/statuses'
+
 export default {
   props: {
     statusName: String
+  },
+  computed: {
+    description () {
+      return STATUS_DESCRIPTION[this.statusName]
+    }
   }
 }
 </script>
@@ -70,6 +81,13 @@ export default {
     .ui-status_rect {
       background-color: $status-cancelled-secondary-color;
       border-color: $status-cancelled-primary-color;
+    }
+  }
+
+  &.Inactive {
+    .ui-status_rect {
+      background-color: $status-inactive-secondary-color;
+      border-color: $status-inactive-primary-color;
     }
   }
 

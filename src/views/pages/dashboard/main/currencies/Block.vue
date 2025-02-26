@@ -1,11 +1,14 @@
 <template>
   <div>
-    <div v-if="!isMobileScreen" class="m-b-16">
+    <div v-if="!isMobileScreen" class="ui-dashboard-table-controls">
       <WatchlistButton></WatchlistButton>
 
-      <EditColumnsButton class="float-right"
-                         :columns="columns"
-                         @changeColumnsVisible="changeColumnsVisible"></EditColumnsButton>
+      <div class="ui-dashboard-table-controls_right">
+        <DownloadCsvButton></DownloadCsvButton>
+
+        <EditColumnsButton :columns="columns"
+                           @changeColumnsVisible="changeColumnsVisible"></EditColumnsButton>
+      </div>
     </div>
 
     <FixedWatchlistButton v-if="isMobileScreen"></FixedWatchlistButton>
@@ -29,6 +32,7 @@
 
 <script>
 import List from '@/components/currencies/list/List'
+import DownloadCsvButton from '@/views/pages/dashboard/main/currencies/DownloadCsvButton.vue'
 import EditColumnsButton from '@/components/currencies/list/table/EditColumnsButton'
 import WatchlistButton from './WatchlistButton'
 import FixedWatchlistButton from './FixedWatchlistButton'
@@ -44,6 +48,7 @@ export default {
   mixins: [screenSizeMixin],
   components: {
     List,
+    DownloadCsvButton,
     EditColumnsButton,
     WatchlistButton,
     FixedWatchlistButton,
@@ -94,3 +99,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.ui-dashboard-table-controls {
+  display: flex;
+  margin-bottom: 16px;
+  justify-content: space-between;
+}
+
+.ui-dashboard-table-controls_right {
+  display: flex;
+  gap: 8px;
+}
+</style>

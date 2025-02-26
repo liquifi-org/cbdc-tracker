@@ -8,6 +8,7 @@ import YearCell from '@/components/table/cells/YearCell'
 import UpdateRateCell from '@/components/table/cells/UpdateRateCell'
 import InteroperabilityValueCell from '@/components/table/cells/InteroperabilityValueCell'
 import LinksCell from '@/components/table/cells/LinksCell'
+import CountryCell from '@/components/table/cells/CountryCell.vue'
 
 export class CellComponentResolver {
   static getCellComponentByType (cellType) {
@@ -24,6 +25,8 @@ export class CellComponentResolver {
         return InteroperabilityValueCell
       case CELL_TYPES.LINKS:
         return LinksCell
+      case CELL_TYPES.COUNTRY:
+        return CountryCell
       case CELL_TYPES.TEXT:
       default:
         return TextCell
