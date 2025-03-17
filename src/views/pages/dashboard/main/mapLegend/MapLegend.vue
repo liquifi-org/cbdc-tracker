@@ -7,7 +7,7 @@
     </div>
 
     <div class="ui-dashboard-map-legend_right">
-      <app-clear-button v-if="isDesktopScreen" @click="onClearClick"></app-clear-button>
+      <app-clear-button v-if="isDesktopScreen && isFilteredByStatus" @click="onClearClick"></app-clear-button>
 
       <span v-if="isTabletScreen" class="ui-info">
         <app-active-element ref="activeElement"
@@ -72,6 +72,11 @@ export default {
           name: status,
           description: STATUS_DESCRIPTION[status]
         }
+      })
+    },
+    isFilteredByStatus () {
+      return !!this.filters.find((filter) => {
+        return (filter.name === CURRENCY_FIELD_NAMES.STATUS) && (filter.value !== null)
       })
     }
   },

@@ -8,6 +8,9 @@
           <span class="ui-dashboard-header_date-label">Database update:</span> {{ lastUpdate }}
           <span class="ui-dashboard-header_date-separator"></span>
           <span class="ui-dashboard-header_date-label">News update:</span> {{ lastNewsUpdate }}
+          <span class="ui-dashboard-header_date-separator"></span>
+          <span class="ui-dashboard-header_date-label">Total countries/regions with CBDC Projects:</span>
+          {{ countriesWithCurrencies.length }}
         </div>
 
         <template v-if="isMobileScreen">
@@ -17,6 +20,11 @@
 
           <div>
             <span class="ui-dashboard-header_date-label">News update:</span> {{ lastNewsUpdate }}
+          </div>
+
+          <div>
+            <span class="ui-dashboard-header_date-label">Total countries/regions with CBDC Projects:</span>
+            {{ countriesWithCurrencies.length }}
           </div>
         </template>
       </div>
