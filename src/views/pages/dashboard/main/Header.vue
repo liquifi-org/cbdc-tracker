@@ -8,6 +8,9 @@
           <span class="ui-dashboard-header_date-label">Database update:</span> {{ lastUpdate }}
           <span class="ui-dashboard-header_date-separator"></span>
           <span class="ui-dashboard-header_date-label">News update:</span> {{ lastNewsUpdate }}
+          <span class="ui-dashboard-header_date-separator"></span>
+          <span class="ui-dashboard-header_date-label">Total countries/regions with CBDC Projects:</span>
+          {{ countriesWithCurrencies.length }}
         </div>
 
         <template v-if="isMobileScreen">
@@ -18,10 +21,13 @@
           <div>
             <span class="ui-dashboard-header_date-label">News update:</span> {{ lastNewsUpdate }}
           </div>
+
+          <div>
+            <span class="ui-dashboard-header_date-label">Total countries/regions with CBDC Projects:</span>
+            {{ countriesWithCurrencies.length }}
+          </div>
         </template>
       </div>
-
-      <MapLegend v-if="isDesktopScreen" class="ui-dashboard-header_statuses"></MapLegend>
 
       <div v-if="isTabletScreen">
         <app-clear-button v-if="isFiltersExpanded"
@@ -58,14 +64,12 @@ import { mapGetters, mapMutations, mapState } from 'vuex'
 import { MODULE_NAMES } from '@/store'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
 import FiltersContent from '@/components/filters/Content'
-import MapLegend from './MapLegend'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
 
 export default {
   mixins: [screenSizeMixin],
   components: {
-    FiltersContent,
-    MapLegend
+    FiltersContent
   },
   data () {
     return {

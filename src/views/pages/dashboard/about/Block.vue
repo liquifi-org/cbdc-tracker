@@ -17,13 +17,9 @@
             <strong>Description</strong>
           </div>
 
-          <strong>Cancelled</strong> Countries that cancelled or decommissioned a CBDC.<br>
-          <strong>Research</strong> Countries that have conducted first explanatory CBDC research.<br>
-          <strong>Proof of Concept</strong> Countries that are in an advanced research stage and have published a CBDC
-          proof of concept.<br>
-          <strong>Pilot</strong> Countries that have developed a CBDC that is tested in a real environment either with a
-          limited number of parties or on a wide scale.<br>
-          <strong>Launched</strong> Countries that officially fully launched a CBDC.
+          <div v-for="(statusWithDescription, index) in statusesWithDescription" :key="index">
+            <strong>{{statusWithDescription.name}}</strong> {{statusWithDescription.description}}
+          </div>
         </b-col>
 
         <b-col cols="12" xxl="6">
@@ -195,12 +191,24 @@
 <script>
 import { SOCIAL_NETWORKS_NAMES } from '@/constants/socialNetworks'
 import { screenSizeMixin } from '@/mixins/screenSize.mixin'
+import { STATUS_DESCRIPTION } from '@/constants/statuses'
+import { STATUS_FILTER_POSSIBLE_VALUES } from '@/utils/getCurrencyFiltersConfig'
 
 export default {
   mixins: [screenSizeMixin],
   data () {
     return {
       SOCIAL_NETWORKS_NAMES
+    }
+  },
+  computed: {
+    statusesWithDescription () {
+      return STATUS_FILTER_POSSIBLE_VALUES.map((status) => {
+        return {
+          name: status,
+          description: STATUS_DESCRIPTION[status]
+        }
+      })
     }
   }
 }

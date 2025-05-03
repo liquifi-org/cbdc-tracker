@@ -11,10 +11,16 @@
         <app-link :href="getCurrencyRoute(currency)"
                   class="ui-country-tooltip_currency-name-link"
                   :text="currency.digitalCurrency"></app-link>
+        <app-icon v-if="currency.crossBorderProject"
+                  class="ui-country-tooltip_cross-border-project"
+                  :name="ICON_NAMES.CROSS_BORDER_PROJECT"
+                  :text="getCrossBorderProjectText(currency)"></app-icon>
       </div>
 
       <div class="ui-country-tooltip_currency-status-wrapper">
-        <div :class="currency.status" class="ui-country-tooltip_currency-status">{{currency.status}}</div>
+        <div :class="currency.status.replaceAll(' ', '_')"
+             class="ui-country-tooltip_currency-status"
+             :title="getStatusDescription(currency.status)">{{currency.status}}</div>
       </div>
 
       <app-arrow-link class="ui-country-tooltip_currency-link" :route="getCurrencyRoute(currency)"></app-arrow-link>
@@ -24,6 +30,7 @@
 
 <script>
 import { getCurrencyRoute } from '@/utils/getCurrencyRoute'
+import { STATUS_DESCRIPTION } from '@/constants/statuses'
 
 export default {
   data () {
@@ -38,6 +45,12 @@ export default {
     },
     hasAtWatchlist (currency) {
       return this.watchlist.includes(currency.tag)
+    },
+    getStatusDescription (status) {
+      return STATUS_DESCRIPTION[status]
+    },
+    getCrossBorderProjectText (currency) {
+      return `This cross-border project is available in: ${currency.country}`
     }
   }
 }
@@ -62,6 +75,12 @@ export default {
     justify-content: space-between;
   }
 
+  .ui-country-tooltip_cross-border-project {
+    vertical-align: text-bottom;
+    color: #7997C4;
+    margin-left: 4px;
+  }
+
   .ui-country-tooltip_currency-status {
     padding: 0 6px;
     border-radius: 6px;
@@ -73,7 +92,7 @@ export default {
       border-color: $status-research-secondary-color;
     }
 
-    &.Development {
+    &.Development, &.Proof_of_concept {
       color: $status-development-primary-color;
       border-color: $status-development-primary-color;
     }

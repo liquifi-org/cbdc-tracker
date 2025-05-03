@@ -3,7 +3,7 @@
           :class="{'active': localIsSelected}"
           :disabled="!isSelectable && !isLinks"
           @click="onClick">
-    <app-icon :name="ICON_NAMES.TAG"></app-icon> <span class="ui-tag-text">{{text}}</span>
+    <app-icon :name="ICON_NAMES.TAG"></app-icon> <span class="ui-tag-text">{{data.currency}}</span>
   </app-active-element>
 </template>
 
@@ -21,11 +21,6 @@ export default {
     return {
       ICON_NAMES,
       localIsSelected: this.data.isSelected || false
-    }
-  },
-  computed: {
-    text () {
-      return this.data.currency ? `${this.data.currency} | ${this.data.country}` : this.data.country
     }
   },
   watch: {

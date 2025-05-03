@@ -41,8 +41,8 @@ export default {
 
   @media (min-width: $min-tablet-width) and (max-width: $max-tablet-width) {
     .ui-layout-content {
-      padding-left: 32px;
-      padding-right: 32px;
+      padding-left: 17px;
+      padding-right: 17px;
     }
   }
 

@@ -5,7 +5,8 @@ export const CELL_TYPES = {
   YEAR: 'year',
   DIGITAL_CURRENCY: 'digitalCurrency',
   INTEROPERABILITY_VALUE: 'interoperabilityValue',
-  LINKS: 'links'
+  LINKS: 'links',
+  COUNTRY: 'country'
 }
 
 export const HEADER_CELL_TYPES = {

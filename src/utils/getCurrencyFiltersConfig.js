@@ -3,12 +3,14 @@ import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 import { FILTER_TYPES } from '@/services/filter.service'
 
 export const STATUS_FILTER_POSSIBLE_VALUES = [
-  STATUS_NAMES.CANCELLED,
   STATUS_NAMES.RESEARCH,
   STATUS_NAMES.PROOF_OF_CONCEPT,
   STATUS_NAMES.PILOT,
+  STATUS_NAMES.LAUNCHED,
+  STATUS_NAMES.CANCELLED,
+  STATUS_NAMES.INACTIVE
   // STATUS_NAMES.DEVELOPMENT,
-  STATUS_NAMES.LAUNCHED
+
 ]
 
 export const getCurrencyFiltersConfig = () => {
