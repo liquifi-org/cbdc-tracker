@@ -41,7 +41,6 @@ const FAKE_COUNTRIES = [
   { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'GA' }, // Gabon
   { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'GQ' }, // Equatorial Guinea
   { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'CF' }, // Central African Republic
-  
   { name: 'Western African Monetary Union (WAMU)', code: 'BJ' }, // Benin
   { name: 'Western African Monetary Union (WAMU)', code: 'BF' }, // Burkina Faso
   { name: 'Western African Monetary Union (WAMU)', code: 'CI' }, // Cote d’Ivoire
