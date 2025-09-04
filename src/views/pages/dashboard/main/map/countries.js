@@ -40,15 +40,15 @@ const FAKE_COUNTRIES = [
   { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'GA' }, // Gabon
   { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'GQ' }, // Equatorial Guinea
   { name: 'Economic and Monetary Community of Central Africa (EMCCA)', code: 'CF' }, // Central African Republic
-
+  
   { name: 'Western African Monetary Union (WAMU)', code: 'BJ' }, // Benin
-  { name: 'Western African Monetary Union (WAMU)', code: 'BF' }, // Burkina Faso
-  { name: 'Western African Monetary Union (WAMU)', code: 'CI' }, // Côte d’Ivoire
-  { name: 'Western African Monetary Union (WAMU)', code: 'GW' }, // Guinea-Bissau
-  { name: 'Western African Monetary Union (WAMU)', code: 'ML' }, // Mali
-  { name: 'Western African Monetary Union (WAMU)', code: 'NE' }, // Niger
-  { name: 'Western African Monetary Union (WAMU)', code: 'SN' }, // Senegal
-  { name: 'Western African Monetary Union (WAMU)', code: 'TG' } // Togo
+  { name: 'Western African Monetary Union (WAMU)', code: 'BF' }, // Burkina Faso
+  { name: 'Western African Monetary Union (WAMU)', code: 'CI' }, // Cote d’Ivoire
+  { name: 'Western African Monetary Union (WAMU)', code: 'GW' }, // Guinea-Bissau
+  { name: 'Western African Monetary Union (WAMU)', code: 'ML' }, // Mali
+  { name: 'Western African Monetary Union (WAMU)', code: 'NE' }, // Niger
+  { name: 'Western African Monetary Union (WAMU)', code: 'SN' }, // Senegal
+  { name: 'Western African Monetary Union (WAMU)', code: 'TG' } // Togo
 ]
 
 // Used for get country name
