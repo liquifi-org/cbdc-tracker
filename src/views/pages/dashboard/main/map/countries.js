@@ -78,7 +78,7 @@ export const REAL_COUNTRIES = [
   { name: 'Benin', code: 'BJ' },
   { name: 'Bermuda', code: 'BM' },
   { name: 'Bhutan', code: 'BT' },
-  { name: 'Bolivia (Plurinational State of)', code: 'BO' },
+  { name: 'Bolivia', code: 'BO' },
   { name: 'Bonaire, Sint Eustatius and Saba', code: 'BQ' },
   { name: 'Bosnia and Herzegovina', code: 'BA' },
   { name: 'Botswana', code: 'BW' },
