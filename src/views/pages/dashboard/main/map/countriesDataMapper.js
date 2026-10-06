@@ -2,18 +2,32 @@ import { swapObjectKeyAndValue } from '@/utils/swapObjectKeyAndValue'
 import { STATUS_NAMES } from '@/constants/statuses'
 import { COUNTRIES, REAL_COUNTRY_CODE_MAP } from '@/views/pages/dashboard/main/map/countries'
 
-// Use for set country status
+// Open projects only. Cancelled is the country color when nothing else is open.
 const STATUS_ORDER = {
-  [`${STATUS_NAMES.RESEARCH}`]: 2,
-  [`${STATUS_NAMES.DEVELOPMENT}`]: 3,
+  [`${STATUS_NAMES.RESEARCH}`]: 1,
+  [`${STATUS_NAMES.DEVELOPMENT}`]: 2,
+  [`${STATUS_NAMES.PROOF_OF_CONCEPT}`]: 3,
   [`${STATUS_NAMES.PILOT}`]: 4,
-  [`${STATUS_NAMES.PROOF_OF_CONCEPT}`]: 6,
-  [`${STATUS_NAMES.LAUNCHED}`]: 5,
-  [`${STATUS_NAMES.CANCELLED}`]: 1,
-  [`${STATUS_NAMES.NONE}`]: 0
+  [`${STATUS_NAMES.LAUNCHED}`]: 5
 }
 
 const SWAP_STATUS_ORDER = swapObjectKeyAndValue(STATUS_ORDER)
+
+const statusForCurrencies = (currencies) => {
+  const openOrders = currencies
+    .map((currency) => STATUS_ORDER[currency.status])
+    .filter((order) => Number.isFinite(order))
+
+  if (openOrders.length) {
+    return SWAP_STATUS_ORDER[Math.max(...openOrders)]
+  }
+
+  if (currencies.some((currency) => currency.status === STATUS_NAMES.CANCELLED)) {
+    return STATUS_NAMES.CANCELLED
+  }
+
+  return STATUS_NAMES.NONE
+}
 
 export class CountriesDataMapper {
   map (currencies) {
@@ -46,16 +60,12 @@ export class CountriesDataMapper {
         if (countryDataItem) {
           countryDataItem.currencies = [...countryDataItem.currencies, currency]
 
-          const statusOrders = countryDataItem.currencies.map((currency) => {
-            return STATUS_ORDER[currency.status]
-          })
-
-          countryDataItem.status = SWAP_STATUS_ORDER[Math.max(...statusOrders)]
+          countryDataItem.status = statusForCurrencies(countryDataItem.currencies)
         } else {
           const countryData = {
             id: countryCode,
             name: countryName,
-            status: currency.status,
+            status: statusForCurrencies([currency]),
             currencies: [currency]
           }
 
