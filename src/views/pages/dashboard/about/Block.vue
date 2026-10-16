@@ -180,7 +180,7 @@
               <app-email-link :email="'hello@cbdctracker.org'"></app-email-link>
               <app-social-network-link class="ui-about_social-network-link"
                                        :socialNetwork="SOCIAL_NETWORKS_NAMES.TELEGRAM"
-                                       href="https://t.me/joinchat/zyy_CB7AEMtkODlk"
+                                       href="https://t.me/cbdigitalcurrencytracker"
                                        text="Telegram chat"></app-social-network-link>
             </b-col>
           </b-row>
