@@ -88,6 +88,12 @@ export default {
       border-color: $status-launched-primary-color;
     }
 
+    &.Paused {
+      @include status-paused-crosshatch;
+      color: $status-paused-primary-color;
+      border-color: $status-paused-primary-color;
+    }
+
     &.Cancelled {
       color: $status-cancelled-primary-color;
       border-color: $status-cancelled-primary-color;

@@ -18,6 +18,7 @@
           </div>
 
           <strong>Cancelled</strong> Countries that cancelled or decommissioned a CBDC.<br>
+          <strong>Paused</strong> Countries that have paused work on a CBDC.<br>
           <strong>Research</strong> Countries that have conducted first explanatory CBDC research.<br>
           <strong>Proof of Concept</strong> Countries that are in an advanced research stage and have published a CBDC
           proof of concept.<br>

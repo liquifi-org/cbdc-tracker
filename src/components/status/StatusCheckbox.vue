@@ -90,6 +90,14 @@ export default {
     }
   }
 
+  &.Paused {
+    .ui-status-checkbox_rect {
+      @include status-paused-crosshatch;
+      border-color: $status-paused-primary-color;
+      color: $status-paused-primary-color;
+    }
+  }
+
   &.Cancelled {
     .ui-status-checkbox_rect {
       background-color: $status-cancelled-secondary-color;

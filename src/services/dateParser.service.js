@@ -6,6 +6,7 @@ export const DATE_FORMATS = {
   DEFAULT: 'DD/MM/YY',
   DATE: 'DD/MM/YY',
   HISTORIC_STATE: 'MMMM YYYY',
+  DATABASE_UPDATE: 'MMMM D, YYYY',
   NEWS_UPDATE: 'MMM, DD YY',
   MS_TIMESTAMP: 'x'
 }
@@ -15,6 +16,11 @@ export class DateParserService {
   format (date, format) {
     format = format || DATE_FORMATS.DEFAULT
     return date ? moment(parseInt(date)).format(format) : ''
+  }
+
+  formatUtc (date, format) {
+    format = format || DATE_FORMATS.DEFAULT
+    return date ? moment.utc(parseInt(date)).format(format) : ''
   }
 
   getMonthNameByNumber (monthNumber) {

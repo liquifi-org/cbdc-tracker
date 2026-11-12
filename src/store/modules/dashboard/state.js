@@ -6,6 +6,7 @@ export const state = () => {
     date: new Date().getTime(),
     isCurrenciesLoading: false,
     historyOfChanges: null,
+    databaseLoadedAt: null,
     table: {
       currentPage: 1
     },

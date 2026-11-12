@@ -10,6 +10,25 @@ $min-desktop-width: 1440px;
 // Fonts
 $default-font-color: #0B2041;
 
+@mixin status-paused-crosshatch {
+  background-color: $status-paused-secondary-color;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      $status-paused-primary-color 2px,
+      $status-paused-primary-color 3px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      $status-paused-primary-color 2px,
+      $status-paused-primary-color 3px
+    );
+}
+
 %ui-default-font {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;

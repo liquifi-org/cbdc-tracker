@@ -1,3 +1,4 @@
+import { HttpService } from '@/services/http/http.service'
 import { CurrenciesHttpService } from '@/services/http/currenciesHttp.service'
 import { DASHBOARD_MUTATION_TYPES } from '@/store/modules/dashboard/mutations'
 import { NewsHttpService } from '@/services/http/newsHttp.service'
@@ -53,8 +54,20 @@ export const actions = {
     }
   },
   async [DASHBOARD_ACTION_TYPES.FETCH_HISTORY_OF_CHANGES] ({ commit }) {
+    const historyOfChanges = await historyOfChangesHttpService.getHistoryOfChanges({ size: 1 })
+    let databaseLoadedAt = null
+
+    try {
+      const httpService = new HttpService()
+      const update = await httpService.get('/database-update.json', { isExternalResource: true })
+      databaseLoadedAt = update && update.loadedAt
+    } catch (error) {
+      databaseLoadedAt = null
+    }
+
     commit(DASHBOARD_MUTATION_TYPES.SET_HISTORY_OF_CHANGES, {
-      historyOfChanges: await historyOfChangesHttpService.getHistoryOfChanges({ size: 1 })
+      historyOfChanges,
+      databaseLoadedAt
     })
   },
   async [DASHBOARD_ACTION_TYPES.FETCH_FIRST_NEWS] ({ commit }) {

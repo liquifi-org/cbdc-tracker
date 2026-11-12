@@ -41,6 +41,7 @@ export const mutations = {
   },
   [DASHBOARD_MUTATION_TYPES.SET_HISTORY_OF_CHANGES] (state, payload) {
     state.historyOfChanges = payload.historyOfChanges
+    state.databaseLoadedAt = payload.databaseLoadedAt || null
   },
   [DASHBOARD_MUTATION_TYPES.SET_FIRST_NEWS] (state, payload) {
     state.news.first = payload.firstNews
@@ -112,5 +113,6 @@ export const mutations = {
     state.news.first = null
 
     state.historyOfChanges = null
+    state.databaseLoadedAt = null
   }
 }

@@ -61,8 +61,8 @@ export class MapChartService {
 
     // Default values for countries(use for countries without currencies)
     polygonSeries.status = STATUS_NAMES.NONE
-    polygonTemplate.fill = this.getColorByStatus(polygonSeries.status)
-    polygonTemplate.stroke = this.getBorderColorByStatus(polygonSeries.status)
+    polygonTemplate.fill = am4core.color(this.getColorByStatus(polygonSeries.status))
+    polygonTemplate.stroke = am4core.color(this.getBorderColorByStatus(polygonSeries.status))
 
     // Bind properties to keys in data
     polygonTemplate.propertyFields.fill = 'fill'
@@ -107,12 +107,12 @@ export class MapChartService {
         const item = v[1]
 
         const country = this.countriesDataMap.get(item.id)
-        const color = this.getColorByStatus(country.status)
         const borderColor = this.getBorderColorByStatus(country.status)
 
         return {
           id: country.id,
-          fill: am4core.color(color),
+          status: country.status,
+          fill: this.getFillByStatus(country.status),
           stroke: am4core.color(borderColor),
           tooltipTemplate: this.getTooltipTemplate(country)
         }
@@ -128,6 +128,42 @@ export class MapChartService {
         item.tooltipTemplate = this.getTooltipTemplate(country)
       }
     })
+  }
+
+  getFillByStatus (status) {
+    if (status === STATUS_NAMES.PAUSED) {
+      return this.getPausedPattern()
+    }
+
+    return am4core.color(this.getColorByStatus(status))
+  }
+
+  getPausedPattern () {
+    if (this.pausedPattern) {
+      return this.pausedPattern
+    }
+
+    const pattern = new am4core.Pattern()
+    pattern.width = 8
+    pattern.height = 8
+    pattern.backgroundFill = am4core.color('#F8D0D4')
+    pattern.backgroundOpacity = 1
+    pattern.stroke = am4core.color('#D53E45')
+    pattern.strokeWidth = 1
+    pattern.fillOpacity = 0
+
+    const lines = pattern.paper.add('path')
+    lines.attr({
+      d: 'M-2 2 L2 -2 M0 8 L8 0 M6 10 L10 6 M-2 6 L2 10 M0 0 L8 8 M6 -2 L10 2',
+      stroke: '#D53E45',
+      'stroke-width': 1.1,
+      fill: 'none'
+    })
+    pattern.addElement(lines)
+    pattern.draw()
+
+    this.pausedPattern = pattern
+    return pattern
   }
 
   getColorByStatus (status) {
@@ -199,6 +235,7 @@ export class MapChartService {
   }
 
   destroy () {
+    this.pausedPattern = null
     this._updateCountriesDataTimer && clearTimeout(this._updateCountriesDataTimer)
 
     if (this.isCreated) {

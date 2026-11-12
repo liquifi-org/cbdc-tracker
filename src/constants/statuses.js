@@ -4,6 +4,7 @@ export const STATUS_NAMES = {
   PROOF_OF_CONCEPT: 'Proof of concept',
   PILOT: 'Pilot',
   LAUNCHED: 'Launched',
+  PAUSED: 'Paused',
   CANCELLED: 'Cancelled',
   NONE: 'None'
 }
@@ -14,6 +15,7 @@ export const STATUS_COLOR = {
   [`${STATUS_NAMES.PROOF_OF_CONCEPT}`]: '#AFA3DA',
   [`${STATUS_NAMES.PILOT}`]: '#F1CDB2',
   [`${STATUS_NAMES.LAUNCHED}`]: '#67A8EF',
+  [`${STATUS_NAMES.PAUSED}`]: '#F8D0D4',
   [`${STATUS_NAMES.CANCELLED}`]: '#EC8596',
   [`${STATUS_NAMES.NONE}`]: '#F4F8FC'
 }
@@ -24,6 +26,7 @@ export const STATUS_BORDER_COLOR = {
   [`${STATUS_NAMES.PROOF_OF_CONCEPT}`]: '#8F81C7',
   [`${STATUS_NAMES.PILOT}`]: '#E4A57C',
   [`${STATUS_NAMES.LAUNCHED}`]: '#4E87D3',
+  [`${STATUS_NAMES.PAUSED}`]: '#D53E45',
   [`${STATUS_NAMES.CANCELLED}`]: '#D53E45',
   [`${STATUS_NAMES.NONE}`]: '#DBE6F1'
 }

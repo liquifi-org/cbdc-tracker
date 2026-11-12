@@ -59,6 +59,12 @@ export const getters = {
     return (!hasPreviousPage || isLoading)
   },
   lastUpdate: (state) => {
+    const dateParser = new DateParserService()
+
+    if (state.databaseLoadedAt) {
+      return dateParser.formatUtc(state.databaseLoadedAt, DATE_FORMATS.DATABASE_UPDATE)
+    }
+
     if (state.historyOfChanges) {
       return getDashboardLastUpdateDateFromHistoryOfChanges(state.historyOfChanges.content)
     } else {

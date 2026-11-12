@@ -66,6 +66,13 @@ export default {
     }
   }
 
+  &.Paused {
+    .ui-status_rect {
+      @include status-paused-crosshatch;
+      border-color: $status-paused-primary-color;
+    }
+  }
+
   &.Cancelled {
     .ui-status_rect {
       background-color: $status-cancelled-secondary-color;
