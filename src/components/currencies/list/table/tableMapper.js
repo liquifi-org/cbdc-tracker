@@ -101,6 +101,13 @@ export class TableMapper {
           currency,
           columnName
         })
+      case CURRENCY_FIELD_NAMES.TECHNOLOGY:
+      case CURRENCY_FIELD_NAMES.GOVERNANCE_STRUCTURE:
+      case CURRENCY_FIELD_NAMES.GOALS:
+        return this.getGoalsCell({
+          currency,
+          columnName
+        })
       default:
         return {
           type: CELL_TYPES.TEXT,
@@ -170,6 +177,18 @@ export class TableMapper {
       type: CELL_TYPES.INTEROPERABILITY_VALUE,
       displayData: {
         value: currency[columnName]
+      }
+    }
+  }
+
+  getGoalsCell ({
+    currency,
+    columnName
+  }) {
+    return {
+      type: CELL_TYPES.GOALS,
+      displayData: {
+        text: currency[columnName]
       }
     }
   }

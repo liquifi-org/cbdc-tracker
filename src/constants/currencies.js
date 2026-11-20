@@ -12,7 +12,9 @@ export const CURRENCY_FIELD_NAMES = {
   SOCIAL_NETWORK_LINK: 'socialNetworkLinks',
   SITE_LINK: 'siteLink',
   CENTRAL_BANK: 'centralBank',
-  TYPE: 'type'
+  TYPE: 'type',
+  GOALS: 'goals',
+  GOVERNANCE_STRUCTURE: 'governanceStructure'
 }
 
 export const CURRENCY_LINKS_FIELDS = [
