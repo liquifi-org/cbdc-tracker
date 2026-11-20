@@ -1,4 +1,5 @@
 import { DateParserService, DATE_FORMATS } from '@/services/dateParser.service'
+import { CURRENCY_FIELD_NAMES } from '@/constants/currencies'
 
 export const FILTER_TYPES = {
   SELECT: 'select',
@@ -45,9 +46,19 @@ export class FilterService {
     const selectedValues = filter.value
 
     return items.filter((item) => {
-      const itemValue = item[filter.name]
-      return selectedValues.includes(itemValue)
+      return this.multipleSelectValues(item, filter.name).some((itemValue) => {
+        return selectedValues.includes(itemValue)
+      })
     })
+  }
+
+  multipleSelectValues (item, name) {
+    if (name === CURRENCY_FIELD_NAMES.COUNTRY && Array.isArray(item.countries) && item.countries.length) {
+      return item.countries.map((country) => country.name).filter(Boolean)
+    }
+
+    const itemValue = item[name]
+    return itemValue == null ? [] : [itemValue]
   }
 
   applyYearRangeFilter (items, filter) {
